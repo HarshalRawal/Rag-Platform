@@ -1,0 +1,44 @@
+{
+  "run_at": "2026-05-09T09:28:59.921Z",
+  "total_queries": 8,
+  "configs_run": [
+    "A"
+  ],
+  "embedding_model": "text-embedding-3-small (OpenAI)",
+  "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+  "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+  "temporal_cutoff_config_a": "2019-05-02",
+  "fixes_applied_this_run": [
+    "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+    "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+    "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+  ],
+  "config_a": {
+    "avg_total": 0,
+    "avg_factual_grounding": 0,
+    "avg_sop_alignment": 0,
+    "avg_appropriate_uncertainty": 0,
+    "hallucinations": 0,
+    "temporal_filter_breaches": 0,
+    "crag_fires": 0,
+    "by_category": {
+      "PLANNING": {
+        "avg_total": 0,
+        "n": 1
+      },
+      "IMPACT": {
+        "avg_total": 0,
+        "n": 0
+      },
+      "CONTAMINATION": {
+        "avg_total": 0,
+        "n": 0
+      },
+      "HYBRID": {
+        "avg_total": 0,
+        "n": 0
+      }
+    }
+  },
+  "config_b": null
+}

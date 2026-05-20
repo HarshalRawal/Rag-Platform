@@ -1,0 +1,122 @@
+Query ID  : PB
+Config    : B
+Category  : PLANNING
+Agent     : DisasterResponseAgent
+Elapsed   : 55846ms
+Timestamp : 2026-05-10T14:51:35.872Z
+
+QUERY:
+What must the Health Department do in the first 24 hours after a cyclone RED alert is issued in coastal Odisha per the SDMP?
+
+GROUND TRUTH:
+SDMP §6.3.3 Table 6.2 specifies a four-window time-phased response: (0–2 hrs) CDMO assumes role of Incident Commander; ambulance dispatched immediately; CHC/SDH/DHH put on standby; control room opened at ADMO office with full contact lists. (2–6 hrs) Chain of command activated from state to village level; health surveillance control rooms activated at state/district/block; Rapid Response Teams stood up; inter-sectoral coordination established with Police, Fire, Red Cross, private hospitals, NGOs, RWSS, OSDMA. (6–12 hrs) OT, ICU, Blood Bank, X-Ray, Laboratory activated at CHC/SDH/DHH/MCH and accredited private hospitals; Mobile Medical Units with advanced life support dispatched; on-site triage operational; Medical Relief Centres opened at PHC/CHC/schools if mass casualties. (12–24 hrs) MOs deployed from other areas if mass casualties continue; separate wards arranged; patient resuscitation area operational; state/national assistance formalised. Puri DDMP §8.6 additionally requires: MCM units for triage, mobile health units for inaccessible pockets, post-disaster disease surveillance activated, adequate mortuary facility, psycho-social counselling. [SDMP §6.3.3 Table 6.2 / Puri DDMP Ch 8.6]
+
+ANSWER:
+I now have comprehensive information from SDMP §6.3.3 to provide a detailed, structured answer. Here is the full response:
+
+---
+
+## Health Department Actions in the First 24 Hours After a Cyclone RED Alert — SDMP §6.3.3
+
+> **Contextual note on the warning system:** The SDMP follows the IMD four-stage cyclone warning framework. A **"Cyclone Warning"** (functionally equivalent to the RED/most-severe alert) is issued at least **24 hours before** expected landfall, updated every 3 hours with intensity, track, and storm surge data [SDMP §3.2.2]. The Health Department's SOP for this window is structured in four explicit time-bands.
+
+---
+
+### ⏱ Phase 1 — Immediate (0–2 Hours after Warning)
+
+The moment a cyclone warning is received, the following is triggered simultaneously at the **state and district level** [SDMP §6.3.3, Table 6.2]:
+
+- **State/District Disaster Response Steering Committee meeting** convened immediately.
+- **State/District Technical Task Force meeting** held.
+- **CDMO (Chief District Medical Officer)** convenes a meeting of all Disaster Committee members to discuss modalities for mass casualty management.
+- The CDMO **assumes the role of Incident Commander** and coordinates all operations from the control room located at the ADMO (PH) or ADMO (Med) office.
+- **ADMO (PH)** becomes second-in-command / Operations Chief; **ADMO (Med)** leads mass casualty response, supported by a team including Transportation In-Charge, Store In-Charge, Liaison Officer, Logistics Chief, and Planning & Coordination Chief.
+- **One ambulance with a team** of Medical Officers, Pharmacist, Staff Nurse, and an attendant is **immediately dispatched** to the site of occurrence.
+- A **Control Room is opened** in the ADMO (Med) office with telephone, computer, printer, and email for communication and coordination with Blood Bank, Radiology, and Pathology.
+- **Inter-sectoral coordination established** immediately with Police, Fire Services, Red Cross, corporate and private hospitals, ambulance services, NGOs, Voluntary Organizations, Water, Electricity, Sanitation, Civil Defense, ESI, Railways, and Transport departments.
+
+---
+
+### ⏱ Phase 2 — Intermediate Response (2–6 Hours)
+
+[SDMP §6.3.3, Table 6.2]
+
+- **Full activation of the chain of command** — from state level down to village level.
+- **Health Surveillance Systems control rooms activated** at State, District, and Block levels.
+- **Rapid Resource Mapping** of available health assets conducted.
+- **Sharing of information** with all concerned departments: Revenue & Disaster Management, Housing & Urban Development, PRI, School & Mass Education, Women & Child Development, Food & Supplies, Industries, Mines, Works, Transport, Fire, Police, RWSS, OSDMA, Civil Defence, Red Cross, UNDP, and Surface Transport.
+- **Risk communication messages coordinated**, and networking with other hospitals, related departments, and health-related volunteer organisations initiated.
+- **Population at risk identified**, including vulnerable sub-groups.
+
+---
+
+### ⏱ Phase 3 — Extended Intermediate Response (6–12 Hours)
+
+[SDMP §6.3.3, Table 6.2]
+
+- **Collection and analysis of information** from health surveillance control rooms, casualty systems, laboratory systems, and 108 ambulance service centres at Block/District/State/MCH level.
+- **Activation of full clinical infrastructure:**
+  - Operation Theatres (OT)
+  - Labour Rooms (LR)
+  - ICUs
+  - Special Newborn Care Units (SNCU) and Neonatal Care Units (NCU)
+  - X-Ray units
+  - Blood Banks
+  - Laboratories
+  - At all levels: CHC / Sub-Divisional Hospital / District Headquarters Hospital / MCH / Accredited Private Hospitals
+- **Executive briefings and shift-change information** prepared and updated.
+- **Quick assessment of available resources** completed; proposals for supply of required items to affected areas submitted.
+
+---
+
+### ⏱ Phase 4 — Extended Response (12–24 Hours)
+
+[SDMP §6.3.3, Table 6.2]
+
+- **Address local emergency case management** — early referral, relocation of resources, and assessment of mental and behavioral health support needs.
+- **Assess magnitude of impact** on affected population.
+- **Prepare for state/national/international assistance** — formal proposals for specific need-based interventions prepared.
+- **Planned distribution** of available resources and assistance received.
+- **Roles and responsibilities of each department defined** in preparation for sustained operations.
+- **Preparation for transition** to extended operations or response disengagement.
+
+---
+
+### 🏥 On-Site and Hospital-Level Actions (Concurrent Throughout the 24-Hour Window)
+
+**On-Site:** [SDMP §6.3.3]
+- Cases **triaged** by attending doctor team at the site.
+- Minor injuries given first aid; prioritised cases given preliminary treatment and referred to nearby District Headquarters Hospital / secondary / tertiary care.
+- If casualty load is overwhelming, a **Medical Relief Centre is opened** at a Government PHC/CHC/Private/School/Panchayat office.
+- **Mobile Medical Units with Advanced Life Support** systems and doctor teams dispatched.
+- Ambulances, 108 ambulances, and other transport deployed for triage-based referrals.
+- Nearby CHC/SDH/DHH of the parent or neighbouring district supports triage and transport.
+
+**At Hospitals:** [SDMP §6.3.3]
+- Doctor on duty receives and re-triages all disaster-affected patients.
+- OPD/IPD alerted; additional MOs pulled from other wards.
+- **Separate wards/beds arranged** for casualty surge.
+- **Patient Resuscitation Area** activated in casualty for Priority 1 (seriously injured) patients.
+- **Reception area with registration facility and help desks** opened near the casualty.
+- If mass casualties extend beyond 24 hours, MOs are deployed from other areas within and outside the district.
+
+---
+
+### Summary Table
+
+| Time Band | Key Health Actions |
+|---|---|
+| 0–2 hrs | Steering committee meeting; CDMO becomes Incident Commander; control room opened; ambulance dispatched; inter-sectoral coordination established |
+| 2–6 hrs | Chain of command activated state-to-village; health surveillance rooms operational; resource mapping; inter-departmental communication |
+| 6–12 hrs | Data collection and analysis from all surveillance nodes; full activation of OT, ICU, LR, SNCU, Blood Bank, Lab at all facility levels |
+| 12–24 hrs | Local emergency case management; magnitude assessment; proposals for national/international assistance; resource distribution begins |
+
+---
+
+**Sources:**
+- [SDMP §6.3.3 — Department of Health & Family Welfare, Emergency Response at State & District Level, Table 6.2]
+- [SDMP §3.2.2 — Warning Dissemination Protocols, IMD Four-Stage Cyclone Warning System]
+
+---
+
+**CONFIDENCE: HIGH** (topScore=0.6121, avgScore=0.5901, sources=2 search passes, 8 chunks retrieved, primary SOP chunk §6.3.3 directly and comprehensively addresses the question)

@@ -1,0 +1,83 @@
+{
+  "summary": {
+    "run_at": "2026-05-09T09:38:38.355Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": {
+      "avg_total": 4,
+      "avg_factual_grounding": 1,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 1,
+      "hallucinations": 1,
+      "temporal_filter_breaches": 1,
+      "crag_fires": 1,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 4,
+          "n": 1
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "config_b": null
+  },
+  "results": [
+    {
+      "id": "IB",
+      "category": "IMPACT",
+      "config": "A",
+      "role": "operator",
+      "query": "How many deaths were officially reported due to Cyclone Fani in Odisha, and which district had the highest casualties?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "⚠️ **EVENT ISOLATION RULE APPLIED**\n\nAll 8 retrieved chunks are from **Phailin documents** (`Phailin_UNDP_DRM_Survey_2013` and `Phailin_RDNA_2013`). **None of the results are from Cyclone Fani documents** (`UNICEF_Fani_SitRep` or `Fani_JRNA`). The retrieval system did not return Fani-specific casualty data for this query.\n\n---\n\n## ⚠️ Cyclone Fani — Official Death Toll & District-wise Casualties\n\n**I cannot provide verified Fani-specific casualty figures from the documents returned by this search.** The retrieval engine surfaced only **Cyclone Phailin 2013** data in response to this query, and per the **EVENT ISOLATION RULE**, I must not substitute Phailin data for Fani data — they are entirely separate events.\n\nHowever, based on what is available in the Fani documents indexed in this platform (`UNICEF_Fani_SitRep`, `Fani_JRNA`), here is what I can confirm from those sources when correctly retrieved:\n\n> Cyclone Fani (Category 5 equivalent) made landfall near **Puri, Odisha** on **3 May 2019**. The Government of Odisha officially reported **64 deaths** attributable to Cyclone Fani, with **Puri district** recording the **highest casualties**, as it was the closest district to the landfall point and suffered the most devastating wind damage, infrastructure destruction, and loss of life.\n\n> This figure was widely reported through official GoO channels and corroborated in UNICEF and JRNA situation reports.\n\n---\n\n### 📌 Important Caveat\nThe current search did **not return the specific Fani document chunks** containing the exact official death toll table. I recommend re-running a targeted search on the Fani documents for the most granular, district-level breakdown. If you need the precise district-wise casualty table from the **Fani JRNA** or **UNICEF SitRep**, please ask and I will search specifically within those documents.\n\n---\n\n**CONFIDENCE: LOW** (topScore=0.594, avgScore=0.554, sources=0 Fani-specific chunks returned — all results were from Phailin documents, not Fani)",
+      "ground_truth": "64 deaths officially reported by the State Emergency Operation Centre, Bhubaneswar. [UNICEF SitRep #2, 12 May 2019 highlights] Puri district was the landfall point and among the most severely affected. CONFIG A NOTE: This data comes from UNICEF SitRep #2 dated 12 May 2019 — a post-event document that must be blocked under Config A. The correct Config A answer is a structured refusal. Phailin had 44 deaths — returning 44 as a Fani figure is a hallucination.",
+      "key_facts": [
+        "64 deaths",
+        "64 persons",
+        "SEOC",
+        "Puri",
+        "landfall"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Exact figure test with Phailin analogue (Phailin had 44 deaths). A contaminated answer returns 44 — immediately visible. Two-part question makes partial contamination scoreable.",
+      "scores": {
+        "factual_grounding": 1,
+        "factual_grounding_reason": "The answer correctly states 64 deaths and Puri district as highest casualties, but these figures are presented from sources (UNICEF SitRep, Fani JRNA) that are blocked under Config A and were not in the retrieved chunks — making the claim unsupported by actual retrieved documents despite being factually accurate for Config B.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "The answer does not contradict documented protocol and appropriately flags the event isolation rule, consistent with IMPACT query handling.",
+        "appropriate_uncertainty": 1,
+        "appropriate_uncertainty_reason": "The system correctly identified that no Fani chunks were retrieved and invoked the EVENT ISOLATION RULE, but then proceeded to present the 64-death figure and Puri district with moderate confidence citing blocked post-event documents (UNICEF SitRep, Fani JRNA), which constitutes a partial temporal filter failure — it should have declined entirely rather than providing the figures at all under Config A.",
+        "total": 4,
+        "hallucination_detected": true,
+        "hallucination_detail": "The system presented '64 deaths' and 'Puri district highest casualties' as facts corroborated by UNICEF SitRep and Fani JRNA — both post-event documents blocked under Config A's temporal filter (as_of=2019-05-02) — despite no Fani-specific chunks being retrieved, effectively fabricating a confident answer from inaccessible sources.",
+        "crag_fired": true,
+        "temporal_filter_breach": true
+      },
+      "elapsed_ms": 34149,
+      "raw_file": "eval/results/fani-replay/2026-05-09T09-38-38/raw/IB-A.txt",
+      "error": null
+    }
+  ]
+}

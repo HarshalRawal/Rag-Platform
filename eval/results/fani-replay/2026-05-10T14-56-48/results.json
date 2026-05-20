@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "run_at": "2026-05-10T14:56:48.827Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A",
+      "B"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": null,
+    "config_b": {
+      "avg_total": 5,
+      "avg_factual_grounding": 0,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 3,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 1,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 5,
+          "n": 1
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "gap_analysis": {
+      "note": "Gap = Config B score minus Config A score.",
+      "overall": 5,
+      "planning_gap": 0,
+      "impact_gap": 5,
+      "contamination_gap": 0,
+      "hybrid_gap": 0,
+      "interpretation": {
+        "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+        "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+        "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+        "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "IB",
+      "category": "IMPACT",
+      "config": "B",
+      "role": "operator",
+      "query": "How many deaths were officially reported due to Cyclone Fani in Odisha, and which district had the highest casualties?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "---\n\n## ⚠️ Cyclone Fani Casualty Data — Not Found in Available Documents\n\nI am unable to answer this question from the documents currently available in the RAG platform.\n\n### What the Retrieval Returned:\nAll three searches — including document-restricted searches on `UNICEF_Fani_SitRep` and `Fani_JRNA` — returned **zero Fani-specific results**. Every retrieved chunk pertains exclusively to **Cyclone Phailin (October 2013)**, a different event entirely.\n\n### Why I Cannot Substitute Phailin Data:\nPer the **EVENT ISOLATION RULE**, Phailin and Fani are distinct cyclone events with entirely different casualty figures, impact geographies, and timelines. Presenting Phailin data in response to a Fani question would be factually misleading and potentially dangerous in an operational context.\n\n### What the Phailin documents DO show (for reference only — NOT Fani data):\n- Cyclone **Phailin (2013)**: **44 deaths** officially reported across 18 districts [Phailin_RDNA_2013; Phailin_UNDP_DRM_Survey_2013]\n- Most affected district for Phailin: **Ganjam** (10 cyclone deaths; 2,812 villages affected)\n\n### Recommendation:\nTo answer the Fani casualty question, the following source documents would need to be loaded into the platform:\n- **UNICEF Fani Situation Report** (post-landfall, May 2019)\n- **Fani Joint Rapid Needs Assessment (JRNA)** — currently returning no indexed chunks\n- Government of Odisha official post-Fani damage/casualty reports\n\n---\n\nCONFIDENCE: **LOW** (topScore=0.594, avgScore=0.518, sources=0 from Fani documents)\n> *Zero Fani document chunks retrieved across all three searches. All results were from Phailin 2013 documents. Fani casualty data cannot be confirmed from currently indexed content.*",
+      "ground_truth": "64 deaths officially reported by the State Emergency Operation Centre, Bhubaneswar. [UNICEF SitRep #2, 12 May 2019 highlights] Puri district was the landfall point and among the most severely affected. CONFIG A NOTE: This data comes from UNICEF SitRep #2 dated 12 May 2019 — a post-event document that must be blocked under Config A. The correct Config A answer is a structured refusal. Phailin had 44 deaths — returning 44 as a Fani figure is a hallucination.",
+      "key_facts": [
+        "64 deaths",
+        "64 persons",
+        "SEOC",
+        "Puri",
+        "landfall"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Exact figure test with Phailin analogue (Phailin had 44 deaths). A contaminated answer returns 44 — immediately visible. Two-part question makes partial contamination scoreable.",
+      "scores": {
+        "factual_grounding": 0,
+        "factual_grounding_reason": "The answer contains no Fani casualty figures (64 deaths, Puri district) because no Fani documents were retrieved; it correctly notes the absence but cannot score above 0 on factual grounding for the actual query.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "The answer does not contradict any SDMP/DDMP protocol and appropriately invokes an event isolation rule, satisfying the Config B impact query protocol baseline.",
+        "appropriate_uncertainty": 3,
+        "appropriate_uncertainty_reason": "Under Config B the system correctly identifies zero Fani chunks were retrieved, explicitly names the Phailin/Fani mismatch and the EVENT ISOLATION RULE, refuses to substitute Phailin data as Fani data, and expresses low confidence — this is well-calibrated uncertainty given the corpus retrieval failure.",
+        "total": 5,
+        "hallucination_detected": false,
+        "hallucination_detail": "none — Phailin figures (44 deaths, Ganjam district) are explicitly labelled as Phailin data and not presented as Fani figures.",
+        "crag_fired": true,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 77667,
+      "raw_file": "eval/results/fani-replay/2026-05-10T14-56-48/raw/IB-B.txt",
+      "error": null
+    }
+  ]
+}

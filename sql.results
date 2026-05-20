@@ -1,0 +1,131 @@
+                 table_name                  |       column_name       
+---------------------------------------------+-------------------------
+ sdmp_cvi_odisha_summary                     | _id
+ sdmp_cvi_odisha_summary                     | pct_of_length
+ sdmp_cvi_odisha_summary                     | cvi_class
+ sdmp_cvi_odisha_summary                     | length_km
+ sdmp_cvi_risk_classes_by_parameter          | parameter
+ sdmp_cvi_risk_classes_by_parameter          | medium_km
+ sdmp_cvi_risk_classes_by_parameter          | very_high_km
+ sdmp_cvi_risk_classes_by_parameter          | high_km
+ sdmp_cvi_risk_classes_by_parameter          | very_low_km
+ sdmp_cvi_risk_classes_by_parameter          | low_km
+ sdmp_cvi_risk_classes_by_parameter          | _id
+ sdmp_mah_factories_by_district              | _id
+ sdmp_mah_factories_by_district              | factories_2cb_incl_mah
+ sdmp_mah_factories_by_district              | mah_factories
+ sdmp_mah_factories_by_district              | district
+ sdmp_table_1_1_agro_climatic_zones          | _id
+ sdmp_table_1_1_agro_climatic_zones          | climate
+ sdmp_table_1_1_agro_climatic_zones          | broad_soil_groups
+ sdmp_table_1_1_agro_climatic_zones          | districts
+ sdmp_table_1_1_agro_climatic_zones          | mean_annual_rainfall_mm
+ sdmp_table_1_1_agro_climatic_zones          | zone_name
+ sdmp_table_1_1_agro_climatic_zones          | zone_no
+ sdmp_table_2_1_hazard_vulnerability_pct     | category
+ sdmp_table_2_1_hazard_vulnerability_pct     | hazard_type
+ sdmp_table_2_1_hazard_vulnerability_pct     | _id
+ sdmp_table_2_1_hazard_vulnerability_pct     | pct_area_vulnerable
+ sdmp_table_2_2_disaster_timeline            | _id
+ sdmp_table_2_2_disaster_timeline            | year
+ sdmp_table_2_2_disaster_timeline            | calamity
+ sdmp_table_2_3_disaster_statistics          | deaths
+ sdmp_table_2_3_disaster_statistics          | livestock_loss
+ sdmp_table_2_3_disaster_statistics          | crop_damage_hectares
+ sdmp_table_2_3_disaster_statistics          | affected_population
+ sdmp_table_2_3_disaster_statistics          | houses_damaged
+ sdmp_table_2_3_disaster_statistics          | districts_affected
+ sdmp_table_2_3_disaster_statistics          | villages_affected
+ sdmp_table_2_3_disaster_statistics          | year
+ sdmp_table_2_3_disaster_statistics          | _id
+ sdmp_table_2_3_disaster_statistics          | disaster
+ sdmp_table_2_4_rainfall_frequency_by_decade | freq_70s
+ sdmp_table_2_4_rainfall_frequency_by_decade | _id
+ sdmp_table_2_4_rainfall_frequency_by_decade | freq_60s
+ sdmp_table_2_4_rainfall_frequency_by_decade | freq_80s
+ sdmp_table_2_4_rainfall_frequency_by_decade | freq_50s
+ sdmp_table_2_4_rainfall_frequency_by_decade | total
+ sdmp_table_2_4_rainfall_frequency_by_decade | freq_90s
+ sdmp_table_2_4_rainfall_frequency_by_decade | rainfall_interval_mm
+ sdmp_table_2_5_seismic_zones_by_district    | _id
+ sdmp_table_2_5_seismic_zones_by_district    | seismic_zone
+ sdmp_table_2_5_seismic_zones_by_district    | district
+ sdmp_table_2_6_industrial_hazard_areas      | district
+ sdmp_table_2_6_industrial_hazard_areas      | hazard_type
+ sdmp_table_2_6_industrial_hazard_areas      | area
+ sdmp_table_2_6_industrial_hazard_areas      | chemicals_handled
+ sdmp_table_2_6_industrial_hazard_areas      | _id
+ sdmp_table_5_3_trained_volunteers_2016_17   | trainings_conducted
+ sdmp_table_5_3_trained_volunteers_2016_17   | volunteers_covered
+ sdmp_table_5_3_trained_volunteers_2016_17   | sl_no
+ sdmp_table_5_3_trained_volunteers_2016_17   | _id
+ sdmp_table_5_3_trained_volunteers_2016_17   | target_group
+ sdmp_table_5_7_satellite_phones             | satellite_phone_number
+
+
+
+ //////////////////////////////////////
+
+ SELECT * FROM sdmp_table_2_3_disaster_statistics LIMIT 5;
+ _id | disaster |  year   | districts_affected | villages_affected | deaths | affected_population | livestock_loss | houses_damaged | crop_damage_hectares 
+-----+----------+---------+--------------------+-------------------+--------+---------------------+----------------+----------------+----------------------
+   1 | Flood    | 2006-07 | 27                 | 18912             | 105    | 6739168             | 1656           | 130460         | 249488
+   2 | Flood    | 2007-08 | 15                 | 5677              | 91     | 4235627             | 19495          | 76902          | 197000
+   3 | Flood    | 2008-09 | 20                 | 9794              | 110    | 4523590             | 1677           | 258155         | 382080
+   4 | Flood    | 2009-10 | 17                 | 2711              | 59     | 661000              |                | 13547          | 2399
+   5 | Flood    | 2010-11 | 6                  | 889               | 14     | 89700               | 1454           | 5402           | 30212
+(5 rows)
+
+
+////////////////////////////////////////////////////////////////////
+
+SELECT * FROM relief_package;
+ _id |                      beneficiary_category                      |             districts              |           rice_kg            |         cash_rupees          |   other_items   | source_page 
+-----+----------------------------------------------------------------+------------------------------------+------------------------------+------------------------------+-----------------+-------------
+   1 | Households in districts assessed 'extremely severely affected' | Puri, parts of Khurdha             | 50                           | 2000                         | polythene sheet | 5
+   2 | Households in districts assessed 'severely affected'           | Khurdha                            | one-month quota (additional) | 1000                         | polythene sheet | 5
+   3 | Households in 'moderately affected' districts                  | Cuttack, Kendrapada, Jagatsinghpur | one-month quota (additional) | 500                          |                 | 5
+   4 | House building assistance - fully damaged structures           | all affected                       |                              | 95100                        | per relief code | 5
+   5 | House building assistance - partially damaged structures       | all affected                       |                              | 5200                         | per relief code | 5
+   6 | House building assistance - minor damages                      | all affected                       |                              | 3200                         | per relief code | 5
+   7 | Pensioners in affected districts                               | all affected                       |                              | one-month additional pension |                 | 5
+   8 | PM National Relief Fund - next of kin of deceased              | Odisha                             |                              | 200000                       | ex-gratia       | 3
+   9 | PM National Relief Fund - seriously injured                    | Odisha                             |                              | 50000                        | ex-gratia       | 3
+(9 rows)
+
+///////////////////////////////////////////////////////////////////////
+ _id |     category      |                                            item                                             |                                                norm_of_assistance                                                 
+-----+-------------------+---------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------
+   1 | Gratuitous Relief | Ex-gratia for deceased person                                                               | Rs. 4.00 lakh per deceased, subject to cause-of-death certification
+   2 | Gratuitous Relief | Ex-gratia for loss of limb/eye — disability 40-60%                                          | Rs. 59,100 per person
+   3 | Gratuitous Relief | Ex-gratia for loss of limb/eye — disability >60%                                            | Rs. 2.00 lakh per person
+   4 | Gratuitous Relief | Grievous injury requiring hospitalization > 1 week                                          | Rs. 12,700 per person
+   5 | Gratuitous Relief | Grievous injury requiring hospitalization < 1 week                                          | Rs. 4,300 per person
+   6 | Gratuitous Relief | Clothing for families whose houses washed away/fully damaged                                | Rs. 1,800 per family
+   7 | Gratuitous Relief | Utensils/household goods for families whose houses damaged                                  | Rs. 2,000 per family
+   8 | Gratuitous Relief | Livelihood assistance (not housed in relief camps)                                          | Rs. 60/adult/day + Rs. 45/child/day; default 30 days, extendable
+   9 | Search & Rescue   | Cost of search and rescue / evacuation                                                      | As per actual cost incurred, assessed by SEC (or Central Team for NDRF)
+  10 | Search & Rescue   | Hiring of boats for relief and saving lives                                                 | As per actual costs incurred, assessed by SEC / Central Team
+  11 | Housing           | Fully damaged / destroyed Pucca house (plain areas)                                         | Rs. 95,100 per house
+  12 | Housing           | Fully damaged / destroyed Pucca house (hilly/IAP areas)                                     | Rs. 1,01,900 per house
+  13 | Housing           | Severely damaged Pucca house (plain areas)                                                  | Rs. 5,200 per house
+  14 | Housing           | Severely damaged Pucca house (hilly/IAP areas)                                              | Rs. 5,200 per house
+  15 | Housing           | Fully damaged Kutcha house (plain areas)                                                    | Rs. 4,100 per house
+  16 | Housing           | Fully damaged Kutcha house (hilly/IAP areas)                                                | Rs. 4,100 per house
+  17 | Housing           | Severely damaged Kutcha house                                                               | Rs. 3,200 per house
+  18 | Housing           | Damaged huts (below Kutcha)                                                                 | Rs. 4,100 per house
+  19 | Agriculture       | Agriculture input assistance - crops (small/marginal farmers, up to 2 ha)                   | Rs. 6,800 per hectare (unirrigated); Rs. 13,500 per hectare (irrigated); Rs. 18,000 per hectare (perennial crops)
+  20 | Agriculture       | Agriculture input assistance - sericulture/horticulture/plantation (small/marginal farmers) | Rs. 18,000 per hectare
+  21 | Fisheries         | Fully damaged fishing boat (Dugout/Canoe/Catamaran)                                         | Rs. 9,600 per boat
+  22 | Fisheries         | Partially damaged fishing boat (Dugout/Canoe/Catamaran)                                     | Rs. 4,100 per boat
+  23 | Fisheries         | Fully damaged fishing net                                                                   | Rs. 2,600 per net
+  24 | Fisheries         | Partially damaged fishing net                                                               | Rs. 2,100 per net
+  25 | Fisheries         | Loss of fish seed / fingerlings from fish farm                                              | Rs. 8,200 per hectare
+  26 | Fisheries         | De-silting / restoration / repair of fish farm                                              | Rs. 12,200 per hectare
+  27 | Animal Husbandry  | Loss of large milch animal (cow, buffalo, camel)                                            | Rs. 30,000 per animal
+  28 | Animal Husbandry  | Loss of small milch animal (sheep, goat, pig)                                               | Rs. 3,000 per animal
+  29 | Animal Husbandry  | Loss of draught animal (horse, bullock, camel)                                              | Rs. 25,000 per animal
+  30 | Animal Husbandry  | Loss of poultry birds                                                                       | Rs. 50 per bird; max Rs. 5,000 per beneficiary
+  31 | SDRF Funding      | Centre-State funding ratio (general states)                                                 | 75% Centre + 25% State
+  32 | SDRF Funding      | Centre-State funding ratio (special category / NE states)                                   | 90% Centre + 10% State
+(32 rows)

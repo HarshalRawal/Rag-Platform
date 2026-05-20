@@ -1,0 +1,322 @@
+harshalrawal@Harshals-MacBook-Air rag-platform % node src/dana-replay/danaReplay.js --compare
+╔══════════════════════════════════════════════════════════════════╗
+║   Cyclone Dana — RAG Platform Replay Evaluation                 ║
+║   Disaster Management RAG · IIIT Bhubaneswar                    ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Run ID: dana_2026-05-04T18-39-28
+
+Connecting to infrastructure...
+[qdrant]   ✓ Connected — 1 collection(s): [sdmp_chunks]
+[qdrant]   ✓ Collection "sdmp_chunks" — 562 points, vector size 1536
+[postgres] ✓ Connected to database "app_db" at Tue May 05 2026 00:09:28 GMT+0530 (India Standard Time)
+[postgres] query (1ms) rows=null — 
+    CREATE TABLE IF NOT EXISTS dana_replay_audit (
+      id              SERIAL
+✓ Ready
+
+
+🔬  COMPARE MODE — Phase 3 across 3 retrieval configurations
+    This generates the key result table for the paper.
+
+
+════════════════════════════════════════════════════════════════════════
+  Phase 3: Pre-landfall — PRIMARY EVALUATION  [Corpus only]
+  as_of: 2024-10-24T12:00:00+05:30  |  Warning: RED
+  Bulletins available in DB: 14–17
+════════════════════════════════════════════════════════════════════════
+  Embedding query... ✓
+  Retrieving top-8 chunks (mode=corpus_only)... ✓  8 chunks retrieved
+    📚 [1] Cyclone Fani Joint Rapid Needs Assessment Report (score: 67.5%)
+    📚 [2] India - Cyclone Fani Situation Report #2 (score: 67.5%)
+    📚 [3] Cyclone Fani Joint Rapid Needs Assessment Report (score: 67.2%)
+    📚 [4] Cyclone Fani Joint Rapid Needs Assessment Report (score: 67.2%)
+    📚 [5] India - Cyclone Fani Situation Report #2 (score: 67.0%)
+    📚 [6] Cyclone Phailin in Odisha: Rapid Damage and Needs Assessment Report (score: 66.3%)
+    📚 [7] Assessment of DRM Effectiveness Responding to Cyclone Phailin in Odisha (score: 66.1%)
+    📚 [8] Assessment of DRM Effectiveness Responding to Cyclone Phailin in Odisha (score: 65.7%)
+  Calling LLM... ✓  (32038ms, 4998→1500 tokens)
+
+  ── LLM Response ──────────────────────────────────────────────
+# OSDMA OPERATOR BRIEFING — CYCLONE DANA
+**Timestamp:** 2024-10-24T12:00:00+05:30 | **Warning Level:** RED
+**⚠️ KNOWLEDGE LIMITATION NOTICE:** No real-time Dana bulletins are available in this system. All Dana-specific parameters (120 km/h winds, 135 km/h gusts, Bhitarkanika–Dhamra landfall, 15-hour window) are sourced **exclusively from the operator query input**, not from verified IMD bulletins. Commanders must cross-check all track/intensity data against current IMD/SEOC feeds before acting.
+
+---
+
+## 1. DISTRICTS AT HIGHEST RISK — PRIORITY RANKING
+
+Based on operator-reported landfall zone (Bhitarkanika–Dhamra coast), forecast storm surge (2–3 m), and cross-referencing with Fani/Phailin damage district records:
+
+| Priority | District | Primary Hazard | Basis |
+|---|---|---|---|
+| **P1** | **Kendrapara** | Storm surge 2–3 m + coastal inundation | Operator surge forecast; Bhitarkanika is within Kendrapara — direct landfall zone |
+| **P1** | **Bhadrak** | Storm surge 2–3 m + wind damage | Operator surge forecast; Dhamra port area falls within Bhadrak |
+| **P2** | **Balasore** | Storm surge, northward track exposure | Operator surge forecast; also heavily affected in Fani per Chunks [3],[4],[5] |
+| **P2** | **Jagatsinghpur** | Coastal exposure, storm surge risk | Listed as cyclone-prone district per Chunk [8]; proximate to landfall zone |
+| **P3** | **Jajpur** | Riverine flooding, wind | Affected in Fani (4 casualties, Chunk [4]); downstream of surge-affected rivers |
+| **P3** | **Cuttack** | Riverine flooding post-landfall | Affected in Fani (5 casualties, Chunk [4]); inland but river-connected |
+| **P3** | **Mayurbhanj** | Wind, inland flooding | Affected in Fani (4 casualties, Chunk [4]); northern track exposure |
+| **P4** | **Puri / Khordha / Ganjam** | Wind damage, lower surge exposure | Affected in prior events but south of Dana's projected track |
+
+**⚠️ Note:** Full district priority ranking should be validated against current IMD track cone. The 14 standard cyclone-prone districts per Odisha's established protocol are: Ganjam, Puri, Jagatsinghpur, Kendrapara, Bhadrak, Balasore, Mayurbhanj, Jajpur, Cuttack, Khordha, Nayagarh, Gajapati, Dhenkanal, and Keonjhar *(per Chunk [8], Phailin RDNA)*.
+
+---
+
+## 2. MANDATORY EVACUATION TRIGGER — IS THE SDMP THRESHOLD MET?
+
+**Assessment: YES — Threshold is met. Mandatory evacuation must be initiated immediately.**
+
+**Grounds for this determination:**
+
+- The operator query explicitly states that **mandatory evacuation is required under SDMP §6.2**. This system does not have the full SDMP §6.2 text in its retrieved corpus; however, the operator's invocation of that provision is taken as the authoritative trigger for this briefing.
+- The storm parameters independently support evacuation at the highest level:
+  - **Very Severe Cyclonic Storm** classification with 120 km/h sustained winds — comparable to Phailin's category *(Chunk [6]: Phailin was VSCS with 200–210 km/h; Dana is lower intensity but still VSCS-class)*
+  - **2–3 m storm surge** directly matches the Fani Paradip peak surge estimate of 3 m *(Chunk [1])*, which drove the 1.2–1.47 million evacuation in 2019
+  - **15-hour window** to landfall at 0100–0300 IST Oct 25 — this is operationally tight; pre-landfall evacuation must be **completed before 2200 IST Oct 24** to allow shelter-in-place stabilization
+
+**Precedent from corpus:**
+- Fani: ~1.2–1.47 million evacuated to 4,000–9,000 shelters across 18 districts *(Chunks [1],[2],[3])*
+- Phailin: Collectors were directed to **complete evacuation of low-lying and kutcha-house residents by the evening before landfall** *(Chunk [7])*
+
+**Immediate evacuation priorities:**
+- All residents in **low-lying coastal areas, kutcha houses, and areas below 5 m elevation** within P1/P2 districts
+- **Fishermen** — all fishing vessels must be recalled from sea immediately *(per Phailin protocol, Chunk [7])*
+- **Tourists** — Fani response evacuated 24,889 tourists from Puri, Ganjam, Cuttack, and Balasore *(Chunk [2])*; apply same protocol to any tourist concentration in Dana's path
+
+---
+
+## 3. RELIEF CAMP ACTIVATION CHECKLIST
+
+Grounded in Fani and Phailin response actions from corpus. Activate in the next **0–6 hours**.
+
+### A. Shelter Activation
+- [ ] **Identify and open all designated cyclone shelters** in P1/P2 districts — Fani used 880 specially designed cyclone centres and 4,000+ total shelters *(Chunk [3])*; Fani SitRep #2 reports 9,000 safe shelters across 18 districts *(Chunk [2])*
+- [ ] Confirm shelter capacity against expected evacuee numbers; P1 districts (Kendrapara, Bhadrak) should be treated as maximum-load sites
+- [ ] Conduct **mock response drills at cyclone shelters** if time permits — this was standard Phailin protocol *(
+  ──────────────────────────────────────────────────────────────
+
+  ── Evaluation Checklist ──────────────────────────────────────
+  Expected SDMP section: §6.2 – Mandatory Evacuation, §7.1 – Relief Camp Activation
+  ☐ Correctly triggers mandatory evacuation under SDMP §6.2
+  ☐ Ranks Kendrapara, Bhadrak, Balasore as highest risk
+  ☐ Cites Fani 2019 as historical precedent
+  ☐ Provides actionable relief camp checklist
+  ☐ Response reflects real-time bulletin data, not generic advice
+[postgres] query (23ms) rows=1 — INSERT INTO dana_replay_audit
+      (run_id, phase, phase_name, mode, as_of, war
+
+  ✓ Saved to dana_replay_audit (run_id=dana_2026-05-04T18-39-28)
+
+════════════════════════════════════════════════════════════════════════
+  Phase 3: Pre-landfall — PRIMARY EVALUATION  [Bulletins only]
+  as_of: 2024-10-24T12:00:00+05:30  |  Warning: RED
+  Bulletins available in DB: 14–17
+════════════════════════════════════════════════════════════════════════
+  Embedding query... ✓
+  Retrieving top-8 chunks (mode=rt_only)... ✓  8 chunks retrieved
+    📡 [1] Dana Bulletin #14 (score: 82.2%)
+    📡 [2] Dana Bulletin #12 (score: 81.8%)
+    📡 [3] Dana Bulletin #16 (score: 81.7%)
+    📡 [4] Dana Bulletin #13 (score: 81.6%)
+    📡 [5] Dana Bulletin #15 (score: 81.5%)
+    📡 [6] Dana Bulletin #10 (score: 80.9%)
+    📡 [7] Dana Bulletin #11 (score: 80.8%)
+    📡 [8] Dana Bulletin #17 (score: 80.7%)
+  Calling LLM... ✓  (27699ms, 12461→1500 tokens)
+
+  ── LLM Response ──────────────────────────────────────────────
+# OSDMA OPERATOR BRIEFING — CYCLONE DANA
+**Generated:** 2024-10-24T12:00:00+05:30 | **Warning Level:** RED | **Reference:** IMD Bulletins #10–#17
+
+---
+
+> ⚠️ **KNOWLEDGE BOUNDARY NOTICE:** This briefing is grounded exclusively in retrieved IMD Dana Bulletins (#10–#17). The operator query references wind speeds of 120 km/h sustained / 135 km/h gusting and a 2–3 m storm surge — these values **exceed** what is confirmed in the latest fully-parsed bulletin (Bulletin #16: 100–110 kmph sustained, 120 kmph gusting; 2 m surge). Bulletin #17 metadata references 110 kmph but lacks full text. **All life-safety decisions must use the latest IMD bulletin directly.** SDMP §6.2 is cited in Bulletin #15 metadata but the SDMP document itself is not in the retrieved context — procedural references are flagged accordingly. No Cyclone Fani historical data is available in retrieved context.
+
+---
+
+## 1. DISTRICTS AT HIGHEST RISK — PRIORITY RANKING
+
+Based on proximity to the confirmed landfall corridor (Bhitarkanika–Dhamara), storm surge exposure, and rainfall warnings from Bulletins #14 and #16:
+
+### TIER 1 — IMMEDIATE LIFE THREAT (Landfall Zone + Maximum Surge)
+| Priority | District | Basis |
+|----------|----------|-------|
+| **1** | **Kendrapara** | Directly within Bhitarkanika–Dhamara landfall corridor; storm surge 2 m above astronomical tide; extremely heavy rainfall (≥21 cm) warned; Bhitarkanika mangrove zone channels surge inland *(Bulletins #14, #16)* |
+| **2** | **Bhadrak** | Dhamara port falls within Bhadrak; landfall zone; 2 m surge; extremely heavy rainfall warned *(Bulletins #14, #16)* |
+| **3** | **Jagatsinghpur** | Coastal district south of landfall; extremely heavy rainfall warned; storm surge exposure *(Bulletins #14, #16)* |
+| **4** | **Balasore** | Northern coastal flank; gale winds 100–110 kmph gusting 120 kmph from 24 Oct afternoon; extremely heavy rainfall warned *(Bulletins #14, #16)* |
+
+### TIER 2 — SEVERE IMPACT (Inland + Wind/Rain Damage)
+| Priority | District | Basis |
+|----------|----------|-------|
+| **5** | **Baleswar (Balasore)** | Extremely heavy rainfall (≥21 cm); gale force winds *(Bulletins #14, #16)* |
+| **6** | **Puri** | Southern landfall boundary per "Puri-to-Sagar" corridor; heavy rainfall warned *(Bulletins #14, #16)* |
+| **7** | **Jajpur** | Extremely heavy rainfall warned; inland flooding risk *(Bulletins #14, #16)* |
+| **8** | **Cuttack** | Extremely heavy rainfall warned; Mahanadi basin flood risk *(Bulletins #14, #16)* |
+
+### TIER 3 — SIGNIFICANT IMPACT (Heavy Rain / Wind)
+Khorda, Mayurbhanj, Dhenkanal, Kendujhar — heavy to very heavy rainfall, wind damage *(Bulletins #14, #16)*
+
+---
+
+## 2. MANDATORY EVACUATION TRIGGER — IS THE SDMP THRESHOLD MET?
+
+**Answer: YES — threshold is met. Mandatory evacuation is confirmed.**
+
+### Evidence from Retrieved Bulletins:
+
+**Storm Surge Criterion:**
+- Bulletin #14, #16: Storm surge confirmed at **2 m above astronomical tide** across the landfall zone
+- Bulletin #17 metadata: **2 m surge** confirmed, "Full evacuation mandatory"
+- Bulletin #15 metadata explicitly states: *"RED Warning active. SDMP §6.2 mandatory evacuation of all coastal zones"*
+
+**Wind Speed Criterion:**
+- Bulletin #16 (most recent fully parsed, issued 11:30 IST): **100–110 kmph sustained, gusting to 120 kmph** — Severe Cyclonic Storm category
+- Forecast intensification to **105–115 kmph gusting 125 kmph** by 17:30 IST today *(Bulletin #16)*
+
+**Time to Landfall:**
+- Bulletin #16 confirms landfall *"during mid-night of 24th to morning of 25th October"* — approximately **12–15 hours from now**
+- Bulletin #17 metadata: *"12 hours before landfall"* — evacuation window is **critically narrow**
+
+### ⚠️ SDMP §6.2 Reference:
+Bulletin #15 metadata invokes SDMP §6.2 as the mandatory evacuation trigger. **The SDMP document itself is not in retrieved context.** Procedural execution of §6.2 must be verified against your physical SDMP. However, the operational directive from IMD/bulletin metadata is unambiguous: **evacuate all coastal zones now.**
+
+**Evacuation should have commenced no later than this morning. Any remaining coastal population in Tier 1 districts is at severe risk of surge inundation within 10–14 hours.**
+
+---
+
+## 3. RELIEF CAMP ACTIVATION CHECKLIST
+
+> **Note:** No SDMP or OSDMA relief camp standards document is in retrieved context. The following checklist is derived from operational imperatives indicated by the bulletins (surge height, rainfall volume, wind speed, affected population districts) and standard disaster management practice. Flag any item against your SDMP before execution.
+
+### PRE-ACTIVATION (IMMEDIATE — within 2 hours)
+- [ ] **Confirm camp locations** are outside the 2 m surge inundation zone — camps must be on elevated ground, minimum 5 m above MSL in Kendrapara, Bhadrak, Balasore, Jagatsinghpur
+- [ ] **Activate all pre-identified cyclone shelters** in Tier 1 
+  ──────────────────────────────────────────────────────────────
+
+  ── Evaluation Checklist ──────────────────────────────────────
+  Expected SDMP section: §6.2 – Mandatory Evacuation, §7.1 – Relief Camp Activation
+  ☐ Correctly triggers mandatory evacuation under SDMP §6.2
+  ☐ Ranks Kendrapara, Bhadrak, Balasore as highest risk
+  ☐ Cites Fani 2019 as historical precedent
+  ☐ Provides actionable relief camp checklist
+  ☐ Response reflects real-time bulletin data, not generic advice
+[postgres] query (17ms) rows=1 — INSERT INTO dana_replay_audit
+      (run_id, phase, phase_name, mode, as_of, war
+
+  ✓ Saved to dana_replay_audit (run_id=dana_2026-05-04T18-39-28)
+
+════════════════════════════════════════════════════════════════════════
+  Phase 3: Pre-landfall — PRIMARY EVALUATION  [RAG + Bulletins]
+  as_of: 2024-10-24T12:00:00+05:30  |  Warning: RED
+  Bulletins available in DB: 14–17
+════════════════════════════════════════════════════════════════════════
+  Embedding query... ✓
+  Retrieving top-8 chunks (mode=full)... ✓  8 chunks retrieved
+    📡 [1] Dana Bulletin #14 (score: 82.2%)
+    📡 [2] Dana Bulletin #12 (score: 81.8%)
+    📡 [3] Dana Bulletin #16 (score: 81.7%)
+    📡 [4] Dana Bulletin #13 (score: 81.6%)
+    📡 [5] Dana Bulletin #15 (score: 81.5%)
+    📚 [6] Cyclone Fani Joint Rapid Needs Assessment Report (score: 67.5%)
+    📚 [7] India - Cyclone Fani Situation Report #2 (score: 67.5%)
+    📚 [8] Cyclone Fani Joint Rapid Needs Assessment Report (score: 67.2%)
+  Calling LLM... ✓  (31846ms, 9823→1500 tokens)
+
+  ── LLM Response ──────────────────────────────────────────────
+# OSDMA OPERATOR BRIEFING — CYCLONE DANA
+**Classification: OPERATIONAL | Time: 2024-10-24T12:00:00+05:30**
+**Warning Level: RED | Bulletin Reference: Dana Bulletin #16 (Latest as of 11:30 IST)**
+
+---
+
+## SITUATION SUMMARY
+
+Severe Cyclonic Storm **DANA** is currently centred at **19.2°N / 87.9°E**, approximately **180 km southeast of Paradip** (per Dana Bulletin #16, issued 11:30 IST). The system is tracking north-northwestward at ~13 kmph. Peak intensity forecast: **105–115 kmph gusting to 125 kmph** by this evening (24 Oct 1730 IST), before landfall near **Bhitarkanika–Dhamara** between **midnight 24 Oct and early morning 25 Oct** as a Severe Cyclonic Storm with **100–110 kmph gusting 120 kmph**.
+
+> ⚠️ **OPERATOR NOTE:** The query states winds of 120 kmph sustained / 135 kmph gusting and designates Dana as a "Very Severe Cyclonic Storm." IMD Bulletins #14, #15, and #16 consistently classify Dana as a **Severe Cyclonic Storm** with peak gusts of **120–125 kmph**. The query parameters are slightly above the bulletin data. This briefing is grounded in the **verified IMD bulletin data** and flags this discrepancy. Operators should verify against the next IMD bulletin (expected ~17:30 IST). All life-safety decisions should use the more conservative (higher-hazard) figure from the query where the two conflict.
+
+**Time to landfall: ~13–15 hours from 12:00 IST.** The operational window for evacuation completion is closing rapidly.
+
+---
+
+## 1. DISTRICTS AT HIGHEST RISK — PRIORITY RANKING
+
+Rankings are based on three compounding hazards: **storm surge exposure, extreme rainfall, and wind intensity**, cross-referenced across Dana Bulletins #14, #16 and Fani JRNA/RDNA corpus data.
+
+| Priority | District | Primary Hazard | Basis |
+|---|---|---|---|
+| **P1 — CRITICAL** | **Kendrapara** | Storm surge 2–3 m + extreme rainfall (≥21 cm) + direct landfall zone | Bulletin #14, #16; query surge data |
+| **P1 — CRITICAL** | **Bhadrak** | Storm surge 2–3 m + extreme rainfall + near-landfall proximity to Dhamara | Bulletin #14, #16 |
+| **P1 — CRITICAL** | **Balasore** | Storm surge 2–3 m + extreme rainfall (≥21 cm) | Bulletin #14, #16; query surge data |
+| **P2 — SEVERE** | **Jagatsinghpur** | Extreme rainfall (≥21 cm) + coastal exposure + Paradip port area | Bulletin #14, #16 |
+| **P2 — SEVERE** | **Puri** | Wind + heavy rainfall; southern flank of landfall zone | Bulletin #14, #16 |
+| **P3 — HIGH** | **Jajpur** | Extreme rainfall (≥21 cm); river flooding risk inland | Bulletin #14, #16 |
+| **P3 — HIGH** | **Cuttack** | Extreme rainfall (≥21 cm); Mahanadi basin flooding risk | Bulletin #14, #16 |
+| **P3 — HIGH** | **Mayurbhanj** | Extreme rainfall; inland track of storm post-landfall | Bulletin #14, #16 |
+| **P3 — HIGH** | **Khorda** | Extreme rainfall (≥21 cm); Bhubaneswar urban flood risk | Bulletin #14, #16 |
+| **P4 — MODERATE** | **Dhenkanal / Kendujhar** | Heavy rainfall; inland penetration post-landfall | Bulletin #14, #16 |
+
+**Rationale for P1 prioritisation:** Kendrapara, Bhadrak, and Balasore sit directly in the forecast landfall corridor (Bhitarkanika–Dhamara) and face the compound threat of **storm surge of 2–3 m above astronomical tide** simultaneously with peak winds and extreme rainfall. Based on the Fani JRNA, coastal inundation in surge-affected zones caused the majority of infrastructure damage and life-safety risk (Fani JRNA, May 2019). These districts must be treated as evacuation-complete targets **before 18:00 IST today**.
+
+---
+
+## 2. MANDATORY EVACUATION TRIGGER — IS THE SDMP THRESHOLD MET?
+
+**YES. The mandatory evacuation threshold under SDMP §6.2 is unambiguously met. Proceed immediately.**
+
+The following criteria confirm mandatory activation:
+
+| Criterion | SDMP §6.2 Trigger | Dana Status | Met? |
+|---|---|---|---|
+| Warning Level | RED Warning | RED Warning active (Bulletin #14, #15, #16) | ✅ YES |
+| Wind Speed | Severe Cyclonic Storm threshold (~90+ kmph) | 100–110 kmph sustained, gusting 120–125 kmph | ✅ YES |
+| Storm Surge | Surge threatening low-lying coastal zones | 2–3 m above astronomical tide (Kendrapara, Bhadrak, Balasore) | ✅ YES |
+| Landfall Imminence | <24 hours | ~13–15 hours to landfall | ✅ YES |
+| Bulletin Authority | Verified IMD Bulletin | Verified_gov, Bulletins #14–16 | ✅ YES |
+
+**Dana Bulletin #15** explicitly states: *"RED Warning active. SDMP §6.2 mandatory evacuation of all coastal zones."*
+
+**Operational imperative:** With landfall in ~13 hours and storm conditions (gale-force winds 60–80 kmph) expected along the coast **from this afternoon** (Bulletin #16), ground-level evacuation movement will become hazardous
+  ──────────────────────────────────────────────────────────────
+
+  ── Evaluation Checklist ──────────────────────────────────────
+  Expected SDMP section: §6.2 – Mandatory Evacuation, §7.1 – Relief Camp Activation
+  ☐ Correctly triggers mandatory evacuation under SDMP §6.2
+  ☐ Ranks Kendrapara, Bhadrak, Balasore as highest risk
+  ☐ Cites Fani 2019 as historical precedent
+  ☐ Provides actionable relief camp checklist
+  ☐ Response reflects real-time bulletin data, not generic advice
+[postgres] query (15ms) rows=1 — INSERT INTO dana_replay_audit
+      (run_id, phase, phase_name, mode, as_of, war
+
+  ✓ Saved to dana_replay_audit (run_id=dana_2026-05-04T18-39-28)
+
+
+📊  COMPARISON SUMMARY — Phase 3 (Pre-landfall, as_of 2024-10-24 12:00 IST)
+────────────────────────────────────────────────────────────────────────
+Mode                 Chunks     Latency      Tokens (in→out)
+────────────────────────────────────────────────────────────────────────
+Corpus only          8          32038ms      4998→1500
+Bulletins only       8          27699ms      12461→1500
+Full (corpus + RT)   8          31846ms      9823→1500
+────────────────────────────────────────────────────────────────────────
+
+  Key question: does the 'Full' mode produce a better briefing than either alone?
+
+✓ Full report saved → reports/dana_replay_dana_2026-05-04T18-39-28.json
+
+
+📋  RUN SUMMARY
+────────────────────────────────────────────────────────────
+Phases evaluated : 3
+Total LLM calls  : 3
+Total latency    : 91583ms
+Total tokens     : 31782
+Audit table      : dana_replay_audit (postgres)
+Report           : reports/dana_replay_dana_2026-05-04T18-39-28.json
+────────────────────────────────────────────────────────────
+
+✓ Dana replay complete.
+harshalrawal@Harshals-MacBook-Air rag-platform % 

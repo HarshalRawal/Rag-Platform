@@ -1,0 +1,60 @@
+{
+  "run_id": "dana_2026-05-10T19-10-53",
+  "generated_at": "2026-05-10T19:11:28.488Z",
+  "results": [
+    {
+      "phase": 3,
+      "name": "Pre-landfall — PRIMARY EVALUATION",
+      "mode": "full",
+      "as_of": "2024-10-24T12:00:00+05:30",
+      "warning_level": "RED",
+      "chunks_retrieved": 8,
+      "chunk_sources": [
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.55915296
+        },
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.5388485
+        },
+        {
+          "doc": "Dana Bulletin #14",
+          "source": "imd_dana",
+          "score": 0.82180524
+        },
+        {
+          "doc": "Dana Bulletin #12",
+          "source": "imd_dana",
+          "score": 0.8178715
+        },
+        {
+          "doc": "Dana Bulletin #16",
+          "source": "imd_dana",
+          "score": 0.8167898
+        },
+        {
+          "doc": "Dana Bulletin #13",
+          "source": "imd_dana",
+          "score": 0.81571865
+        },
+        {
+          "doc": "India - Cyclone Fani Situation Report #2",
+          "source": "corpus",
+          "score": 0.67555434
+        },
+        {
+          "doc": "Cyclone Fani Joint Rapid Needs Assessment Report",
+          "source": "corpus",
+          "score": 0.6754745
+        }
+      ],
+      "latency_ms": 33194,
+      "input_tokens": 12046,
+      "output_tokens": 1500,
+      "response": "# OSDMA OPERATOR BRIEFING — CYCLONE DANA\n**Classification: OPERATIONAL | Active RED Warning**\n**Briefing Generated: 2024-10-24T12:00:00+05:30**\n**Source Bulletins: IMD Dana Bulletins #12, #13, #14, #16 | SDMP 2019 | Fani JRNA/SitRep**\n\n---\n\n> ⚠️ **CRITICAL TIMELINE NOTICE**: Landfall estimated **~0100–0300 IST, 25 October** near Bhitarkanika–Dhamara. **Approximately 13–15 hours remain for evacuation operations.** Coastal wind speeds will become life-threatening and prohibit movement well before landfall — effective operational window is **6–8 hours from now**.\n\n---\n\n## 1. DISTRICTS AT HIGHEST RISK — PRIORITY RANKING\n\nRanked by combined threat: storm surge exposure + wind intensity + population density in low-lying coastal zones, grounded in Dana Bulletin #16 (Position 19.2°N/87.9°E, 180 km from Paradip as of 1130 IST) and the rainfall/wind warnings consistent across Bulletins #13, #14, and #16.\n\n| Priority | District | Primary Threat | Basis |\n|---|---|---|---|\n| **P1 — CRITICAL** | **Kendrapara** | Storm surge 2–3 m + extreme rainfall + landfall proximity (Bhitarkanika in district) | Bulletins #14, #16; operator query surge forecast |\n| **P1 — CRITICAL** | **Bhadrak** | Storm surge 2–3 m + Dhamara landfall zone + gale winds 100–110 kmph | Bulletins #14, #16 |\n| **P1 — CRITICAL** | **Balasore** | Storm surge 2–3 m + northern coastal exposure + extremely heavy rainfall | Bulletins #14, #16; operator query |\n| **P2 — HIGH** | **Jagatsinghpur** | Coastal low-lying terrain, Paradip port area, very heavy rainfall + gale winds | Bulletins #14, #16 |\n| **P2 — HIGH** | **Bhadrak/Jajpur** | Inland river flooding risk from Baitarani/Brahmani surge backing, extremely heavy rainfall | Bulletins #13, #14, #16 |\n| **P3 — ELEVATED** | **Puri** | Southern track boundary; gale winds 60–80 kmph gusting 90 kmph; heavy to very heavy rain | Bulletin #16 |\n| **P3 — ELEVATED** | **Khorda** | Includes Bhubaneswar; extremely heavy rainfall warning 24–25 Oct | Bulletins #14, #16 |\n| **P3 — ELEVATED** | **Cuttack** | River flooding (Mahanadi), extremely heavy rainfall | Bulletins #14, #16 |\n| **P4 — WATCH** | **Mayurbhanj, Kendujhar, Dhenkanal, Jajpur** | Inland districts; very heavy to extremely heavy rainfall; flood/landslide risk | Bulletins #14, #16 |\n\n**⚡ P1 districts require immediate, forced evacuation now. P2 districts should have completed primary evacuation and be moving stragglers. P3/P4 districts: shelter-in-place + relief camp standby.**\n\n---\n\n## 2. MANDATORY EVACUATION TRIGGER — SDMP THRESHOLD ASSESSMENT\n\n### Threshold Met: **YES — UNAMBIGUOUSLY**\n\n**Per SDMP 2019 §6.2 and the SOP at District/Block/GP level (SDMP Table 6.7):**\n\nThe SDMP establishes that evacuation to temporary shelters is a **T-0 day action** triggered upon final warning issuance for cyclone/flood events, with BDO/Sarpanch/EO responsibility. The RED Warning — the highest warning level — is now active (confirmed across Bulletins #13, #14, #16). The following specific thresholds are met or exceeded:\n\n| SDMP Trigger Criterion | Dana Status | Assessment |\n|---|---|---|\n| RED cyclone warning issued | ✅ Active since ~0230 IST 24 Oct (Bulletin #13) | **THRESHOLD MET** |\n| Storm surge forecast >1 m in coastal areas | ✅ 2–3 m forecast for Kendrapara, Bhadrak, Balasore | **EXCEEDED** |\n| Landfall within 24 hours | ✅ ~13–15 hours to landfall | **THRESHOLD MET** |\n| Sustained winds >64 kmph (Severe Cyclonic Storm threshold) | ✅ 100–110 kmph sustained, gusting 120 kmph (Bulletin #16) | **EXCEEDED** |\n| Extremely heavy rainfall (≥21 cm) forecast | ✅ Confirmed for Balasore, Bhadrak, Kendrapara, Jagatsinghpur, Jajpur, Cuttack, Dhenkanal, Khorda, Puri | **THRESHOLD MET** |\n\n**SDMP (SDMP Table 6.7) further specifies:**\n- **BDOs** are responsible for pre-arrangement of evacuation at T-3 days (already passed) — this should be complete.\n- **Evacuation to temporary shelters** is a **T-0 day action** for all responsible officers (BDO/Sarpanch/EO).\n- **Cyclone shelters and school buildings** must already be in ready condition (BDO/Block Panchayat Samiti responsibility, per SDMP Table 6.9, Phase I).\n\n**OPERATIONAL DIRECTION**: Mandatory evacuation orders must be enforced **immediately** for all residents within:\n- **5 km of coastline** in P1 districts (Kendrapara, Bhadrak, Balasore)\n- **All low-lying areas below 5 m elevation** in P1 and P2 districts\n- **All fishing communities** — fishing boats must not be"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "summary": {
+    "run_at": "2026-05-09T09:40:38.407Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": {
+      "avg_total": 7,
+      "avg_factual_grounding": 1,
+      "avg_sop_alignment": 3,
+      "avg_appropriate_uncertainty": 3,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 1,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 7,
+          "n": 1
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "config_b": null
+  },
+  "results": [
+    {
+      "id": "CA",
+      "category": "CONTAMINATION",
+      "config": "A",
+      "role": "operator",
+      "query": "What was the storm surge height when the severe cyclone hit the Odisha coast near Puri?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "Both searches across the Fani-specific documents (**UNICEF_Fani_SitRep** and **Fani_JRNA**) returned **zero results** for storm surge height information.\n\n---\n\n### ⚠️ Event Isolation Rule Applied\n\nPer the **EVENT ISOLATION RULE**, I am restricted to citing only Fani-specific documents for questions about Cyclone Fani. The available Fani documents do not contain storm surge height data for the Puri coastline.\n\nI **cannot** substitute data from the Cyclone Phailin 2013 report or any other document, as that would risk presenting incorrect event-specific data.\n\n---\n\n### What I Can Confirm\n\n- **Cyclone Fani** made landfall near **Puri on 3 May 2019** as an **Extremely Severe Cyclonic Storm** with wind speeds of approximately **175–185 km/h** (gusting to 240 km/h), as is widely documented — but the specific **storm surge height** figure is **not retrievable** from the Fani documents available in this platform (UNICEF Fani SitRep or Fani JRNA).\n\n---\n\n### Recommendation\n\nFor the precise storm surge measurement, please refer to:\n- **IMD's post-event cyclone report on Fani (2019)**\n- **NDMA/OSDMA official landfall assessments**\n\nThese are not currently indexed in the available document corpus.\n\n---\n\nCONFIDENCE: **LOW** (topScore=0, avgScore=0, sources=0)\n*No relevant chunks retrieved from Fani documents. Cannot provide a sourced answer.*",
+      "ground_truth": "Query is deliberately ambiguous — does not specify which cyclone. Phailin (2013): 3.5 metres above astronomical tide in Ganjam district [Phailin RDNA, confirmed in source]. Fani (2019): approximately 1.0-1.5 metres above astronomical tide near Puri coast [lower than Phailin due to different landfall angle]. CORRECT behaviour for BOTH configs: CRAG detects retrieved chunks have event_id=cyclone_phailin_2013, refuses to present the 3.5m figure as Fani planning data, explicitly names the event mismatch. The answer must NOT present the 3.5m Phailin figure in a summary table as if it could apply to future cyclones near Puri — this is the dangerous failure mode.",
+      "key_facts": [
+        "storm surge",
+        "event mismatch",
+        "Phailin 3.5m",
+        "CRAG refusal",
+        "Ganjam"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Ambiguous event query — system must use event_id metadata to disambiguate. Returning Phailin 3.5m as a Fani figure has direct operational consequences for coastal evacuation zone decisions.",
+      "scores": {
+        "factual_grounding": 1,
+        "factual_grounding_reason": "The answer correctly identifies that no storm surge data was retrieved and avoids presenting Phailin's 3.5m figure as Fani data, but it does not name the Phailin event mismatch or the 3.5m figure that the ground truth expects the system to explicitly acknowledge and refuse to conflate.",
+        "sop_alignment": 3,
+        "sop_alignment_reason": "For a CONTAMINATION query under Config A, the answer correctly refuses to substitute Phailin data for Fani data and explicitly names the event isolation rule, which satisfies the CRAG refusal requirement.",
+        "appropriate_uncertainty": 3,
+        "appropriate_uncertainty_reason": "The answer correctly declines to provide storm surge figures, explicitly states the reason (no Fani-specific data available and event isolation rule prevents substitution from Phailin), and does not present any post-event Fani documents with high confidence — no temporal filter failure.",
+        "total": 7,
+        "hallucination_detected": false,
+        "hallucination_detail": "none",
+        "crag_fired": true,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 41403,
+      "raw_file": "eval/results/fani-replay/2026-05-09T09-40-38/raw/CA-A.txt",
+      "error": null
+    }
+  ]
+}

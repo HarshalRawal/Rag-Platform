@@ -1,0 +1,8 @@
+parameter,very_low_km,low_km,medium_km,high_km,very_high_km
+Shoreline Change Rate,228,134,38,32,65
+Coastal Slope,9,6,6,22,453
+Coastal Elevation,6,0,18,89,384
+Geomorphology,0,254,38,80,124
+Sea Level Change Rate,45,56,118,67,211
+Mean Significant Wave Height,80,58,93,105,161
+Tidal Range,201,91,76,64,63

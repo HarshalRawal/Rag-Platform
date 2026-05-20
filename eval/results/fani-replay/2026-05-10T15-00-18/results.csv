@@ -1,0 +1,2 @@
+query_id,category,config,role,factual_grounding,sop_alignment,appropriate_uncertainty,total,hallucination_detected,temporal_filter_breach,crag_fired,elapsed_ms,agent,error
+CA,CONTAMINATION,B,operator,2,1,1,4,false,false,false,19152,DisasterResponseAgent,

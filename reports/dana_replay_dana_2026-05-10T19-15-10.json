@@ -1,0 +1,276 @@
+{
+  "run_id": "dana_2026-05-10T19-15-10",
+  "generated_at": "2026-05-10T19:19:57.861Z",
+  "results": [
+    {
+      "phase": 1,
+      "name": "Early watch",
+      "mode": "full",
+      "as_of": "2024-10-21T18:00:00+05:30",
+      "warning_level": "YELLOW",
+      "chunks_retrieved": 8,
+      "chunk_sources": [
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.5665303
+        },
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.56474894
+        },
+        {
+          "doc": "Dana Bulletin #SM2",
+          "source": "imd_dana",
+          "score": 0.7171229
+        },
+        {
+          "doc": "Dana Bulletin #SM1",
+          "source": "imd_dana",
+          "score": 0.7142674
+        },
+        {
+          "doc": "Dana Bulletin #SM3",
+          "source": "imd_dana",
+          "score": 0.7088095
+        },
+        {
+          "doc": "Dana Bulletin #SM3",
+          "source": "imd_dana",
+          "score": 0.7075024
+        },
+        {
+          "doc": "Assessment of DRM Effectiveness Responding to Cyclone Phailin in Odisha",
+          "source": "corpus",
+          "score": 0.6648396
+        },
+        {
+          "doc": "India - Cyclone Fani Situation Report #2",
+          "source": "corpus",
+          "score": 0.6471553
+        }
+      ],
+      "latency_ms": 51110,
+      "input_tokens": 8564,
+      "output_tokens": 2500,
+      "response": "# OSDMA Operational Advisory — Cyclone Dana Pre-Watch\n**Timestamp:** 2024-10-21T18:00:00+05:30 | **Warning Level:** YELLOW | **Phase:** PRE-WATCH\n**System Status:** Well Marked Low Pressure Area | **Distance:** ~900 km from Odisha coast\n**Projected Landfall:** Puri–Sagar Island corridor, night of 24th/early 25th October 2024\n\n---\n\n## SITUATION ASSESSMENT\n\nPer **Dana Bulletin #SM3** (issued 2024-10-21T11:30 IST), the system is currently a Well Marked Low Pressure Area at 15.0°N/92.0°E with winds of 25–35 kmph gusting to 45 kmph. IMD projects intensification to **Severe Cyclonic Storm (100–110 kmph, gusting 120 kmph)** at landfall. You have an estimated **~54–60 hour window** before landfall. This is your most critical preparedness window — use it fully.\n\n> ⚠️ **Key Planning Assumption:** Though current winds are below 60 kmph and the system is in pre-watch phase, IMD's own track table shows rapid intensification to Cyclonic Storm intensity by **23rd October morning** and Severe Cyclonic Storm intensity by **24th October afternoon** *(Dana Bulletin #SM3)*. Do NOT pace preparedness to current YELLOW level — pace it to projected RED-level impact.\n\n---\n\n## 1. IMMEDIATE ACTIVATION OF DISTRICT EOCs\n\n**Per SDMP §5.3.1 (Early Warning: Monitoring):**\n\n- **Activate all District Emergency Operations Centres (DEOCs) immediately** to function **round the clock** with adequate manpower, essential equipment, and logistics.\n- All officers on leave in affected districts to be **recalled to duty now**.\n- District Collectors to ensure **continuous monitoring** of IMD bulletins; next bulletin expected at **1130 hrs IST, 22nd October** *(Dana Bulletin #SM3)*.\n- EOC to establish **round-the-clock communication links** with SEOC via telephone, fax, wireless, and email *(SDMP §3.2.2)*.\n\n**Priority Districts (per Dana Bulletin #SM3):**\nBalasore, Bhadrak, Kendrapara, Jagatsinghpur, Puri, Khorda, Cuttack, Jajpur, Mayurbhanj, Dhenkanal, Ganjam, Gajapati, and Kendujhar.\n\n---\n\n## 2. CONVENE DISTRICT DISASTER MANAGEMENT AUTHORITY (DDMA) MEETING\n\n**Per Phailin response precedent (Phailin RDNA, 08.10.2013):**\n\n- Each District Collector in the above districts should **convene a DDMA meeting immediately** to:\n  - Review preparedness status of all departments and organisations at district and sub-district level\n  - Issue specific directions for further preparedness measures\n  - Assign departmental responsibilities and confirm contact chains\n- This action was taken on **Day 1 of the Phailin warning** and is considered a proven best practice for Odisha.\n\n---\n\n## 3. EARLY WARNING DISSEMINATION — INITIATE NOW\n\n**Per SDMP §5.3.1 (Early Warning SOP):**\n\n### Message Preparation\n- Draft clear, specific warnings stating: **nature of threat, probable time of impact (night 24th–morning 25th Oct), severity (severe cyclonic storm), and public action instructions**.\n- Messages must **not create panic** but must convey urgency. Disseminate primarily during **daytime hours** where possible.\n- Emphasise: system is currently distant but **will intensify rapidly over 48–72 hours**.\n\n### Dissemination Channels — Deploy All Available:\n| Channel | Action Required |\n|---|---|\n| Radio & Television | Coordinate with DD/AIR for repeated broadcasts |\n| Public Address Systems | Mount on vehicles (jeeps, tractors, motorcycles, three-wheelers) and deploy to villages |\n| Sirens | Test and activate in coastal areas |\n| Drums/Megaphones | Deploy through Gramrakhis, Home Guards in remote areas |\n| Weekly Markets | Utilise any scheduled markets in the next 48 hours for wide publicity |\n| Pre-recorded messages | Prepare and deploy through PA systems now |\n\n*(SDMP §5.3.1 — all modes explicitly mandated)*\n\n### Coverage Priority:\n- **Remote and inaccessible areas first** — assign dedicated officers\n- Coastal hutment dwellers to be specifically warned to prepare for relocation *(Dana Bulletin #SM3, Action Suggested)*\n- Engage **revenue officials, local NGOs, NCC, teachers, and elected Panchayat representatives** for grassroots reach *(SDMP §5.3.1)*\n\n---\n\n## 4. DEPARTMENTS TO BE PUT ON STANDBY — BY PRIORITY\n\n### TIER 1 — Immediate Standby (Act Now)\n\n| Department/Agency | Required Action |\n|---|---|\n| **Revenue & DM Department / SEOC** | Issue formal early warning through all channels; coordinate district Collectors *(SDMP §5.3.1)* |\n| **ODRAF** | Alert Special DG of Police (HQRS) for ODRAF deployment readiness *(Phailin precedent, 08.10.2013)* |\n| **NDRF** | Notify Commandant, NDRF (19 Mundali) for standby and pre-positioning *(Phailin precedent)* |\n| **Police / Fire Services** | Alert Additional DG Police (Fire Services); mobilise district-level police for warning dissemination and eventual evacuation support *(Phailin precedent)* |\n| **Telecom Authorities** | Alert to ensure communication networks remain operational; activate backup systems *(Phailin precedent)* |\n| **Police Communication Network** | Activate for inter-agency coordination *(Phailin precedent)* |\n\n### TIER 2 — Preparatory Standby (Within 24 Hours)\n\n| Department/Agency | Required Action |\n|---|---|\n| **Health & Family Welfare** | Begin pre-positioning of mobile medical teams and medical relief camps; identify and prepare **Maa Gruhas** for pregnant women *(Fani JRNA precedent — 703 Medical Relief Camps, 199 MMTs deployed)* |\n| **Water Resources / WATCO** | Identify flood-prone river catchments; IMD warns of **riverine flooding potential** *(Dana Bulletin #SM3)*; pre-disinfect open water sources |\n| **Panchayati Raj Institutions** | Mobilise gram panchayat officials and village-level volunteers for warning dissemination and shelter preparation *(Fani JRNA — PRIs played central role in 1.34M evacuation)* |\n| **Fisheries Department** | Issue **immediate ban on fishing** in Andaman Sea (now), East-Central Bay of Bengal (21–24 Oct), and along Odisha–West Bengal coasts (23–25 Oct) *(Dana Bulletin #SM3)*; ensure all fishermen at sea **return to coast by 21st October** |\n| **OSDMA** | Conduct **mock response drills at cyclone shelters** immediately *(Phailin precedent, 08.10.2013)*; verify shelter readiness and capacity |\n| **Transport / PWD** | Identify evacuation routes; check for structural vulnerabilities on key roads |\n\n### TIER 3 — Alert and Monitor (48-Hour Horizon)\n\n| Department/Agency | Required Action |\n|---|---|\n| **Indian Railways** | Begin advisories per IMD recommendation; plan for possible suspension of services in coastal districts *(Dana Bulletin #SM3 — regulatory action suggested)* |\n| **Port & Maritime Authorities** | Initiate judicious regulation of offshore/onshore and shipping activity *(Dana Bulletin #SM3)* |\n| **Urban Local Bodies / Water Supply** | Pre-position water tankers, DG sets, and PVC tanks in coastal ULBs *(Fani JRNA precedent — 339 tankers deployed post-Fani)* |\n| **Tourism Department** | Begin advisories discouraging coastal tourism; prepare for restrictions *(Dana Bulletin #SM3)* |\n| **All State Government Departments** | Alert all field officers in cyclone-prone districts per Collector instructions *(Phailin precedent, 08.10.2013)* |\n\n---\n\n## 5. FISHING COMMUNITY — URGENT IMMEDIATE ACTION\n\n**Per Dana Bulletin #SM3 (Action Suggested):**\n\n- Fishermen **must not venture** into the East-Central Bay of Bengal from **21–24 October**\n- All fishermen currently at sea **must return to coast by 21st October** — this is time-critical given current timestamp of 18:00 IST on 21st October\n- **Total suspension of all fishing operations: 22nd–25th October** over Central and North Bay of Bengal\n- Coastal hutment dwellers to be identified and prepared for relocation to safer places\n\n> 🚨 **This action is time-critical. Any fishermen still at sea as of this advisory must be contacted and directed to return immediately.**\n\n---\n\n## 6. EARLY WARNING SUPERVISION AND MONITORING\n\n**Per SDMP §5.3.1 (Early Warning: Monitoring):**\n\n- Collector to **depute officers from district HQ** to supervise warning dissemination with PA systems in the field\n- District HQ to collect **time-to-time progress reports** from Blocks on:\n  - Areas covered\n  - Mode of warning used\n  - Number of times warning given\n- Supervising officers to report satisfaction levels on coverage\n- **Principle: sooner is better. No time to be wasted in message drafting.** *(SDMP §5.3.1)*\n\n---\n\n## 7. PLANNING BENCHMARKS FROM PAST EVENTS\n\nFor operational scale-planning, note the following benchmarks from comparable Odisha responses:\n\n| Metric | Fani 2019 | Phailin 2013 |\n|---|---|---|\n| Personnel mobilised | 45,000+ volunteers, 100,000+ officials *(Fani JRNA)* | 14 district Collectors alerted Day 1 *(Phailin RDNA)* |\n| Evacuated population"
+    },
+    {
+      "phase": 2,
+      "name": "Escalation to orange",
+      "mode": "full",
+      "as_of": "2024-10-23T06:00:00+05:30",
+      "warning_level": "ORANGE",
+      "chunks_retrieved": 8,
+      "chunk_sources": [
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.5259718
+        },
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.4968875
+        },
+        {
+          "doc": "Dana Bulletin #6",
+          "source": "imd_dana",
+          "score": 0.7711239
+        },
+        {
+          "doc": "Dana Bulletin #1",
+          "source": "imd_dana",
+          "score": 0.7516825
+        },
+        {
+          "doc": "Dana Bulletin #2",
+          "source": "imd_dana",
+          "score": 0.7481845
+        },
+        {
+          "doc": "Dana Bulletin #5",
+          "source": "imd_dana",
+          "score": 0.74527645
+        },
+        {
+          "doc": "India - Cyclone Fani Situation Report #2",
+          "source": "corpus",
+          "score": 0.6845697
+        },
+        {
+          "doc": "Assessment of DRM Effectiveness Responding to Cyclone Phailin in Odisha",
+          "source": "corpus",
+          "score": 0.6775613
+        }
+      ],
+      "latency_ms": 50329,
+      "input_tokens": 3332,
+      "output_tokens": 2500,
+      "response": "# OSDMA OPERATIONAL ADVISORY — CYCLONE DANA\n**Timestamp:** 2024-10-23T06:00:00+05:30 | **Warning Level:** ORANGE | **Landfall ETA:** ~48 hours\n\n---\n\n## SITUATION SUMMARY\n\nPer **Dana Bulletin #6** (issued 05:30 IST, 23 Oct 2024), Dana is currently at **560 km from Paradip**, wind speeds at **80 km/h**, with an ORANGE warning active. Affected districts listed: **Balasore, Bhadrak, Kendrapara, Jagatsinghpur, Puri, Khorda, Cuttack**. With landfall projected near the Kendrapara–Jagatsinghpur belt in ~48 hours and winds forecast at 90–100 km/h at landfall with 1–2 m storm surge, the administration is now in the **Cyclone Warning phase** per IMD's four-stage system.\n\n> ⚠️ **Note:** Full bulletin text for Bulletin #6 is pending PDF extraction (metadata stub only). Verify complete technical details — including precise track, surge zones, and rainfall forecasts — directly from IMD RSMC/Bhubaneswar before disseminating operational orders.\n\n---\n\n## 1. PRIORITY DISTRICTS FOR IMMEDIATE ACTION\n\n**Tier 1 — Highest Priority (landfall belt + surge exposure):**\n- **Kendrapara** *(listed across Bulletins #1 through #6 — consistent threat zone)*\n- **Jagatsinghpur** *(listed across all bulletins; landfall zone)*\n\n**Tier 2 — High Priority (coastal, wind + surge impact):**\n- **Bhadrak, Balasore** *(added from Bulletin #5 onward as system intensified)*\n- **Puri** *(present since Bulletin #1; tourist population risk)*\n\n**Tier 3 — Secondary Impact (inland wind + rain):**\n- **Khorda, Cuttack** *(added at ORANGE phase per Bulletin #6)*\n\n> *Per **Phailin RDNA (2013)**, 14 cyclone-prone districts were alerted on Day 1 of warning receipt, including Ganjam, Jajpur, Mayurbhanj, Keonjhar, Nayagarh, Dhenkanal, and Gajapati — even for inland impacts. Collectors of these districts should be placed on standby alert now, particularly for post-landfall rainfall/flooding scenarios.*\n\n---\n\n## 2. IMMEDIATE EVACUATION ACTIONS (Execute in Next 6–12 Hours)\n\n### 2.1 Activate District Collectors — All 7 Named Districts\n- Issue formal directives to Collectors of **Balasore, Bhadrak, Kendrapara, Jagatsinghpur, Puri, Khorda, Cuttack** via telephone, fax, e-mail, and wireless simultaneously *(per **SDMP 2019 §3.2.2**)*.\n- Collectors must **convene DDMA meetings immediately** to review preparedness status of all departments *(per **Phailin RDNA** response protocol, 08.10.2013)*.\n- All officers on leave to be **recalled immediately** *(per Phailin protocol)*.\n\n### 2.2 Activate District and State EOCs to 24×7 Operations\n- **SEOC** to go full 24×7 with adequate manpower, equipment, and communication *(per **SDMP 2019 §5.3.1**)*.\n- **DEOCs** in all Tier 1 and Tier 2 districts to activate immediately with round-the-clock staffing *(per Phailin protocol)*.\n\n### 2.3 Begin Evacuation of High-Risk Coastal Populations\n- **Priority evacuation zones:** Areas within the **storm surge inundation belt (1–2 m)** in Kendrapara and Jagatsinghpur — focus on low-lying coastal villages, riverine islands (particularly in Mahanadi delta), and areas below 3 m elevation.\n- Mobilize **Tahsildars and BDOs** to communicate evacuation orders down to Gram Panchayat and village level *(per **SDMP 2019 §3.2.2**)*.\n- Deploy **public address systems on vehicles** (jeeps, tractors, three-wheelers, motorcycles) for last-mile reach *(per **SDMP 2019 §5.3.1**)*.\n- Brief **Home Guards and Gramrakhis** to disseminate warnings immediately *(per **SDMP 2019 §5.3.1**)*.\n- Leverage **weekly markets** if active in the area for mass public reach *(per **SDMP 2019 §5.3.1**)*.\n\n### 2.4 Tourist and Special Population Evacuation\n- **Puri** requires special attention for tourist evacuation *(per **Fani JRNA**: 24,889 tourists were evacuated from Puri, Ganjam, Cuttack, Balasore during Fani)*.\n- Coordinate with hospitality establishments, transport authorities, and police for organized tourist movement to safe zones.\n\n### 2.5 Deploy ODRAF and NDRF Teams\n- **Alert and begin deployment** of ODRAF teams and Fire Services to Tier 1 and Tier 2 districts now *(per Phailin protocol: Special DG Police/ODRAF, ADG Fire Services, and NDRF Mundali were placed on alert on Day 1)*.\n- Per **Fani JRNA**: 20 ODRAF teams + 525 fire teams were deployed for Fani. Scale deployment accordingly for a comparable landfall scenario.\n- Pre-position teams at district HQs rather than forward positions at this stage; advance to sub-district level as the system closes within 24 hours.\n\n---\n\n## 3. WARNING DISSEMINATION — IMMEDIATE STEPS\n\n### 3.1 Multi-Modal Warning Activation\nPer **SDMP 2019 §5.3.1**, activate ALL available channels simultaneously:\n- ✅ **Television and Radio** — broadcast warnings with clear message on threat type, timing, severity, and public action\n- ✅ **LBAS SMS alerts** to mobile subscribers in affected districts *(Fani precedent: 18 million subscribers reached)*\n- ✅ **Coastal siren towers / EWDS** — activate automatic coastal warning system *(per Fani JRNA)*\n- ✅ **VHF wireless** to block and GP level\n- ✅ **Public Address Systems** on vehicles in coastal talukas\n- ✅ **Drums and megaphones** for remote/inaccessible areas\n\n### 3.2 Warning Message Standards\nMessages must include *(per **SDMP 2019 §5.3.1**)* :\n- Clear identification of threat (cyclone, storm surge, heavy rain)\n- Probable landfall time (~48 hours from now)\n- Areas at risk (name specific villages/blocks)\n- Instructions: where to go, what to carry, when to leave\n- **Do NOT create panic** — messages should be firm, clear, and action-oriented\n- Repeat continuously; do not issue only once\n\n### 3.3 Supervise Dissemination Coverage\n- Collectors to **deploy officers from district HQ** to supervise warning operations in blocks *(per **SDMP 2019 §5.3.1**)*.\n- DEOCs to collect time-stamped progress reports from blocks: areas covered, mode used, number of broadcasts completed *(per **SDMP 2019 §5.3.1**)*.\n- Specific focus on **remote, inaccessible, and highly vulnerable pockets** — these require additional resources.\n\n---\n\n## 4. PRE-POSITIONING OF RESOURCES\n\n### 4.1 Relief Materials\n- **Polythene sheets:** Pre-position at district and sub-district levels *(Fani precedent: 0.45 million sheets pre-positioned, 1.5 lakh in state buffer stock)*.\n- **Food packets:** Prepare ready-to-distribute and air-droppable food packets at state level *(Fani precedent: 100,000 packets prepared for air dropping)*.\n- Pre-position at **block and GP level** — do not hold all stock at district HQ.\n\n### 4.2 Cyclone Shelters\n- **Conduct mock response drills** at all cyclone shelters in Tier 1 and Tier 2 districts immediately *(per Phailin protocol — OSDMA directed to conduct mock drills upon first warning)*.\n- Verify shelter capacity, structural integrity, water supply, sanitation, and generator status.\n- **Open shelters** for early/voluntary evacuees in the highest-risk coastal zones of Kendrapara and Jagatsinghpur within the next 12 hours.\n- Plan for free kitchen operations at shelters *(Fani precedent)*.\n\n### 4.3 Communications Backup\n- Alert **telecom authorities** and ensure police communication networks are operational *(per Phailin protocol)*.\n- Ensure satellite phone/wireless backup at all DEOCs — landline and mobile networks may fail post-landfall.\n\n### 4.4 All-Department Alert\n- All state government line departments to **alert their field officers** in cyclone-prone districts and coordinate with Collectors *(per Phailin protocol)*.\n\n---\n\n## 5. WHAT THE CONTEXT DOES NOT COVER — EXPLICIT GAPS\n\nThe following are **not addressed in the retrieved context** and must be sourced separately:\n\n1. **Specific storm surge inundation maps** for the Kendrapara–Jagatsinghpur belt — obtain from IMD/INCOIS surge forecast and OSDMA's district vulnerability maps.\n2. **Exact evacuation numbers** (population in high-risk zones) — requires district Census/vulnerability data not present in retrieved chunks.\n3. **Current cyclone shelter inventory and capacity figures** for the 7 named districts — verify with OSDMA shelter database.\n4. **Full technical details of Dana Bulletin #6** — PDF text extraction is pending; raw bulletin must be reviewed for track, intensification forecast, and rainfall warnings before issuing public communications.\n5. **Road/bridge closures and transport logistics** for evacuation — requires coordination with NH/NHAI and"
+    },
+    {
+      "phase": 3,
+      "name": "Pre-landfall — PRIMARY EVALUATION",
+      "mode": "full",
+      "as_of": "2024-10-24T12:00:00+05:30",
+      "warning_level": "RED",
+      "chunks_retrieved": 8,
+      "chunk_sources": [
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.55915296
+        },
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.5388485
+        },
+        {
+          "doc": "Dana Bulletin #14",
+          "source": "imd_dana",
+          "score": 0.82189333
+        },
+        {
+          "doc": "Dana Bulletin #12",
+          "source": "imd_dana",
+          "score": 0.8179553
+        },
+        {
+          "doc": "Dana Bulletin #16",
+          "source": "imd_dana",
+          "score": 0.816866
+        },
+        {
+          "doc": "Dana Bulletin #13",
+          "source": "imd_dana",
+          "score": 0.8158015
+        },
+        {
+          "doc": "Cyclone Fani Joint Rapid Needs Assessment Report",
+          "source": "corpus",
+          "score": 0.67543477
+        },
+        {
+          "doc": "India - Cyclone Fani Situation Report #2",
+          "source": "corpus",
+          "score": 0.6753486
+        }
+      ],
+      "latency_ms": 55188,
+      "input_tokens": 12046,
+      "output_tokens": 2500,
+      "response": "# OSDMA OPERATOR BRIEFING — CYCLONE DANA\n**Classification: OPERATIONAL | Active Warning: RED**\n**Briefing Generated: 2024-10-24T12:00:00+05:30**\n**Reference: IMD Dana Bulletin #16 (latest confirmed, issued 11:30 IST)**\n\n---\n\n## SITUATION SUMMARY\n\nSevere Cyclonic Storm **DANA** is currently located at **19.2°N / 87.9°E**, **180 km southeast of Paradip** (per Dana Bulletin #16). Sustained winds **100–110 kmph, gusting to 120 kmph** at current position, forecast to intensify to **105–115 kmph gusting 125 kmph** by 17:30 IST today before landfall.\n\n> **⚠️ NOTE ON OPERATOR QUERY vs. BULLETIN DATA:** The operator query states winds of 120 kmph sustained / 135 kmph gusting. Bulletin #16 (the most recent retrieved, issued 11:30 IST) shows 100–110 kmph / gusting 120 kmph with a peak intensity of 105–115 / gusting 125 kmph forecast for 17:30 IST. The operator's figures may reflect a subsequent bulletin not yet retrieved or a field-level upgraded assessment. **This briefing uses Bulletin #16 as the authoritative baseline and flags the operator's intensity figures as potentially representing an upgraded classification. Verify against the next IMD bulletin immediately.**\n\n**Estimated landfall:** Midnight 24 Oct – early morning 25 Oct, near **Bhitarkanika–Dhamara**, north Odisha coast (per Dana Bulletins #13, #14, #16 — consistent across all three bulletins).\n\n**Time to landfall from briefing timestamp: approximately 13–15 hours.**\n\n---\n\n## 1. DISTRICTS AT HIGHEST RISK — PRIORITY RANKING\n\nRanked by combined exposure to **storm surge + extreme wind + extreme rainfall**, grounded in Dana Bulletin #16 warnings and geographic proximity to landfall zone.\n\n| Priority | District | Primary Hazard | Basis |\n|----------|----------|---------------|-------|\n| **P1** | **Kendrapara** | Storm surge (2–3 m), extreme rainfall ≥21 cm, direct landfall zone | Bulletin #16 rainfall warning; operator surge assessment; Bhitarkanika coast |\n| **P1** | **Bhadrak** | Storm surge, extreme wind (landfall corridor), extreme rainfall | Bulletin #16; Dhamara coast in direct path |\n| **P1** | **Balasore** | Storm surge, gale winds 100–110 kmph, extreme rainfall | Bulletin #16; northernmost coastal district in impact zone |\n| **P2** | **Jagatsinghpur** | Storm surge, extremely heavy rainfall, coastal exposure near Paradip | Bulletin #16 rainfall warning; Paradip port district |\n| **P2** | **Jajpur** | Extremely heavy rainfall ≥21 cm, inland flooding, river surge | Bulletin #16 rainfall warning |\n| **P2** | **Baleswar (Balasore)** | Already listed at P1 — note Baleswar = Balasore | Confirmed same district |\n| **P3** | **Cuttack** | Extremely heavy rainfall, river flooding (Mahanadi basin) | Bulletin #16 |\n| **P3** | **Puri** | Gale winds, coastal flooding, heavy rainfall | Bulletin #16; southern limit of surge zone |\n| **P3** | **Khorda** | Very heavy to extremely heavy rainfall, wind damage | Bulletin #16 |\n| **P3** | **Mayurbhanj** | Extremely heavy rainfall, inland impact post-landfall | Bulletin #16 |\n| **P4** | **Dhenkanal, Kendujhar** | Heavy to extremely heavy rainfall, inland flooding | Bulletin #16 |\n\n**⚡ IMMEDIATE ACTION DISTRICTS (P1): Kendrapara, Bhadrak, Balasore** — these three districts face the intersection of maximum surge, maximum wind, and maximum rainfall. All mandatory evacuation orders must be fully executed in these districts **within the next 4–6 hours** to allow safe shelter-in before landfall conditions make movement impossible.\n\n---\n\n## 2. MANDATORY EVACUATION TRIGGER — SDMP THRESHOLD ASSESSMENT\n\n### Is the SDMP §6.2 threshold met?\n\n**YES — THRESHOLD IS MET AND EXCEEDED.**\n\nPer the **Odisha SDMP 2019**, the SOP table (Table 6.7) establishes that for cyclone/flood events, evacuation to temporary shelters is triggered at **T-0 days**, with pre-arrangement coordination beginning at **T-3 days**. At **T-3 days**, the BDO is responsible for coordinating with the Inspector of Schools to use school buildings as cyclone shelters, and by T-0, evacuation must be underway (SDMP Table 6.7).\n\nThe SDMP further mandates, under Phase-II During Disaster (Table 6.9): *\"With the final warning, operations for the evacuation of people and the livestock to safer places before the disaster strikes\"* must commence, with Block/Panchayat Samitis arranging transport and the District/Zilla Parishad issuing warnings at close intervals to all concerned.\n\n**Triggering conditions met as of this briefing:**\n\n| SDMP Trigger Criterion | Current Status |\n|------------------------|---------------|\n| RED Warning issued by IMD | ✅ Confirmed — Bulletin #16 |\n| Landfall within 24 hours | ✅ ~13–15 hours to landfall |\n| Storm surge forecast ≥2 m | ✅ 2–3 m forecast (operator assessment; 2 m per Bulletin #16) |\n| Gale winds ≥60 kmph on coast | ✅ Currently 60–70 kmph, rising to 100–110 kmph (Bulletin #16) |\n| Districts formally listed in warning | ✅ All P1–P3 districts named in Bulletin #16 |\n\n**Action required NOW per SDMP §6.2 and Table 6.9:**\n- District Collectors must have activated DDMC and round-the-clock control rooms\n- BDOs must deploy Task Forces to villages in likely-affected zones\n- Sarpanches must open GP offices and cyclone shelters immediately\n- Special arrangements mandatory for **handicapped persons, children, and expectant mothers** (per SDMP Table 6.9, Phase-I, GP row 4)\n\n> **⚠️ WINDOW CLOSING:** Coastal roads in Kendrapara, Bhadrak, and Balasore will likely become impassable once winds exceed 60–70 kmph consistently. Per Bulletin #16, coastal gale conditions reach 100–110 kmph from **afternoon 24 Oct**. Effective evacuation window is **approximately 12:00–16:00 IST today**.\n\n---\n\n## 3. RELIEF CAMP ACTIVATION CHECKLIST\n\nGrounded in SDMP 2019 Tables 6.7, 6.8, and 6.9.\n\n### A. IMMEDIATE ACTIVATION (DO NOW — before 14:00 IST)\n\n- [ ] **Open all designated cyclone shelters** — GP-level Sarpanches to open shelters; BDOs to confirm school buildings activated as per coordination with Inspector of Schools (SDMP Table 6.7)\n- [ ] **Activate District Control Rooms (DCR)** 24/7 with District Collector heading; confirm all shifts manned (SDMP Table 6.8)\n- [ ] **Establish DDMC, BDMC, GPDMC continuity** — all levels must be actively coordinating (SDMP Table 6.8)\n- [ ] **Confirm round-the-clock control room functioning** at district level (SDMP Table 6.8, DCR preparedness column)\n\n### B. PEOPLE AND LIVESTOCK MOVEMENT\n\n- [ ] **Evacuate all coastal villages** in P1 districts (Kendrapara, Bhadrak, Balasore) — particularly those within storm surge inundation zone (2–3 m above astronomical tide per operator assessment)\n- [ ] **Special evacuation protocols** for handicapped, children, expectant mothers (SDMP Table 6.9, GP Phase-I row 4)\n- [ ] **Arrange transport at Block level** to assist Gram Panchayats for evacuation (SDMP Table 6.9, Block/Panchayat Samiti Phase-II row 2)\n- [ ] **Livestock movement** to higher ground — coordinate with Animal Husbandry department; GP-level responsibility (SDMP Table 6.9, GP Phase-II row 3)\n- [ ] **Tourist evacuation** — per Fani precedent, 24,889 tourists were moved from Puri, Ganjam, Cuttack, and Balasore districts (Fani SitRep #2). Puri is a P3 district; tourist clearance must be confirmed\n\n### C. RELIEF CAMP OPERATIONS\n\n- [ ] **Drinking water** pre-positioned at all shelters — GP/BDO responsibility, T-0 (SDMP Table 6.7)\n- [ ] **Medical stock at BNRGSK** confirmed — monthly check per SDMP Table 6.7; verify current stock levels are adequate\n- [ ] **Sanitation** arrangements at all relief camps — BDO/Sarpanch/EO responsibility (SDMP Table 6.7)\n- [ ] **Food stocks** confirmed at GP level: stocking food grains and drinking water (SDMP Table 6.9, GP Phase-I row 7)\n- [ ] **Pre-positioned dry food packets** — per Fani precedent, 100,000 food packets were prepared and kept ready for air-dropping if required (Fani SitRep #2). Replicate for Dana.\n- [ ] **Polythene sheets** for temporary shelter pre-positioned — Fani used ~0.45 million sheets at district/sub-district level with 1.5 lakh in state buffer stock (Fani SitRep #2). Confirm current inventory.\n- [ ] **Emergency communications** — wireless, emergency comms systems activated at Block and GP levels (SD"
+    },
+    {
+      "phase": 4,
+      "name": "Active landfall",
+      "mode": "full",
+      "as_of": "2024-10-25T02:00:00+05:30",
+      "warning_level": "RED",
+      "chunks_retrieved": 8,
+      "chunk_sources": [
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.5108959
+        },
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.5086194
+        },
+        {
+          "doc": "Dana Bulletin #20",
+          "source": "imd_dana",
+          "score": 0.78979063
+        },
+        {
+          "doc": "Dana Bulletin #17",
+          "source": "imd_dana",
+          "score": 0.7672335
+        },
+        {
+          "doc": "Dana Bulletin #9",
+          "source": "imd_dana",
+          "score": 0.75462604
+        },
+        {
+          "doc": "Dana Bulletin #15",
+          "source": "imd_dana",
+          "score": 0.7487637
+        },
+        {
+          "doc": "Assessment of DRM Effectiveness Responding to Cyclone Phailin in Odisha",
+          "source": "corpus",
+          "score": 0.6931549
+        },
+        {
+          "doc": "India - Cyclone Fani Situation Report #2",
+          "source": "corpus",
+          "score": 0.6825597
+        }
+      ],
+      "latency_ms": 50754,
+      "input_tokens": 3744,
+      "output_tokens": 2418,
+      "response": "# OSDMA EMERGENCY RESPONSE BRIEF\n**Timestamp:** 2024-10-25T02:00:00+05:30 | **Status:** ACTIVE LANDFALL | **Warning:** RED\n**Event:** Cyclone Dana — Landfall in progress, Bhitarkanika–Dhamra coast\n\n---\n\n## 1. IMMEDIATE RESPONSE PRIORITIES — NEXT 6 HOURS\n\n### 1.1 Life Safety & Evacuation Verification\n- **Confirm shelter-in-place status** for all evacuees. Per *Dana Bulletin #17*, full evacuation of coastal zones was mandatory as of 1130 IST 24 Oct. Any persons still in kutcha houses or low-lying areas in Bhadrak, Kendrapara, and Jagatsinghpur must be treated as **stranded persons requiring immediate rescue** — do not attempt fresh evacuation moves during peak landfall winds.\n- **Storm surge priority:** Bulletin #20 confirms **2m surge above astronomical tide** at the Bhitarkanika–Dhamra coast. Low-lying inundation is active now. Focus life-safety resources on coastal hamlets in Bhadrak and Kendrapara within 5–10 km of the coastline. *(Dana Bulletin #20)*\n- **Do not move personnel into the open** during eye-wall passage (wind 100–110 km/h sustained). Per *SDMP §6.3.8 Impact Phase*: protect personnel, equipment, and communications first. Rescue operations commence immediately **after** the eye-wall clears.\n\n### 1.2 Activate the 72-Hour Golden Hour Clock\n- Per *SDMP §6.3.8*: **\"The first 72 hours is called the golden hours.\"** Clock starts now — 0200 IST 25 Oct. All SAR operations must be fully operational by 0800 IST at the latest as winds begin to moderate post-landfall.\n- Ensure ODRAF and NDRF team leaders have confirmed deployment orders and are staged at forward positions. *(SDMP §3.1.18; Dana Bulletin #15 confirms 5+ NDRF teams pre-positioned)*\n\n### 1.3 Power & Infrastructure\n- Per *Phailin RDNA*: Energy Department must have manpower and materials **pre-mobilised** to affected districts for prompt power restoration. Confirm this mobilisation is ready to move the moment wind speeds drop below safe working thresholds (~60 km/h).\n- All critical facilities (shelters, control rooms, hospitals) must be confirmed on **generator backup** with minimum 7-day fuel reserves. *(Phailin RDNA: \"Fuel reserves for at least 7 days were stored for generators\")*\n- Activate dewatering pumps (H&UD) for storm surge and rainfall inundation. *(Phailin RDNA)*\n\n### 1.4 Health & Relief Pre-positioning\n- Confirm mobile medical teams are staged at district headquarters of **Bhadrak, Kendrapara, Balasore, and Jagatsinghpur**. *(Phailin RDNA: \"Health and FW Department pre-positioned medicines and mobile medical teams\")*\n- Free kitchens to be activated in all shelter clusters immediately. Per *Fani JRNA*: cooked food provision was a core first-phase response. Dry food stocks (chuda, gur) must be confirmed at block-level warehouses. *(Phailin RDNA)*\n- Polythene sheets for temporary shelter: confirm buffer stocks are accessible at district/sub-district level. Per *Fani JRNA*: ~0.45 million polythene sheets were pre-positioned at this stage during Fani response.\n\n---\n\n## 2. DISTRICTS REQUIRING EMERGENCY SAR PRE-POSITIONING\n\n**Priority Tier 1 — Immediate SAR deployment (landfall zone, storm surge active):**\n\n| District | Basis |\n|---|---|\n| **Bhadrak** | Landfall district — eye crossing coast per Bulletin #20. Maximum wind + surge impact. |\n| **Kendrapara** | Communications disrupted (per operator report). Storm surge inundation active. Adjacent to Bhitarkanika. |\n| **Jagatsinghpur** | Listed in all RED warning bulletins (#15, #17, #20). Coastal exposure. |\n\n**Priority Tier 2 — Forward staging, deploy within 2–3 hours post-landfall:**\n\n| District | Basis |\n|---|---|\n| **Balasore** | Consistently listed across all bulletins (#9, #15, #17, #20). Northern coastal exposure. |\n| **Jajpur** | Listed in Bulletins #15 and #17. Inland flooding risk from cyclonic rainfall. |\n| **Cuttack / Khorda** | Listed in Bulletins #15 and #17. River flooding risk (Mahanadi system) as rainfall accumulates. |\n\n**Priority Tier 3 — Monitor and stage:**\n\n| District | Basis |\n|---|---|\n| **Keonjhar / Mayurbhanj** | Listed in Bulletins #17 and #20. Inland wind and rain damage risk. |\n\n> **ODRAF Note:** Per *SDMP §3.1.18*, ODRAF units **\"do not have any geographical/territorial restrictions in terms of area of operation.\"** Units can be cross-deployed across district boundaries without administrative delay. Activate this authority now for Tier 1 districts.\n\n> **NDRF Note:** Bulletin #15 confirms 5+ NDRF teams pre-positioned. Confirm current locations and assign to Bhadrak and Kendrapara as primary operational zones immediately.\n\n---\n\n## 3. COMMUNICATION PROTOCOLS — DISRUPTED CHANNELS\n\n**Confirmed disruption:** Power and communications down in Bhadrak and Kendrapara per operator report.\n\n### 3.1 Satellite Phones — Primary Fallback\n- Per *Phailin RDNA*: **\"All 14 cyclone-prone districts were provided with satellite phones for ensuring communication in case of failure of telephone/cell phone.\"**\n- **Immediate action:** Confirm Bhadrak and Kendrapara Collectors/EOCs are operating on satellite phone. If contact has not been established in the last 30 minutes, treat as a command-and-control emergency and dispatch a liaison officer with a satellite terminal.\n\n### 3.2 VHF Radio — Operational Fallback\n- Per *SDMP §6.3.8 Impact Phase*: **\"Alternate VHF mast kept ready\"** and **\"Batteries charged\"** are explicit pre-landfall requirements. All district and block EOCs should be operating on VHF.\n- Per *SDMP §6.3.8*: **\"Trigger the system with telecommunication, VHF, HAM, any means of communication for quick search and rescue and to get outside assistance.\"**\n- Assign a **dedicated traffic VHF channel** for relief vehicle movement coordination per *SDMP §6.3.8 Traffic Regulation*.\n\n### 3.3 HAM Radio\n- Per *SDMP §6.3.8*: HAM radio is explicitly listed as an emergency communication alternative. Activate registered HAM operators in Bhadrak and Kendrapara districts now.\n\n### 3.4 BSNL Backup Systems\n- Per *Phailin RDNA*: **\"BSNL authorities made necessary arrangements to ensure operation of telephone/cell phone with backup power system and pre-positioned adequate fuel for generators at telephone exchanges/cell towers.\"**\n- Coordinate with BSNL immediately to confirm generator status at exchanges in affected districts. Cell tower restoration is critical for re-establishing Location Based Alert System (LBAS) capability. *(Fani JRNA: LBAS used to reach 18 million subscribers)*\n\n### 3.5 Vertical Escalation — MHA/NDMA\n- Per *SDMP §6.3.8*: **Home Secretary contacts MHA/NDMA/UN Agencies seeking emergency support — air support, communication support, manpower support.**\n- If Bhadrak/Kendrapara EOC contact cannot be re-established within **30 minutes**, escalate to MHA for aerial communication relay or helicopter-based liaison deployment.\n\n---\n\n## 4. TRAFFIC & ACCESS CONTROL (Immediate)\n\nPer *SDMP §6.3.8 Traffic Regulation* — enforce now at district entry points:\n- **Keep lifeline roads clear** — restrict all non-essential vehicle movement into Bhadrak and Kendrapara.\n- **No vehicle enters with empty fuel tank; no personnel enter empty-handed** (prevents resource drain on affected areas).\n- Liaise with PWD for road clearance teams — chain saws pre-positioned per *Phailin RDNA* for uprooted tree clearance.\n- SP/DIG to establish traffic pickets at all lifeline road intersections leading to Bhadrak and Kendrapara. *(SDMP §6.3.8)*\n\n---\n\n## 5. GAPS / INSUFFICIENT CONTEXT\n\nThe following items **cannot be fully addressed from retrieved context** and require direct confirmation from district EOCs or state operations centre:\n\n- **Current shelter occupancy figures** for Bhadrak and Kendrapara — not available in retrieved bulletins.\n- **Exact inundation extent** of storm surge — Bulletin #20 confirms 2m surge but geographic extent of inundation requires Paradip Doppler radar data or ground confirmation.\n- **Current NDRF/ODRAF exact positions** — Bulletin #15 confirms pre-positioning but specific grid locations not in retrieved context.\n- **Bulletin #21 content** — referenced in operator query but not in retrieved context. Request immediate upload of Bulletin #21 PDF text for updated wind decay and rainfall forecast.\n\n---\n\n**BOTTOM LINE FOR NEXT 6 HOURS:**\n> Protect personnel through eye-wall passage. Maintain satellite/VHF contact with Bhadrak and Kendrapara EOCs. Stage SAR assets at forward positions for deployment the moment wind drops below safe working threshold. Clock is running — 72-hour golden period started at 0200 IST. Full SAR mobilisation must be operational by first light."
+    },
+    {
+      "phase": 5,
+      "name": "Post-landfall relief",
+      "mode": "full",
+      "as_of": "2024-10-26T08:00:00+05:30",
+      "warning_level": "WEAKENING",
+      "chunks_retrieved": 8,
+      "chunk_sources": [
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.4876192
+        },
+        {
+          "doc": "Odisha_SDMP_2019",
+          "source": "corpus",
+          "score": 0.4870491
+        },
+        {
+          "doc": "Dana Bulletin #27",
+          "source": "imd_dana",
+          "score": 0.7514503
+        },
+        {
+          "doc": "Dana Bulletin #24",
+          "source": "imd_dana",
+          "score": 0.7370502
+        },
+        {
+          "doc": "Dana Bulletin #22",
+          "source": "imd_dana",
+          "score": 0.73247755
+        },
+        {
+          "doc": "Dana Bulletin #21",
+          "source": "imd_dana",
+          "score": 0.7229707
+        },
+        {
+          "doc": "Assessment of DRM Effectiveness Responding to Cyclone Phailin in Odisha",
+          "source": "corpus",
+          "score": 0.6893344
+        },
+        {
+          "doc": "India - Cyclone Fani Situation Report #2",
+          "source": "corpus",
+          "score": 0.6873239
+        }
+      ],
+      "latency_ms": 60626,
+      "input_tokens": 10890,
+      "output_tokens": 2500,
+      "response": "# OSDMA POST-LANDFALL RECOVERY BRIEF\n**Cyclone Dana | Situation Timestamp: 2024-10-26T08:00:00+05:30**\n**System Status: Weakening Depression | Active Warning: YELLOW**\n\n---\n\n## SITUATION SUMMARY\n\nPer **Dana Bulletin #27 (issued 2024-10-25T23:30)**, the system has weakened from Severe Cyclonic Storm to Depression, centred at 21.4°N/86.2°E (~50 km NW of Bhadrak), moving westward and expected to further weaken into a well-marked low pressure area within 12 hours. Residual winds of 40–50 kmph gusting to 60 kmph remain active over Balasore, Mayurbhanj, Keonjhar, Bhadrak, and Kendrapara. Light to moderate rainfall with heavy isolated spells continues across north Odisha. **3.2 lakh persons displaced. Power restoration and road connectivity partially underway.**\n\n---\n\n## 1. RELIEF AND RECOVERY PRIORITIES: NEXT 48–72 HOURS\n\n### 1.1 Immediate Life Safety (0–24 hours)\n\n**A. Keep displaced persons in shelters — do not permit premature return.**\nBulletin #27 explicitly states residual squally winds (40–60 kmph) and localized flooding remain active. Returning to damaged kutcha structures before wind and flood assessment is complete creates secondary casualty risk. Per **SDMP §6.3.8 (Impact Phase)**, people must remain away from vulnerable structures until cleared.\n\n**B. Search and Rescue — close the 72-hour window.**\nThe current timestamp is ~30 hours post-landfall. Per **SDMP §6.3.8**, *\"the first 72 hours is called the golden hours.\"* ODRAF and NDRF teams must complete sweeps of all low-lying and flood-inundated areas in **Bhadrak, Kendrapara, Balasore, Jajpur, and Keonjhar** before the window closes at approximately 2024-10-26T03:00. Prioritize:\n- River embankment breach zones (riverine flooding risk flagged in Bulletin #27)\n- Kutcha house clusters not yet reached due to road blockages\n- Areas with localized landslides/mudslides (explicitly flagged in Bulletin #27 for this phase)\n\n**C. Traffic and lifeline road management.**\nPer **SDMP §6.3.8**, lifeline roads must be kept clear for relief movement. Road restoration is partially underway per the operator report. Priority clearing sequence: routes to shelter hubs → routes to medical facilities → routes to block headquarters warehouses. Restrict inbound movement of non-essential vehicles. Per SDMP, *\"No one should enter the disaster area with empty fuel tanks\"* and *\"no one to enter the area empty-handed\"* — enforce to prevent resource drain on affected communities.\n\n---\n\n### 1.2 Shelter Management (24–48 hours)\n\n**A. Sustain and assess shelter capacity.**\n**SDMP §5.5.1.1** confirms 879 multipurpose cyclone/flood shelters across 25 districts are equipped with diesel generators, inflatable tower lights, search and rescue equipment, first aid kits, and kitchen utensils. With 3.2 lakh persons displaced across five districts, verify:\n- Per-shelter headcount vs. rated capacity\n- Generator fuel status (SDMP recommends minimum 7-day fuel reserves per **Phailin RDNA context** — see §1.4 below)\n- Availability of separate male/female facilities and accessibility ramps for persons with disabilities\n\n**B. Food and dry ration distribution.**\nEnsure pre-positioned stocks (chuda, gur, dry foods) are being distributed to all shelter populations. Per **Phailin preparedness documentation**, the FS&CW Department protocol includes pre-positioning dry food and ensuring POL (Petroleum, Oil, Lubricants) availability in affected districts — confirm these stocks are being activated now.\n\n**C. Taskforce volunteer activation.**\nPer **SDMP §5.5.1.1**, each shelter has 50 trained taskforce volunteers (male and female, ages 18–35) trained in Search and Rescue, First Aid, and shelter management. These volunteers should be actively deployed for shelter coordination, record-keeping, and crowd management. Do not rely solely on external agencies.\n\n---\n\n### 1.3 Utilities and Infrastructure Restoration (24–72 hours)\n\n**A. Power restoration — prioritize hospitals and water systems.**\nPower restoration is underway per operator report. Per **Phailin response documentation**, the Energy Department protocol is to pre-mobilize manpower and materials. Restoration sequence must prioritize: hospitals and health facilities → water pumping stations → shelter generators → communication towers → residential areas.\n\n**B. BSNL/Communication towers.**\nPer **Phailin documentation**, BSNL pre-positioned fuel for cell tower generators. Confirm fuel levels at towers across all five affected districts. Satellite phones distributed to affected districts must remain operational. HAM and VHF backup communication should stay active until cellular is fully restored, per **SDMP §6.3.8** (alternate VHF mast kept ready).\n\n**C. Drinking water supply.**\nH&UD and RD Departments must activate dewatering pumps for waterlogged areas and begin disinfection of compromised water sources immediately. This is a direct Phailin protocol (see §2 below for disease risk). Fuel reserves of at least 7 days for water supply generators must be confirmed — **this is a hard operational requirement from Phailin experience.**\n\n**D. Road clearance — chain saws and ODRAF.**\nPer **Phailin documentation**, ODRAF units, Fire Services, and cyclone shelter chain saws are to be deployed for uprooted tree removal. This directly enables road connectivity restoration. Coordinate with PWD for structural road repair, particularly on kutcha roads damaged per Bulletin #27.\n\n---\n\n### 1.4 Agriculture and Livelihoods (48–72 hours)\n\n**Bulletin #27** explicitly lists damage to standing crops including banana, papaya, horticultural, and vegetable crops due to inundation and wind. The F&ARD Department must deploy mobile veterinary teams to affected districts for cattle health (per Phailin protocol). Begin crop damage assessment by 72 hours to frame compensation claims under SDRF/NDRF norms. Context does not include specific crop compensation figures — **refer to current SDRF guidelines separately.**\n\n---\n\n## 2. FANI 2019 LESSONS FOR RESOURCE ALLOCATION\n\nThe **Fani JRNA (Situation Report #2)** documents the response to a Category 4 cyclone affecting 15 million people in Odisha, with only 64 deaths attributed to pre-landfall evacuation of 1.47 million people using 45,000 volunteers, 2,000 emergency workers, and 100,000 officials. Key transferable lessons for Dana recovery resource allocation:\n\n### 2.1 Institutional Coordination is the Force Multiplier\nFani's success was attributed to NDRF + ODRAF + Panchayati Raj Institutions + youth clubs + civil society operating in an integrated structure. **For Dana recovery:** Do not centralize all resource decisions at district HQ. Activate block-level and GP-level committees (per SDMP §5.5.1 — CBDP programme established DM plans at GP and village levels across 155 blocks and 3,210 GPs). These local structures are your fastest delivery mechanism for last-mile relief.\n\n### 2.2 Scale Volunteer Deployment Against Displacement Numbers\nFani mobilized ~45,000 volunteers for 1.47 million evacuees (~1 volunteer per 33 evacuees). With 3.2 lakh (320,000) displaced in Dana, a proportionate deployment implies approximately **9,700 active volunteers** required for immediate relief operations. Cross-check current deployment numbers against this benchmark and activate CBDP-trained taskforce volunteers from **SDMP Table 5.2** — specifically in Balasore (2,647 villages programmed), Bhadrak (1,248), Kendrapara (1,405), Jajpur (1,572), and Keonjhar (496).\n\n### 2.3 Prioritize Heavily Affected Core Districts with Concentrated Assets\nFani's most severely impacted areas (Puri, Khurdha, Cuttack, Nayagarh, Jagatsinghpur) received concentrated response assets. For Dana, the landfall zone (Bhitarkanika-Dhamara) and the track corridor — **Bhadrak, Kendrapara, Balasore** — likely have the highest structural damage. Allocate the majority of ODRAF teams, heavy equipment, and medical resources to these three districts first, with Jajpur and Keonjhar as second tier given interior flooding.\n\n### 2.4 The UN Recognized Odisha's Pre-Positioned Asset Model\nFani demonstrated that pre-positioned medicines, food stocks, and POL (per Phailin and Fani documentation) enabled immediate post-landfall relief without supply chain delays. **For Dana:** Confirm that district warehouses have not been depleted below minimum stock levels and initiate replenishment orders within 24 hours, particularly for medicines, ORS, chlorine tablets, and dry rations.\n\n### 2.5 Communication Continuity Was Critical\nBoth Phailin and Fani responses relied on satellite phones, VHF, and backup power for communication continuity. With power partially restored in coastal districts, the risk is assuming communication is restored when interior district connectivity (Keonjhar, Dhenkanal) may still be degraded. **Assign dedicated communication officers at block level** in interior districts before standing down satellite phone operations.\n\n---\n\n## 3. EARLY WARNING SIGNS OF SECONDARY CRISES\n\n### 3.1 Disease Outbreak — Watch Indicators\n\n| Warning Sign | Trigger Action |\n|---|---|\n| Reports of diarrhea/gastroenteritis clusters from any single shelter or village | Activate mobile medical teams; collect stool samples; deploy ORS immediately |\n| Multiple fever cases in one shelter within 48 hours | Screen for malaria, typhoid; notify Chief District Medical Officer |\n| Skin rash/eye infection reports from flood-affected areas | Deploy dermatology and ophthalmology kits; assess sanitation conditions |\n| Animal carcasses in or near water bodies | Immediate removal and burial protocol; carcass-free zone perimeter around water sources |\n\n**Operational"
+    }
+  ]
+}

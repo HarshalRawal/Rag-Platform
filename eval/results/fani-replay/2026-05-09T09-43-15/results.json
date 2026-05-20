@@ -1,0 +1,82 @@
+{
+  "summary": {
+    "run_at": "2026-05-09T09:43:15.083Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": {
+      "avg_total": 7,
+      "avg_factual_grounding": 1,
+      "avg_sop_alignment": 3,
+      "avg_appropriate_uncertainty": 3,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 1,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 7,
+          "n": 1
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "config_b": null
+  },
+  "results": [
+    {
+      "id": "CB",
+      "category": "CONTAMINATION",
+      "config": "A",
+      "role": "operator",
+      "query": "How many NDRF teams were deployed and how many people were in cyclone shelters at peak occupancy during the cyclone that hit Puri?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "I have now reviewed all available results. All retrieved chunks are from **Phailin (2013)** and **non-Fani documents**. The EVENT ISOLATION RULE applies here.\n\n---\n\n## ⚠️ Important Clarification: Event Isolation Rule Applied\n\nThe cyclone that most severely hit **Puri** was **Cyclone Fani (May 2019)**, which made landfall near Puri as an Extremely Severe Cyclonic Storm. Your question asks about NDRF deployment numbers and peak shelter occupancy for that event.\n\n**I cannot provide verified figures from the Fani-specific documents for this query.**\n\nAll search results returned from the available knowledge base relate exclusively to **Cyclone Phailin (October 2013)** — a different event — and the Puri DDMP planning documents. The Fani-specific source documents (`UNICEF_Fani_SitRep` and `Fani_JRNA`) returned **zero retrievable chunks** for this query. Presenting Phailin data as Fani data would be factually incorrect, and I will not do so.\n\n### What the available documents *do* tell us (Phailin, for reference only):\n- During **Cyclone Phailin (2013)**, **28 NDRF teams and 10 ODRAF units** were pre-positioned across strategic locations. [Phailin_UNDP_DRM_Survey_2013]\n- For Phailin, approximately **9.84 lakh (983,642) people** were evacuated statewide, with **1,02,000 evacuated from Puri district** specifically. [Phailin_UNDP_DRM_Survey_2013]\n\n> ⚠️ These are **Phailin figures**, not Fani figures. Do not use them to answer Fani-specific questions.\n\n---\n\n### Recommendation\nFor accurate **Cyclone Fani (2019)** figures on NDRF deployment and shelter occupancy in Puri, please consult:\n- The **UNICEF Fani Situation Report** (SitRep #2, May 2019)\n- The **Fani JRNA (Joint Rapid Needs Assessment)**\n\nThese documents are referenced in the platform but their content was not retrievable for this specific query. Please verify directly with those reports or contact the OSDMA/SRC office for official Fani response statistics.\n\n---\n\nCONFIDENCE: **LOW** (topScore=0.6505, avgScore=0.6145, sources=0 from Fani documents — all retrieved content is from Phailin/non-Fani sources; EVENT ISOLATION RULE prevents use of available data)",
+      "ground_truth": "For Cyclone Fani: 44 NDRF teams deployed [Fani JRNA]; approximately 1.47 million in 9,000 temporary shelters at peak [UNICEF SitRep #2]. Config A correct behaviour: CRAG fires — retrieved chunks are from Phailin (different NDRF count, different evacuation scale) — system refuses and names the event mismatch explicitly. Config B correct behaviour: returns Fani figures with citations. Phailin deployed 28 NDRF teams — returning 28 as a Fani figure is a hallucination.",
+      "key_facts": [
+        "44 NDRF teams",
+        "1.47 million",
+        "9,000 shelters",
+        "event mismatch"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Operational numbers that differ between Phailin and Fani. Returning Phailin NDRF counts as Fani figures directly affects deployment decisions. Most direct test of CRAG event_id signal.",
+      "scores": {
+        "factual_grounding": 1,
+        "factual_grounding_reason": "The answer correctly identifies the event mismatch and provides Phailin figures (28 NDRF teams, ~9.84 lakh evacuations) with appropriate labeling, but cannot provide the key Fani facts (44 NDRF teams, 1.47 million, 9,000 shelters) — partial credit for accurate Phailin data and correct event identification.",
+        "sop_alignment": 3,
+        "sop_alignment_reason": "For a CONTAMINATION query under Config A, the answer correctly fires a CRAG refusal, explicitly names the Phailin/Fani event mismatch, and refuses to present Phailin data as Fani data — fully aligned with the required protocol.",
+        "appropriate_uncertainty": 3,
+        "appropriate_uncertainty_reason": "The answer correctly declines to answer with Fani figures, explicitly states the reason (temporal filter / event isolation rule / Fani documents not retrievable), names the Phailin mismatch explicitly, and recommends correct authoritative sources without presenting any Fani figures with false confidence.",
+        "total": 7,
+        "hallucination_detected": false,
+        "hallucination_detail": "none — Phailin figures are explicitly labeled as Phailin figures and not presented as Fani figures; no Fani-specific figures are fabricated or misattributed.",
+        "crag_fired": true,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 51253,
+      "raw_file": "eval/results/fani-replay/2026-05-09T09-43-15/raw/CB-A.txt",
+      "error": null
+    }
+  ]
+}

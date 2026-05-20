@@ -1,0 +1,48 @@
+Query ID  : CA
+Config    : B
+Category  : CONTAMINATION
+Agent     : DisasterResponseAgent
+Elapsed   : 19152ms
+Timestamp : 2026-05-10T15:00:38.118Z
+
+QUERY:
+What was the storm surge height when the severe cyclone hit the Odisha coast near Puri?
+
+GROUND TRUTH:
+Query is deliberately ambiguous — does not specify which cyclone. Phailin (2013): 3.5 metres above astronomical tide in Ganjam district [Phailin RDNA, confirmed in source]. Fani (2019): approximately 1.0-1.5 metres above astronomical tide near Puri coast [lower than Phailin due to different landfall angle]. CORRECT behaviour for BOTH configs: CRAG detects retrieved chunks have event_id=cyclone_phailin_2013, refuses to present the 3.5m figure as Fani planning data, explicitly names the event mismatch. The answer must NOT present the 3.5m Phailin figure in a summary table as if it could apply to future cyclones near Puri — this is the dangerous failure mode.
+
+ANSWER:
+The search results cover multiple cyclones near Odisha. Since your question references "the severe cyclone" near **Puri** without specifying a particular event, here is a comprehensive answer covering the most relevant cyclones documented in our knowledge base:
+
+---
+
+## Storm Surge Heights — Severe Cyclones Near Puri/Odisha Coast
+
+### 🌀 Cyclone Phailin (October 2013) — Most Relevant to Puri Region
+According to the IMD post-cyclone survey report, the **maximum storm surge was 3.5 metres above astronomical tide** in the low-lying areas of **Ganjam district** of Odisha. The inland inundation of saline water extended up to approximately **1 kilometre from the coast**. Cyclone Phailin crossed the Odisha coast near **Gopalpur** (south of Puri) on **October 12, 2013** at around 2230 hrs IST, with sustained winds of **200–210 kmph gusting up to 220 kmph**. [Phailin_RDNA_2013]
+
+### 🌀 Cyclone Dana (October 2024)
+Cyclone Dana made landfall near **Dhamara** (north Odisha coast) in October 2024. The realised storm surge at landfall was **1–2 metres above astronomical tide**, inundating low-lying areas of **Kendrapara and Bhadrak districts**. Puri district was also listed among affected districts but the primary surge impact was to the north. [dana_bulletin_22, dana_bulletin_24]
+
+---
+
+### ⚠️ Note on Cyclone Fani (2019)
+Cyclone Fani made direct landfall near **Puri** on May 3, 2019 and is the most devastating cyclone to directly hit Puri in recent history. However, the specific storm surge height data for Fani is not available with sufficient detail in the currently retrieved documents. If you need Fani-specific surge data, please specify and I will search dedicated Fani situation reports.
+
+---
+
+**Summary Table:**
+
+| Cyclone | Year | Landfall Near | Max Storm Surge |
+|---|---|---|---|
+| Phailin | 2013 | Gopalpur (near Puri) | **3.5 m** above astronomical tide |
+| Dana | 2024 | Dhamara (north coast) | **1–2 m** above astronomical tide |
+
+---
+
+**Sources:**
+- [Phailin_RDNA_2013] — IMD post-cyclone survey report on VSCS Phailin
+- [dana_bulletin_22, dana_bulletin_24] — IMD National Bulletins, October 2024
+
+CONFIDENCE: **MEDIUM** (topScore=0.61, avgScore=0.59, sources=5)
+*(Medium rather than High because the question references "Puri" specifically but the primary surge data retrieved is for Ganjam/Phailin and Kendrapara/Dana rather than Puri itself. Fani — which directly hit Puri — lacks specific storm surge figures in the retrieved chunks.)*

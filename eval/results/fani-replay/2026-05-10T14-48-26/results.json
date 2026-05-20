@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "run_at": "2026-05-10T14:48:26.365Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A",
+      "B"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": null,
+    "config_b": {
+      "avg_total": 9,
+      "avg_factual_grounding": 3,
+      "avg_sop_alignment": 3,
+      "avg_appropriate_uncertainty": 3,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 0,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 9,
+          "n": 1
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "gap_analysis": {
+      "note": "Gap = Config B score minus Config A score.",
+      "overall": 9,
+      "planning_gap": 9,
+      "impact_gap": 0,
+      "contamination_gap": 0,
+      "hybrid_gap": 0,
+      "interpretation": {
+        "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+        "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+        "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+        "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "PA",
+      "category": "PLANNING",
+      "config": "B",
+      "role": "operator",
+      "query": "What is the SDRF norm for assistance to a fully damaged pucca house after a cyclone in Odisha?",
+      "agentName": "ReliefFinanceAgent",
+      "answer": "The Qdrant search has retrieved the exact figure from the SDMP document. Here is the complete and authoritative answer:\n\n---\n\n## 🏠 SDRF Norm: Fully Damaged Pucca House (Cyclone, Odisha)\n\n| Location | SDRF Assistance |\n|---|---|\n| **Plain Areas** | **Rs. 95,100 per fully damaged/destroyed Pucca house** |\n| Hilly Areas (incl. IAP districts) | Rs. 1,01,900 per fully damaged/destroyed Pucca house |\n\n---\n\n### Key Details\n\n- **Fund Type:** SDRF (State Disaster Response Fund) — **state-funded**, with 75% Central share and 25% State share. This assistance is automatic and does not require central government (GOI) approval.\n- **Applicable Disasters:** Cyclone is explicitly covered under SDRF-eligible calamities per MHA guidelines.\n- **Eligibility:** The house must be **fully damaged or destroyed** (not partially or severely damaged, which have separate, lower norms).\n- **Scale Ceiling:** Expenditure must remain within SDRF norms; any amount spent **above this ceiling** must be borne by the State Government from its own resources — it cannot be drawn from SDRF/NDRF.\n\n---\n\n### ⚠️ Important Distinctions (Do Not Confuse With)\n\n| Item | Amount | It Is NOT House Damage |\n|---|---|---|\n| Clothing for families | Rs. 1,800 per family | Separate gratuitous relief item |\n| Utensils/household goods | Rs. 2,000 per family | Separate gratuitous relief item |\n| **Fully damaged Pucca house** | **Rs. 95,100** | ✅ This is the house damage norm |\n\n---\n\n📌 **Source:** Odisha State Disaster Management Plan (SDMP) 2019, Chapter IX, Section 9.2 / Table 9.3 — *List of Items & Norms of Assistance from SDRF/NDRF*\n[Table: `sdmp_table_9_3_sdrf_norms_of_assistance`, SDMP §9.3]\n\n---\n\nCONFIDENCE: **HIGH** (source=qdrant+database, rows_returned=10 from DB + exact match confirmed in SDMP 2019 document text)",
+      "ground_truth": "Rs. 95,100 per house in plain areas; Rs. 1,01,900 in hilly/IAP districts. The house must be an authorised construction certified by the Competent Authority. SDRF is funded 75% Centre + 25% State. [SDMP Table 9.3 — sdmp_table_9_3_sdrf_norms_of_assistance, PostgreSQL]",
+      "key_facts": [
+        "95,100",
+        "pucca",
+        "fully damaged",
+        "SDRF",
+        "plain areas"
+      ],
+      "answerable_without_fani": true,
+      "engineering_property": "Exact SQL retrieval from SDRF norms table. Single verifiable rupee figure — pass/fail is unambiguous.",
+      "scores": {
+        "factual_grounding": 3,
+        "factual_grounding_reason": "All key facts are present and accurate: Rs. 95,100 for plain areas, Rs. 1,01,900 for hilly/IAP districts, pucca house fully damaged, SDRF, 75% Centre + 25% State funding split, and the source table sdmp_table_9_3_sdrf_norms_of_assistance is correctly cited.",
+        "sop_alignment": 3,
+        "sop_alignment_reason": "The answer correctly references SDMP Chapter IX Table 9.3, names the correct fund type (SDRF), eligibility conditions (authorised/fully damaged construction), and the cost-ceiling rule consistent with SDMP/MHA protocol.",
+        "appropriate_uncertainty": 3,
+        "appropriate_uncertainty_reason": "Config B with full corpus accessible; the answer is confidently stated where corpus justifies it, cites the exact source, and does not over-hedge on established planning norms.",
+        "total": 9,
+        "hallucination_detected": false,
+        "hallucination_detail": "none",
+        "crag_fired": false,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 25147,
+      "raw_file": "eval/results/fani-replay/2026-05-10T14-48-26/raw/PA-B.txt",
+      "error": null
+    }
+  ]
+}

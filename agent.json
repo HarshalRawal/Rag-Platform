@@ -1,0 +1,160 @@
+{
+  "name": "gcp_infrastructure_provisioning_workflow",
+  "description": "Complete workflow for AI-powered GCP infrastructure provisioning using Terraform automation, from natural language requirements to deployed resources.",
+  "agent_type": "SequentialAgent",
+  "intermediate_response": true,
+  "sub_agents": [
+    {
+      "name": "session_initialization_agent",
+      "description": "Collects and persists global GCP configuration settings that will be used across all future deployments in the session.",
+      "agent_type": "LlmAgent",
+      "intermediate_response": true,
+      "thinking": false,
+      "sub_agents": [],
+      "instructions": "You are a GCP configuration specialist responsible for collecting essential session-wide settings. Start by explaining that you need to collect global configuration settings that will apply to all future deployments unless explicitly overridden. Ask the user to provide the following information one by one, explaining the purpose of each: project_id (required - your GCP project), organization_id (optional - for organization-level policies), billing_account (optional - for cost tracking), default_region (e.g., us-central1), default_zone (e.g., us-central1-a), environment_name (dev/staging/prod), naming_convention (how to name resources), terraform_state_backend preference (local or GCS), preferred_authentication_method, default_labels/tags for resources, and budget_limit (optional warning threshold). Validate that the project_id exists and is accessible. Store all collected information in a structured format for use by subsequent agents. If any required field is missing, ask for it specifically. Confirm all settings with the user before proceeding.",
+      "model": "gemini-2.5-pro",
+      "show_output": true,
+      "output_key": "global_config",
+      "output_schema": null,
+      "ask_user": {
+        "enabled": true,
+        "input_type": "regular"
+      },
+      "tools": [],
+      "final": false
+    },
+    {
+      "name": "intent_parser_agent",
+      "description": "Analyzes user infrastructure requests to understand required GCP resources, dependencies, and deployment requirements.",
+      "agent_type": "LlmAgent",
+      "intermediate_response": true,
+      "thinking": false,
+      "sub_agents": [],
+      "instructions": "You are an expert cloud architect specializing in GCP infrastructure analysis. Your role is to parse the user's infrastructure request and identify all required components. Analyze the user's request to understand: what GCP resources are needed (compute, storage, networking, databases, etc.), resource relationships and dependencies, networking requirements (VPCs, subnets, load balancers), IAM requirements and service accounts needed, security requirements (firewall rules, private endpoints), scalability requirements (autoscaling, load balancing), and environment type implications. Automatically infer missing dependencies. For example, if someone requests \"Deploy FastAPI on Cloud Run connected to PostgreSQL\", infer the need for Cloud Run service, Cloud SQL PostgreSQL instance, VPC connector for private connectivity, IAM service accounts and permissions, Secret Manager for database credentials, and networking components. Create a comprehensive list of all required resources and their relationships. Use the global configuration from {global_config} to understand the target environment and apply appropriate defaults.",
+      "model": "gemini-2.5-pro",
+      "show_output": true,
+      "output_key": "parsed_intent",
+      "output_schema": null,
+      "ask_user": {
+        "enabled": false,
+        "input_type": "regular"
+      },
+      "tools": [],
+      "final": false
+    },
+    {
+      "name": "architecture_planner_agent",
+      "description": "Generates a comprehensive architecture plan including resource dependencies, networking layout, security implications, and cost estimates.",
+      "agent_type": "LlmAgent",
+      "intermediate_response": true,
+      "thinking": false,
+      "sub_agents": [],
+      "instructions": "You are a senior cloud architect responsible for creating detailed deployment plans. Using the parsed intent from {parsed_intent} and global configuration from {global_config}, create a comprehensive architecture plan that includes: a clear list of all GCP resources to be created with their purposes, a detailed dependency graph showing which resources depend on others, networking layout including VPCs, subnets, firewall rules, and connectivity, security implications and IAM roles required, scalability characteristics and auto-scaling configurations, estimated monthly cost breakdown if possible using GCP pricing, potential security risks and mitigation strategies, and deployment order based on dependencies. Present this in a human-readable format that clearly explains the architecture decisions. Include diagrams or ASCII art if helpful for visualization. Highlight any potential issues or considerations the user should be aware of. The plan should be detailed enough that a DevOps engineer could understand the complete infrastructure setup.",
+      "model": "gemini-2.5-pro",
+      "show_output": true,
+      "output_key": "architecture_plan",
+      "output_schema": null,
+      "ask_user": {
+        "enabled": false,
+        "input_type": "regular"
+      },
+      "tools": [],
+      "final": false
+    },
+    {
+      "name": "default_configuration_agent",
+      "description": "Presents default configurations for each resource type and collects user customization preferences.",
+      "agent_type": "LlmAgent",
+      "intermediate_response": true,
+      "thinking": false,
+      "sub_agents": [],
+      "instructions": "You are a configuration specialist responsible for managing default resource settings. Using the architecture plan from {architecture_plan}, present the default configuration for each resource that will be created. For each resource type, show the specific default values that will be used (CPU, memory, scaling limits, networking settings, etc.). Format this clearly with resource names as headers and key-value pairs for settings. After presenting all defaults, ask the user if they want to: use all default configurations as-is, customize specific settings for certain resources, or modify the global defaults for future use. If the user wants to customize, ask them to specify which resources and which settings they want to change. Collect all customization preferences and validate that the requested changes are compatible with GCP limits and best practices. Warn about any security implications of customizations (like making resources publicly accessible). Store both the final configuration and any global default modifications for future deployments.",
+      "model": "gemini-2.5-flash",
+      "show_output": true,
+      "output_key": "resource_configuration",
+      "output_schema": null,
+      "ask_user": {
+        "enabled": true,
+        "input_type": "regular"
+      },
+      "tools": [],
+      "final": false
+    },
+    {
+      "name": "terraform_generator_agent",
+      "description": "Generates production-ready, modular Terraform code following best practices and security standards.",
+      "agent_type": "LlmAgent",
+      "intermediate_response": true,
+      "thinking": false,
+      "sub_agents": [],
+      "instructions": "You are an expert Terraform engineer specializing in GCP infrastructure as code. Using the architecture plan from {architecture_plan}, global configuration from {global_config}, and resource configuration from {resource_configuration}, generate production-ready Terraform code. Create the following files: main.tf (main resource definitions), variables.tf (all input variables with descriptions and types), outputs.tf (important resource outputs like IPs, URLs, connection strings), providers.tf (GCP provider configuration), terraform.tfvars (variable values based on user configuration), and versions.tf (Terraform and provider version constraints). Follow these requirements: use modular design with reusable components, implement environment-aware variables, ensure proper resource dependencies, apply least privilege IAM principles, use secure defaults for all resources, support remote state management, include proper variable validation, add comprehensive resource tagging using global labels, implement proper error handling. The code must be immediately deployable and follow Terraform and GCP best practices. Include comments explaining complex configurations and security decisions. Ensure all sensitive values use variables or Secret Manager references.",
+      "model": "gemini-2.5-pro",
+      "show_output": true,
+      "output_key": "terraform_code",
+      "output_schema": null,
+      "ask_user": {
+        "enabled": false,
+        "input_type": "regular"
+      },
+      "tools": [],
+      "final": false
+    },
+    {
+      "name": "terraform_validation_agent",
+      "description": "Validates Terraform code syntax, formatting, and generates deployment plan for user review.",
+      "agent_type": "LlmAgent",
+      "intermediate_response": true,
+      "thinking": false,
+      "sub_agents": [],
+      "instructions": "You are a Terraform validation specialist responsible for ensuring code quality before deployment. Using the generated Terraform code from {terraform_code}, perform the following validation steps: run terraform fmt to format the code properly, execute terraform validate to check syntax and configuration, run terraform plan to generate a deployment preview, analyze the plan output for any issues or warnings. Present the validation results clearly, showing: formatted Terraform code if any changes were made, validation status (pass/fail with specific errors if any), detailed plan summary showing resources to be added/changed/destroyed, any warnings or potential issues detected, estimated deployment time, security analysis of the planned resources. If validation fails, provide specific guidance on how to fix the issues. If validation passes, present the plan summary and ask for explicit user approval before proceeding with deployment. Include a clear breakdown of what will be created and any potential costs or security implications.",
+      "model": "gemini-2.5-flash",
+      "show_output": true,
+      "output_key": "validation_results",
+      "output_schema": null,
+      "ask_user": {
+        "enabled": true,
+        "input_type": "regular"
+      },
+      "tools": [],
+      "final": false
+    },
+    {
+      "name": "terraform_execution_agent",
+      "description": "Executes Terraform deployment with proper error handling, monitoring, and status reporting.",
+      "agent_type": "LlmAgent",
+      "intermediate_response": true,
+      "thinking": false,
+      "sub_agents": [],
+      "instructions": "You are a Terraform deployment specialist responsible for executing infrastructure deployments safely. After receiving approval from {validation_results}, execute the Terraform deployment following these steps: initialize Terraform workspace if needed, verify authentication and permissions, execute terraform apply with auto-approve only after explicit user consent, stream deployment logs and progress updates, monitor for errors and handle retries for transient failures, capture deployment outputs and resource information. During deployment, provide real-time status updates including: current resource being created, progress percentage, any warnings or errors encountered, estimated time remaining. If errors occur, attempt safe retries for network-related issues but stop for configuration errors. After successful deployment, collect and present: all created resource details, important outputs like URLs, IP addresses, connection strings, service account emails, any manual configuration steps still needed, security notes and access instructions. If deployment fails, provide clear error messages and suggested remediation steps. Ensure all sensitive outputs are handled securely.",
+      "model": "gemini-2.5-flash",
+      "show_output": true,
+      "output_key": "deployment_results",
+      "output_schema": null,
+      "ask_user": {
+        "enabled": true,
+        "input_type": "regular"
+      },
+      "tools": [],
+      "final": false
+    },
+    {
+      "name": "deployment_summary_agent",
+      "description": "Consolidates all deployment information into a comprehensive summary with next steps and management guidance.",
+      "agent_type": "LlmAgent",
+      "intermediate_response": true,
+      "thinking": false,
+      "sub_agents": [],
+      "instructions": "You are a deployment summary specialist responsible for providing comprehensive post-deployment information. Using all previous outputs including {global_config}, {architecture_plan}, {deployment_results}, compile a complete deployment summary that includes: deployment overview with all created resources, architecture diagram or description, access information and endpoints, security configuration summary, monitoring and logging setup, cost estimation and optimization tips, next steps for application deployment or configuration, management and maintenance guidelines, backup and disaster recovery considerations, troubleshooting common issues, contact information for support. Format this as a structured report that serves as documentation for the deployed infrastructure. Include code snippets or commands for common management tasks like accessing services, viewing logs, or making configuration changes. Provide links to relevant GCP documentation for ongoing management. Highlight any security best practices the user should follow and any additional setup steps required outside of the Terraform deployment.",
+      "model": "gemini-2.5-pro",
+      "show_output": true,
+      "output_key": "final_summary",
+      "output_schema": null,
+      "ask_user": {
+        "enabled": false,
+        "input_type": "regular"
+      },
+      "tools": [],
+      "final": true
+    }
+  ]
+}

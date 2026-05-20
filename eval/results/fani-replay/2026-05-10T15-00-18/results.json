@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "run_at": "2026-05-10T15:00:18.966Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A",
+      "B"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": null,
+    "config_b": {
+      "avg_total": 4,
+      "avg_factual_grounding": 2,
+      "avg_sop_alignment": 1,
+      "avg_appropriate_uncertainty": 1,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 0,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 4,
+          "n": 1
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "gap_analysis": {
+      "note": "Gap = Config B score minus Config A score.",
+      "overall": 4,
+      "planning_gap": 0,
+      "impact_gap": 0,
+      "contamination_gap": 4,
+      "hybrid_gap": 0,
+      "interpretation": {
+        "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+        "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+        "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+        "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "CA",
+      "category": "CONTAMINATION",
+      "config": "B",
+      "role": "operator",
+      "query": "What was the storm surge height when the severe cyclone hit the Odisha coast near Puri?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "The search results cover multiple cyclones near Odisha. Since your question references \"the severe cyclone\" near **Puri** without specifying a particular event, here is a comprehensive answer covering the most relevant cyclones documented in our knowledge base:\n\n---\n\n## Storm Surge Heights — Severe Cyclones Near Puri/Odisha Coast\n\n### 🌀 Cyclone Phailin (October 2013) — Most Relevant to Puri Region\nAccording to the IMD post-cyclone survey report, the **maximum storm surge was 3.5 metres above astronomical tide** in the low-lying areas of **Ganjam district** of Odisha. The inland inundation of saline water extended up to approximately **1 kilometre from the coast**. Cyclone Phailin crossed the Odisha coast near **Gopalpur** (south of Puri) on **October 12, 2013** at around 2230 hrs IST, with sustained winds of **200–210 kmph gusting up to 220 kmph**. [Phailin_RDNA_2013]\n\n### 🌀 Cyclone Dana (October 2024)\nCyclone Dana made landfall near **Dhamara** (north Odisha coast) in October 2024. The realised storm surge at landfall was **1–2 metres above astronomical tide**, inundating low-lying areas of **Kendrapara and Bhadrak districts**. Puri district was also listed among affected districts but the primary surge impact was to the north. [dana_bulletin_22, dana_bulletin_24]\n\n---\n\n### ⚠️ Note on Cyclone Fani (2019)\nCyclone Fani made direct landfall near **Puri** on May 3, 2019 and is the most devastating cyclone to directly hit Puri in recent history. However, the specific storm surge height data for Fani is not available with sufficient detail in the currently retrieved documents. If you need Fani-specific surge data, please specify and I will search dedicated Fani situation reports.\n\n---\n\n**Summary Table:**\n\n| Cyclone | Year | Landfall Near | Max Storm Surge |\n|---|---|---|---|\n| Phailin | 2013 | Gopalpur (near Puri) | **3.5 m** above astronomical tide |\n| Dana | 2024 | Dhamara (north coast) | **1–2 m** above astronomical tide |\n\n---\n\n**Sources:**\n- [Phailin_RDNA_2013] — IMD post-cyclone survey report on VSCS Phailin\n- [dana_bulletin_22, dana_bulletin_24] — IMD National Bulletins, October 2024\n\nCONFIDENCE: **MEDIUM** (topScore=0.61, avgScore=0.59, sources=5)\n*(Medium rather than High because the question references \"Puri\" specifically but the primary surge data retrieved is for Ganjam/Phailin and Kendrapara/Dana rather than Puri itself. Fani — which directly hit Puri — lacks specific storm surge figures in the retrieved chunks.)*",
+      "ground_truth": "Query is deliberately ambiguous — does not specify which cyclone. Phailin (2013): 3.5 metres above astronomical tide in Ganjam district [Phailin RDNA, confirmed in source]. Fani (2019): approximately 1.0-1.5 metres above astronomical tide near Puri coast [lower than Phailin due to different landfall angle]. CORRECT behaviour for BOTH configs: CRAG detects retrieved chunks have event_id=cyclone_phailin_2013, refuses to present the 3.5m figure as Fani planning data, explicitly names the event mismatch. The answer must NOT present the 3.5m Phailin figure in a summary table as if it could apply to future cyclones near Puri — this is the dangerous failure mode.",
+      "key_facts": [
+        "storm surge",
+        "event mismatch",
+        "Phailin 3.5m",
+        "CRAG refusal",
+        "Ganjam"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Ambiguous event query — system must use event_id metadata to disambiguate. Returning Phailin 3.5m as a Fani figure has direct operational consequences for coastal evacuation zone decisions.",
+      "scores": {
+        "factual_grounding": 2,
+        "factual_grounding_reason": "The Phailin 3.5m surge figure and Ganjam district location are correctly cited with source attribution, and the answer acknowledges Fani's direct Puri landfall but notes missing surge data — however, the Fani surge figure (1.0-1.5m from ground truth) is absent entirely, and the Dana figures appear without verifiable ground truth backing.",
+        "sop_alignment": 1,
+        "sop_alignment_reason": "The answer does not perform a CRAG refusal naming the event mismatch — it instead presents the Phailin 3.5m figure in a summary table alongside other cyclones, which is precisely the dangerous failure mode identified in the ground truth, though it does partially flag the ambiguity.",
+        "appropriate_uncertainty": 1,
+        "appropriate_uncertainty_reason": "The answer expresses some uncertainty about Fani surge data and flags the ambiguity of 'the severe cyclone,' but it still presents the Phailin 3.5m figure in a summary table that could be misread as applicable to Puri planning scenarios, rather than explicitly refusing to present Phailin data as potentially relevant to Fani or future Puri cyclone planning.",
+        "total": 4,
+        "hallucination_detected": false,
+        "hallucination_detail": "none — the Phailin figure is correctly attributed to Phailin/Ganjam, not falsely attributed to Fani; Dana figures are plausible but unverifiable against ground truth",
+        "crag_fired": false,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 19152,
+      "raw_file": "eval/results/fani-replay/2026-05-10T15-00-18/raw/CA-B.txt",
+      "error": null
+    }
+  ]
+}

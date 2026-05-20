@@ -1,0 +1,102 @@
+{
+  "summary": {
+    "run_at": "2026-05-10T15:25:55.416Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A",
+      "B"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": null,
+    "config_b": {
+      "avg_total": 6,
+      "avg_factual_grounding": 2,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 2,
+      "hallucinations": 1,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 1,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 6,
+          "n": 1
+        }
+      }
+    },
+    "gap_analysis": {
+      "note": "Gap = Config B score minus Config A score.",
+      "overall": 6,
+      "planning_gap": 0,
+      "impact_gap": 0,
+      "contamination_gap": 0,
+      "hybrid_gap": 6,
+      "interpretation": {
+        "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+        "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+        "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+        "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "HB",
+      "category": "HYBRID",
+      "config": "B",
+      "role": "operator",
+      "query": "What SDRF compensation applies to a fishing household that lost a boat and nets, and was this relief actually disbursed to Fani-affected fishermen?",
+      "agentName": "ReliefFinanceAgent",
+      "answer": "I now have a comprehensive picture from all sources. Here is the complete, sourced answer:\n\n---\n\n# 🎣 SDRF Compensation for a Fishing Household: Boat & Net Loss\n\n## PART 1 — SDRF Norms Applicable to Fishermen\n\nThe SDRF norms (Odisha SDMP 2019, §9.2) under **Category 7: Fishery** specify the following assistance for repair/replacement of boats and nets:\n\n| Item | Damage Type | SDRF Rate |\n|---|---|---|\n| **Boat** (Dugout-Canoe / Catamaran) | Partially damaged | **Rs. 4,100** |\n| **Boat** (Dugout-Canoe / Catamaran) | Fully damaged | **Rs. 9,600** |\n| **Net** | Partially damaged | **Rs. 2,100** |\n| **Net** | Fully damaged | **Rs. 2,600** |\n| **Fish seed farm input subsidy** | Per hectare | **Rs. 8,200** |\n\n> [Source: Odisha SDMP 2019, §9.2 — SDRF Fishery Norms, retrieved from Qdrant]\n\n**⚠️ Important Conditions:**\n- These amounts are **SDRF-funded** (state-level, automatic) and disbursed through the **respective District Collectors**.\n- Assistance will **NOT** be provided if the beneficiary has **already availed of any subsidy or assistance** for the same calamity under any other Government scheme.\n- Damage must be certified by a competent authority designated by the State Government.\n\n### Additional Relief a Fishing Household May Claim (from SDRF Table 9.3):\n\n| Item | Rate |\n|---|---|\n| Clothing (if house washed away/fully damaged) | **Rs. 1,800** per family |\n| Utensils/household goods (if house damaged) | **Rs. 2,000** per family |\n| Livelihood assistance (not in relief camp) | **Rs. 60/adult/day + Rs. 45/child/day** (default 30 days) |\n\n> [Table: `sdmp_table_9_3_sdrf_norms_of_assistance`, SDMP §9.3]\n\n---\n\n## PART 2 — Was This Relief Actually Disbursed to Fani-Affected Fishermen?\n\n### 📋 What the Fani Relief Package Data Shows\n\nThe `relief_package` table (Fani-specific) **does not contain a dedicated fishermen boat/nets line item**. The relief disbursed to Fani-affected households was:\n\n| Category | Districts | Rice | Cash |\n|---|---|---|---|\n| Extremely severely affected HH | Puri, parts of Khurdha | 50 kg | **Rs. 2,000** + polythene sheet |\n| Severely affected HH | Khurdha | 1-month quota | **Rs. 1,000** + polythene sheet |\n| Moderately affected HH | Cuttack, Kendrapada, Jagatsinghpur | 1-month quota | **Rs. 500** |\n\n> [Table: `relief_package`, Fani Relief Package, page 5]\n\nThis means fishing households would have received the **general household cash + rice relief**, but the **boat/net-specific SDRF compensation** would have been handled separately via the Collectors under the SDMP §9.4 channel.\n\n### 📄 What the Documents Reveal (Qdrant Evidence)\n\n**Confirmed disbursement mechanism (SDMP §9.4):**\n> *\"Assistance to fishermen / fish seed farmers / sericulture farmers … are administered through the respective Collectors. Funds towards pure relief are released under orders of Special Relief Commissioner / Chief Secretary.\"*\n> [Source: Odisha SDMP 2019, §9.4; also Puri DDMP 2017-18]\n\n**⚠️ Fani-Specific Fisheries Evidence Gap:**\nThe documents available in the platform **do not contain a Fani 2019-specific after-action report or disbursement record** for fishermen boat/net compensation. The detailed fisheries damage and disbursement data retrieved (8,423 boats, 33,398 nets, INR 3,783 million) comes from **Cyclone Phailin (2013)**, not Fani 2019. Fani undoubtedly devastated the Puri coastal fishing community — the `relief_package` table confirms Puri as \"extremely severely affected\" — but a Fani-specific fisheries compensation disbursement record is **not available in the current document corpus**.\n\n---\n\n## PART 3 — Side-by-Side Summary\n\n| Relief Type | SDRF Norm (SDMP §9.2) | Fani Package (relief_package table) |\n|---|---|---|\n| **Boat (fully lost)** | Rs. 9,600 | Not separately listed — via Collector |\n| **Net (fully lost)** | Rs. 2,600 | Not separately listed — via Collector |\n| **General household cash** | Rs. 60/adult/day (livelihood) | Rs. 2,000 (Puri/Khurdha) |\n| **Funding source** | SDRF (state automatic) | State + Central (Fani-specific) |\n| **Channel** | District Collector | District Collector |\n\n---\n\n## Key Takeaway\n\nA fishing household that lost a boat and nets in Cyclone Fani would be **eligible under SDRF norms** for up to **Rs. 9,600 (boat) + Rs. 2,600 (net) = Rs. 12,200** for full losses, plus **Rs. 2,000 general household cash + 50 kg rice** (Fani package for Puri/Khurdha). However, the Fani-specific **actual disbursement records for fisheries** are not available in the current document corpus for verification.\n\n---\n\nCONFIDENCE: **MEDIUM** (source=database+qdrant, rows_returned=19 DB rows + 8 Qdrant chunks; SDRF fishery norms confirmed from SDMP §9.2 via Qdrant; Fani-specific fisheries disbursement record not found in corpus — Phailin 2013 data retrieved instead)",
+      "ground_truth": "SDRF norms (pre-event, both configs, from PostgreSQL): Fully damaged boat (Dugout-Canoe/Catamaran): Rs. 9,600; partially damaged boat: Rs. 4,100. Fully damaged net: Rs. 2,600; partially damaged net: Rs. 2,100. Fish seed farm: Rs. 8,200 per hectare. Condition: assistance not provided if beneficiary already availed subsidy under another scheme; damage certification by Competent Authority required. Note: SDMP does not distinguish motorised vs non-motorised — category is boats, Dugout-Canoe, Catamaran. [SDMP Table 9.3 — sdmp_table_9_3_sdrf_norms_of_assistance, PostgreSQL] Fani actual disbursement (post-event, Config B only): Government of Odisha announced a special Fani relief package. Fani JRNA documented ~44,806 fisher households affected, 4,781 boats fully lost, 30,956 nets fully lost. JRNA Actions Needed section explicitly listed 'immediate disbursement of compensations' as outstanding — indicating delay at time of assessment. SDRF norms (Rs. 9,600/boat) far below actual replacement cost (Rs. 1,50,000 for marine boat). CONFIG A NOTE: The relief_package table and Fani JRNA are post-event documents. Config A must answer the SDRF norms part confidently and explicitly flag the disbursement question as unavailable under the temporal constraint.",
+      "key_facts": [
+        "9,600",
+        "2,600",
+        "4,100",
+        "2,100",
+        "boat",
+        "net",
+        "Dugout-Canoe",
+        "Catamaran",
+        "Competent Authority"
+      ],
+      "answerable_without_fani": "partial",
+      "engineering_property": "Tests SDRF SQL table and pre/post-event boundary. Config A must answer norms confidently from SQL and explicitly flag Fani disbursement as unavailable. Config B answers both from different sources.",
+      "scores": {
+        "factual_grounding": 2,
+        "factual_grounding_reason": "All key SDRF figures (Rs. 9,600, 4,100, 2,600, 2,100) and conditions (Competent Authority, no double-dipping) are correctly stated, but the answer critically attributes Fani fisheries damage figures (boats lost, nets lost, ~44,806 fisher households) to Phailin 2013 rather than citing the Fani JRNA, and misses the JRNA's explicit finding that 'immediate disbursement of compensations' was still outstanding — a key ground truth fact.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "The answer correctly cites SDMP §9.2/9.3/9.4 and the Collector-based disbursement mechanism, but fails to note that SDRF norms (Rs. 9,600/boat) are far below actual replacement cost (~Rs. 1,50,000), which is a relevant protocol adequacy issue documented in the ground truth.",
+        "appropriate_uncertainty": 2,
+        "appropriate_uncertainty_reason": "Config B answer is mostly well-calibrated — confident on SDRF norms and appropriately uncertain on disbursement specifics — but the answer incorrectly attributes Fani fisheries damage data to Phailin 2013 rather than accessing the Fani JRNA that should be available under Config B, resulting in a miscalibration on the post-event part.",
+        "total": 6,
+        "hallucination_detected": true,
+        "hallucination_detail": "The answer states '(8,423 boats, 33,398 nets, INR 3,783 million) comes from Cyclone Phailin (2013), not Fani 2019' — this is a cross-event contamination error. The Fani JRNA (accessible under Config B) documents 4,781 boats fully lost and 30,956 nets fully lost for Fani; presenting Phailin figures as the available fisheries data while ignoring the Fani JRNA constitutes a hallucination/misattribution.",
+        "crag_fired": true,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 92143,
+      "raw_file": "eval/results/fani-replay/2026-05-10T15-25-55/raw/HB-B.txt",
+      "error": null
+    }
+  ]
+}

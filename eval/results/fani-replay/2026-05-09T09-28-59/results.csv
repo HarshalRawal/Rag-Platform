@@ -1,0 +1,2 @@
+query_id,category,config,role,factual_grounding,sop_alignment,appropriate_uncertainty,total,hallucination_detected,temporal_filter_breach,crag_fired,elapsed_ms,agent,error
+PB,PLANNING,A,operator,0,0,0,0,false,false,false,90871,DisasterResponseAgent,

@@ -1,0 +1,34 @@
+{
+  "name": "rag-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.74",
+    "@ai-sdk/openai": "^3.0.60",
+    "@anthropic-ai/sdk": "^0.93.0",
+    "@openai/agents": "^0.8.5",
+    "@qdrant/js-client-rest": "^1.17.0",
+    "ai": "^6.0.175",
+    "cors": "^2.8.6",
+    "csv-parse": "^6.2.1",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "morgan": "^1.10.1",
+    "node-fetch": "^3.3.2",
+    "openai": "^6.36.0",
+    "pdf-parse": "^1.1.1",
+    "pg": "^8.20.0",
+    "tiktoken": "^1.0.22",
+    "uuid": "^14.0.0",
+    "zod": "^4.4.3"
+  }
+}

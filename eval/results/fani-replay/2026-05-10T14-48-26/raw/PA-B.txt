@@ -1,0 +1,52 @@
+Query ID  : PA
+Config    : B
+Category  : PLANNING
+Agent     : ReliefFinanceAgent
+Elapsed   : 25147ms
+Timestamp : 2026-05-10T14:48:51.512Z
+
+QUERY:
+What is the SDRF norm for assistance to a fully damaged pucca house after a cyclone in Odisha?
+
+GROUND TRUTH:
+Rs. 95,100 per house in plain areas; Rs. 1,01,900 in hilly/IAP districts. The house must be an authorised construction certified by the Competent Authority. SDRF is funded 75% Centre + 25% State. [SDMP Table 9.3 — sdmp_table_9_3_sdrf_norms_of_assistance, PostgreSQL]
+
+ANSWER:
+The Qdrant search has retrieved the exact figure from the SDMP document. Here is the complete and authoritative answer:
+
+---
+
+## 🏠 SDRF Norm: Fully Damaged Pucca House (Cyclone, Odisha)
+
+| Location | SDRF Assistance |
+|---|---|
+| **Plain Areas** | **Rs. 95,100 per fully damaged/destroyed Pucca house** |
+| Hilly Areas (incl. IAP districts) | Rs. 1,01,900 per fully damaged/destroyed Pucca house |
+
+---
+
+### Key Details
+
+- **Fund Type:** SDRF (State Disaster Response Fund) — **state-funded**, with 75% Central share and 25% State share. This assistance is automatic and does not require central government (GOI) approval.
+- **Applicable Disasters:** Cyclone is explicitly covered under SDRF-eligible calamities per MHA guidelines.
+- **Eligibility:** The house must be **fully damaged or destroyed** (not partially or severely damaged, which have separate, lower norms).
+- **Scale Ceiling:** Expenditure must remain within SDRF norms; any amount spent **above this ceiling** must be borne by the State Government from its own resources — it cannot be drawn from SDRF/NDRF.
+
+---
+
+### ⚠️ Important Distinctions (Do Not Confuse With)
+
+| Item | Amount | It Is NOT House Damage |
+|---|---|---|
+| Clothing for families | Rs. 1,800 per family | Separate gratuitous relief item |
+| Utensils/household goods | Rs. 2,000 per family | Separate gratuitous relief item |
+| **Fully damaged Pucca house** | **Rs. 95,100** | ✅ This is the house damage norm |
+
+---
+
+📌 **Source:** Odisha State Disaster Management Plan (SDMP) 2019, Chapter IX, Section 9.2 / Table 9.3 — *List of Items & Norms of Assistance from SDRF/NDRF*
+[Table: `sdmp_table_9_3_sdrf_norms_of_assistance`, SDMP §9.3]
+
+---
+
+CONFIDENCE: **HIGH** (source=qdrant+database, rows_returned=10 from DB + exact match confirmed in SDMP 2019 document text)

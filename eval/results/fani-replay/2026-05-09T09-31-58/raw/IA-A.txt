@@ -1,0 +1,40 @@
+Query ID  : IA
+Config    : A
+Category  : IMPACT
+Agent     : DisasterResponseAgent
+Elapsed   : 127152ms
+Timestamp : 2026-05-09T09:34:05.627Z
+
+QUERY:
+How many people were evacuated before Cyclone Fani made landfall in Odisha?
+
+GROUND TRUTH:
+1,47,0197 people (approximately 1.47 million) evacuated to temporary shelters before landfall. Coordinated by OSDMA with 45,000 volunteers, 2,000 emergency workers, and 100,000 government officials. [UNICEF SitRep #2, 12 May 2019] CONFIG A NOTE: This data comes from a post-event document (UNICEF SitRep #2 dated 12 May 2019) published 9 days after landfall. Under Config A (as_of=2019-05-02), this document must be blocked. The correct Config A answer is a structured refusal citing the pre-event constraint.
+
+ANSWER:
+⚠️ **EVENT ISOLATION RULE APPLIED**
+
+All retrieved results — despite the Fani-specific query — are from **Cyclone Phailin 2013** documents (`Phailin_UNDP_DRM_Survey_2013`, `Phailin_RDNA_2013`) and the **Odisha SDMP 2019**. None of the chunks are from Fani-specific documents (`UNICEF_Fani_SitRep` or `Fani_JRNA`).
+
+Presenting Phailin evacuation figures (9.84 lakh / ~1 million people) as Fani data would be **factually incorrect and misleading**. I cannot do that.
+
+---
+
+## ⚠️ Fani-Specific Evacuation Data Not Found in Available Documents
+
+The Fani-specific documents (`UNICEF_Fani_SitRep` and `Fani_JRNA`) did **not return any retrievable chunks** for this query. The retrieval system returned results exclusively from **Cyclone Phailin 2013** documents, which are a **different event** and cannot be substituted.
+
+> **I cannot confirm the Fani pre-landfall evacuation figure from the documents currently indexed in this platform.**
+
+---
+
+### 📌 What I Can Tell You (from public knowledge, not from indexed documents):
+Cyclone Fani (May 3, 2019) is widely reported to have involved the evacuation of approximately **1.2 million people** in under 48 hours — one of the largest evacuations in India's history — across 14 districts of Odisha. However, **I cannot cite a source document** for this figure from the current indexed corpus.
+
+If you need a **sourced answer**, I recommend:
+- Checking the **UNICEF Fani Situation Report** or **Fani JRNA** directly, as those are the correct source documents for this event.
+- Verifying whether those documents have been fully indexed in this platform.
+
+---
+
+CONFIDENCE: **LOW** (topScore=0.6559, avgScore=0.5941, sources=0 Fani-specific chunks — all results were from Phailin documents, which cannot be used for this question per Event Isolation Rule)

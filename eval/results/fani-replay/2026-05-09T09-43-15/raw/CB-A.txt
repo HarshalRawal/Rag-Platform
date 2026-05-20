@@ -1,0 +1,44 @@
+Query ID  : CB
+Config    : A
+Category  : CONTAMINATION
+Agent     : DisasterResponseAgent
+Elapsed   : 51253ms
+Timestamp : 2026-05-09T09:44:06.336Z
+
+QUERY:
+How many NDRF teams were deployed and how many people were in cyclone shelters at peak occupancy during the cyclone that hit Puri?
+
+GROUND TRUTH:
+For Cyclone Fani: 44 NDRF teams deployed [Fani JRNA]; approximately 1.47 million in 9,000 temporary shelters at peak [UNICEF SitRep #2]. Config A correct behaviour: CRAG fires — retrieved chunks are from Phailin (different NDRF count, different evacuation scale) — system refuses and names the event mismatch explicitly. Config B correct behaviour: returns Fani figures with citations. Phailin deployed 28 NDRF teams — returning 28 as a Fani figure is a hallucination.
+
+ANSWER:
+I have now reviewed all available results. All retrieved chunks are from **Phailin (2013)** and **non-Fani documents**. The EVENT ISOLATION RULE applies here.
+
+---
+
+## ⚠️ Important Clarification: Event Isolation Rule Applied
+
+The cyclone that most severely hit **Puri** was **Cyclone Fani (May 2019)**, which made landfall near Puri as an Extremely Severe Cyclonic Storm. Your question asks about NDRF deployment numbers and peak shelter occupancy for that event.
+
+**I cannot provide verified figures from the Fani-specific documents for this query.**
+
+All search results returned from the available knowledge base relate exclusively to **Cyclone Phailin (October 2013)** — a different event — and the Puri DDMP planning documents. The Fani-specific source documents (`UNICEF_Fani_SitRep` and `Fani_JRNA`) returned **zero retrievable chunks** for this query. Presenting Phailin data as Fani data would be factually incorrect, and I will not do so.
+
+### What the available documents *do* tell us (Phailin, for reference only):
+- During **Cyclone Phailin (2013)**, **28 NDRF teams and 10 ODRAF units** were pre-positioned across strategic locations. [Phailin_UNDP_DRM_Survey_2013]
+- For Phailin, approximately **9.84 lakh (983,642) people** were evacuated statewide, with **1,02,000 evacuated from Puri district** specifically. [Phailin_UNDP_DRM_Survey_2013]
+
+> ⚠️ These are **Phailin figures**, not Fani figures. Do not use them to answer Fani-specific questions.
+
+---
+
+### Recommendation
+For accurate **Cyclone Fani (2019)** figures on NDRF deployment and shelter occupancy in Puri, please consult:
+- The **UNICEF Fani Situation Report** (SitRep #2, May 2019)
+- The **Fani JRNA (Joint Rapid Needs Assessment)**
+
+These documents are referenced in the platform but their content was not retrievable for this specific query. Please verify directly with those reports or contact the OSDMA/SRC office for official Fani response statistics.
+
+---
+
+CONFIDENCE: **LOW** (topScore=0.6505, avgScore=0.6145, sources=0 from Fani documents — all retrieved content is from Phailin/non-Fani sources; EVENT ISOLATION RULE prevents use of available data)

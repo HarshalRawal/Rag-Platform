@@ -1,0 +1,40 @@
+Query ID  : IB
+Config    : B
+Category  : IMPACT
+Agent     : DisasterResponseAgent
+Elapsed   : 77667ms
+Timestamp : 2026-05-10T14:58:06.495Z
+
+QUERY:
+How many deaths were officially reported due to Cyclone Fani in Odisha, and which district had the highest casualties?
+
+GROUND TRUTH:
+64 deaths officially reported by the State Emergency Operation Centre, Bhubaneswar. [UNICEF SitRep #2, 12 May 2019 highlights] Puri district was the landfall point and among the most severely affected. CONFIG A NOTE: This data comes from UNICEF SitRep #2 dated 12 May 2019 — a post-event document that must be blocked under Config A. The correct Config A answer is a structured refusal. Phailin had 44 deaths — returning 44 as a Fani figure is a hallucination.
+
+ANSWER:
+---
+
+## ⚠️ Cyclone Fani Casualty Data — Not Found in Available Documents
+
+I am unable to answer this question from the documents currently available in the RAG platform.
+
+### What the Retrieval Returned:
+All three searches — including document-restricted searches on `UNICEF_Fani_SitRep` and `Fani_JRNA` — returned **zero Fani-specific results**. Every retrieved chunk pertains exclusively to **Cyclone Phailin (October 2013)**, a different event entirely.
+
+### Why I Cannot Substitute Phailin Data:
+Per the **EVENT ISOLATION RULE**, Phailin and Fani are distinct cyclone events with entirely different casualty figures, impact geographies, and timelines. Presenting Phailin data in response to a Fani question would be factually misleading and potentially dangerous in an operational context.
+
+### What the Phailin documents DO show (for reference only — NOT Fani data):
+- Cyclone **Phailin (2013)**: **44 deaths** officially reported across 18 districts [Phailin_RDNA_2013; Phailin_UNDP_DRM_Survey_2013]
+- Most affected district for Phailin: **Ganjam** (10 cyclone deaths; 2,812 villages affected)
+
+### Recommendation:
+To answer the Fani casualty question, the following source documents would need to be loaded into the platform:
+- **UNICEF Fani Situation Report** (post-landfall, May 2019)
+- **Fani Joint Rapid Needs Assessment (JRNA)** — currently returning no indexed chunks
+- Government of Odisha official post-Fani damage/casualty reports
+
+---
+
+CONFIDENCE: **LOW** (topScore=0.594, avgScore=0.518, sources=0 from Fani documents)
+> *Zero Fani document chunks retrieved across all three searches. All results were from Phailin 2013 documents. Fani casualty data cannot be confirmed from currently indexed content.*

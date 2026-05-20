@@ -1,0 +1,2 @@
+query_id,category,config,role,factual_grounding,sop_alignment,appropriate_uncertainty,total,hallucination_detected,temporal_filter_breach,crag_fired,elapsed_ms,agent,error
+IB,IMPACT,B,operator,2,2,2,6,true,false,false,19462,DisasterResponseAgent,

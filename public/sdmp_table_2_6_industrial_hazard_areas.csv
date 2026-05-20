@@ -1,0 +1,9 @@
+area,district,chemicals_handled,hazard_type
+Paradeep,Jagatsinghpur,Ammonia; Phosphoric Acid; Sulphuric Acid; Petroleum Products,Toxic Gas Leak; Fire
+Rourkela,Sundargarh,Carbon Monoxide; Liquid Oxygen; Ammonia; Hydrogen; Naphtha; Chlorine; Petroleum Products; Explosives (Secondary); Acids,Fire; Explosion; Toxic Gas
+Ganjam,Ganjam,Chlorine; Petroleum Products,Toxic Gas
+Cuttack,Cuttack,Chlorine; Petroleum Products,Toxic Gas; Fire
+Talcher,Angul,Ammonia; Carbon Monoxide; Naphtha; Chlorine; Petroleum Products; Explosives,Toxic Gas; Fire; Explosion
+Balasore,Balasore,Chlorine; LPG; Naphtha; Petroleum Products,Fire; Toxic Gas
+Jharsuguda - Belpahar,Jharsuguda,LPG; Petroleum Products; Explosives,Fire
+Rayagada,Rayagada,Chlorine,Toxic Gas

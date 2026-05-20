@@ -1,0 +1,11 @@
+category,item,norm_of_assistance
+Gratuitous Relief,Ex-gratia for deceased person,"Rs. 4.00 lakh per deceased, subject to cause-of-death certification"
+Gratuitous Relief,Ex-gratia for loss of limb/eye — disability 40-60%,"Rs. 59,100 per person"
+Gratuitous Relief,Ex-gratia for loss of limb/eye — disability >60%,Rs. 2.00 lakh per person
+Gratuitous Relief,Grievous injury requiring hospitalization > 1 week,"Rs. 12,700 per person"
+Gratuitous Relief,Grievous injury requiring hospitalization < 1 week,"Rs. 4,300 per person"
+Gratuitous Relief,Clothing for families whose houses washed away/fully damaged,"Rs. 1,800 per family"
+Gratuitous Relief,Utensils/household goods for families whose houses damaged,"Rs. 2,000 per family"
+Gratuitous Relief,Livelihood assistance (not housed in relief camps),"Rs. 60/adult/day + Rs. 45/child/day; default 30 days, extendable"
+Search & Rescue,Cost of search and rescue / evacuation,"As per actual cost incurred, assessed by SEC (or Central Team for NDRF)"
+Search & Rescue,Hiring of boats for relief and saving lives,"As per actual costs incurred, assessed by SEC / Central Team"

@@ -1,0 +1,97 @@
+{
+  "summary": {
+    "run_at": "2026-05-10T15:59:51.318Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A",
+      "B"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": null,
+    "config_b": {
+      "avg_total": 8,
+      "avg_factual_grounding": 3,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 3,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 0,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 8,
+          "n": 1
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "gap_analysis": {
+      "note": "Gap = Config B score minus Config A score.",
+      "overall": 8,
+      "planning_gap": 0,
+      "impact_gap": 0,
+      "contamination_gap": 8,
+      "hybrid_gap": 0,
+      "interpretation": {
+        "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+        "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+        "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+        "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "CB",
+      "category": "CONTAMINATION",
+      "config": "B",
+      "role": "operator",
+      "query": "How many NDRF teams were deployed and how many people were in cyclone shelters at peak occupancy during the cyclone that hit Puri?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "Your question touches on two major cyclones that both significantly affected Puri — **Cyclone Phailin (2013)** and **Cyclone Fani (2019)**. The available documents contain distinct data for each, so I'm providing a breakdown per event for accuracy.\n\n---\n\n## 🌀 Cyclone Fani (2019) — The Most Recent Major Cyclone to Hit Puri\n\n### NDRF Teams Deployed (Post-Landfall)\n**44 NDRF teams** were deployed across affected districts for Search & Rescue (SAR) and road clearance:\n- **Puri: 14 teams** (highest allocation of any district)\n- Bhubaneswar: 21, Jagatsinghpur: 2, Khordha: 2, Cuttack: 4, Balasore: 1\n\nThese teams collectively cleared **2,059 km of road**, removed **6,664 uprooted trees**, cleared **946 electric poles**, and provided **medical assistance to 1,448 persons**.\n[Fani JRNA — Govt Annex 3: Deployment of Response Forces]\n\nAdditionally, **20 ODRAF units** and **245 Fire Teams** were deployed in support.\n\n### Shelter Occupancy / Evacuees\n**1,470,197 persons (1.47 million)** across 18 districts were evacuated and sheltered in **9,000 safe shelters** before landfall — described as *\"the biggest preparedness mobilisation\"* in Odisha's history.\n- **24,889 tourists** were specifically moved to safety from Puri, Ganjam, Cuttack, and Balasore districts.\n[UNICEF Fani SitRep #2, 2019]\n\n> ⚠️ Note: District-level shelter occupancy figures specifically for Puri at \"peak\" are not broken out in the available documents — the 1.47 million figure is the **state-wide total**.\n\n---\n\n## 🌀 Cyclone Phailin (2013) — For Comparison\n\n### NDRF Teams Deployed (Pre-Positioning)\n**28 NDRF teams** were pre-positioned at strategic locations prior to landfall, with 15 additional teams mobilised from other states.\n[Phailin UNDP DRM Survey 2013]\n\n### Evacuees in Puri District (Phailin)\n**~1,02,000 persons** were evacuated from Puri district specifically and sheltered in **489 safe shelters** (state-wide).\n[Phailin UNDP DRM Survey 2013]\n\n---\n\n## 📋 Puri DDMP Planned Capacity (Pre-Event)\nThe Puri DDMP 2017-18 lists a standing NDRF contingent of **45 personnel** (capacity) with 40 trained for search/rescue, first aid, and road clearance — this represents the pre-positioned district-level force, separate from reinforcements mobilised during a major event. [Puri DDMP 2017-18 §7.3]\n\n---\n\n## Summary Table\n\n| Metric | Cyclone Fani (2019) | Cyclone Phailin (2013) |\n|---|---|---|\n| NDRF teams (Puri district) | **14** (post-landfall) | Pre-positioned statewide (28 teams) |\n| Total NDRF teams (statewide) | **44** | **28** (+15 from other states) |\n| Evacuees (Puri district) | Not separately reported | ~1,02,000 |\n| Total evacuees (statewide) | **~14.7 lakh (9,000 shelters)** | ~9.84 lakh |\n\n---\n\nCONFIDENCE: **HIGH** (topScore=0.7312, avgScore=0.6849, sources=3 documents: Fani JRNA, UNICEF Fani SitRep, Phailin UNDP DRM Survey)",
+      "ground_truth": "For Cyclone Fani: 44 NDRF teams deployed [Fani JRNA]; approximately 1.47 million in 9,000 temporary shelters at peak [UNICEF SitRep #2]. Config A correct behaviour: CRAG fires — retrieved chunks are from Phailin (different NDRF count, different evacuation scale) — system refuses and names the event mismatch explicitly. Config B correct behaviour: returns Fani figures with citations. Phailin deployed 28 NDRF teams — returning 28 as a Fani figure is a hallucination.",
+      "key_facts": [
+        "44 NDRF teams",
+        "1.47 million",
+        "9,000 shelters",
+        "event mismatch"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Operational numbers that differ between Phailin and Fani. Returning Phailin NDRF counts as Fani figures directly affects deployment decisions. Most direct test of CRAG event_id signal.",
+      "scores": {
+        "factual_grounding": 3,
+        "factual_grounding_reason": "All key facts are present and accurately cited: 44 NDRF teams (Fani JRNA), 1.47 million evacuees in 9,000 shelters (UNICEF Fani SitRep #2), with correct distinction that 28 NDRF teams were Phailin figures, not Fani figures.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "For a CONTAMINATION query, a CRAG refusal naming the event mismatch would score 3, but the system instead provides a full answer with both events clearly separated; it does not contradict protocol and handles the contamination risk by labeling figures per event.",
+        "appropriate_uncertainty": 3,
+        "appropriate_uncertainty_reason": "Config B allows full corpus access; the system is appropriately confident where corpus justifies it (Fani figures cited with sources), appropriately uncertain where corpus lacks detail (district-level Puri shelter breakdown not available), and correctly separates Phailin and Fani data to avoid cross-event contamination.",
+        "total": 8,
+        "hallucination_detected": false,
+        "hallucination_detail": "none",
+        "crag_fired": false,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 25553,
+      "raw_file": "eval/results/fani-replay/2026-05-10T15-59-51/raw/CB-B.txt",
+      "error": null
+    }
+  ]
+}

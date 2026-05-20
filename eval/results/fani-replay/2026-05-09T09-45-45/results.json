@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "run_at": "2026-05-09T09:45:45.336Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": {
+      "avg_total": 8,
+      "avg_factual_grounding": 3,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 3,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 1,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 8,
+          "n": 1
+        }
+      }
+    },
+    "config_b": null
+  },
+  "results": [
+    {
+      "id": "HA",
+      "category": "HYBRID",
+      "config": "A",
+      "role": "operator",
+      "query": "How many rescue boats are available across Puri district and which blocks have them — and were they sufficient to handle the scale of the last major cyclone?",
+      "agentName": "ResourceAllocationAgent",
+      "answer": "Here is a comprehensive, fully data-grounded answer across both parts of your question.\n\n---\n\n# 🚤 Rescue Boats Across Puri District — Complete Status\n\n## PART 1: District-Wide Boat Inventory\n**[DDMP Vol II, Annexure 12]**\n\n**District Total: 27 rescue boats across 10 blocks**\n\n| Rank | Block | Qty | Boat IDs |\n|------|-------|-----|----------|\n| 🥇 1st | **PURI SADAR** | 4 | FRPcc-24, FRP-94, FRP-152, FRP-153 |\n| 🥇 1st | **KANAS** | 4 | SB-17, SB-19, FRP-3, FRPcc-21 |\n| 3rd | **KRUSHNAPRASAD** | 3 | ML-Prachi, FRP-146, FRP-147 |\n| 3rd | **GOP** | 3 | SB-9, FRP-29, FRP-155 |\n| 3rd | **PIPILI** | 3 | FRP-53, FRP-150, FRP-151 |\n| 3rd | **DELANG** | 3 | FRP-64, FRP-148, FRP-149 |\n| 7th | **NIMAPARA** | 2 | FRP-25, FRP-154 |\n| 7th | **ASTARANGA** | 2 | FRP-50, FRP-54 |\n| 7th | **KAKATPUR** | 2 | SB-14, SOB-15 |\n| ⚠️ Last | **BRAHMAGIRI** | **1** | **FRP-37 only** |\n\n> 🚨 **CRITICAL FLAG — BRAHMAGIRI:** With only **1 boat (FRP-37)**, Brahmagiri has the lowest boat coverage in the entire district. It is a coastal block highly exposed to cyclone storm surge and tidal flooding. In any major cyclone event, this single boat would be wholly insufficient and **immediate reallocation from Puri Sadar or Kanas would be required.**\n\n> ⚠️ **NOTE — Blocks with NO boats recorded:** The database covers 10 blocks. If any remaining blocks (e.g. Satyabadi) are not listed, they have **zero recorded boats** — a separate gap requiring urgent verification.\n\n---\n\n## PART 2: Were They Sufficient for the Last Major Cyclone?\n\n### ⚠️ CRAG Finding: No Fani-Specific Document Found in Knowledge Base\n\nA targeted search for **Cyclone Fani (May 2019)** — the strongest cyclone to make landfall in Puri in over 20 years — returned **zero matching documents**. The document corpus does **not contain a Fani after-action report, situation report, or post-event assessment**. All retrieved results relate to **Cyclone Phailin (October 2013)**, a different event.\n\n**I will not fabricate or infer Fani-specific sufficiency data.** Here is what I can honestly say:\n\n---\n\n### 📋 What the Available Evidence Tells Us\n\n**From Cyclone Phailin 2013 (closest comparable event in the corpus):**\n- During Phailin, **~1,02,000 people were evacuated from Puri district alone** [Phailin_UNDP_DRM_Survey_2013]\n- Boats for rescue and relief operations were explicitly listed as a preparedness item — alongside NDRF/ODRAF teams, helicopters, and defence forces — indicating local boat fleets were **supplemented heavily by external assets**\n- 28 NDRF teams + 10 ODRAF units were pre-positioned; **Army, Navy, and Air Force were mobilised** — strongly implying district-level boat stocks were considered insufficient on their own\n- Cyclone shelters became overcrowded, suggesting the scale of the crisis exceeded pre-positioned resources in multiple categories\n\n**From the Puri DDMP 2017-18 (current planning document):**\n- The DDMP itself lists only **27 boats** across Puri district — a figure compiled *after* Phailin and *before* Fani\n- The plan acknowledges boats as a key rescue resource but relies on NDRF/ODRAF reinforcement for large-scale events [puri_ddmp_2017_18]\n\n---\n\n### ⚖️ Analytical Assessment (Inference from Evidence)\n\n| Factor | Assessment |\n|--------|-----------|\n| District total of 27 boats vs. 1 lakh+ evacuees | **Structurally insufficient** without external reinforcement |\n| Brahmagiri: 1 boat, heavily coastal | **Critical gap** in a high storm-surge zone |\n| Krushnaprasad: 3 boats but **VHF not installed** | **Operational gap** even if boats available |\n| DDMP relies on NDRF/ODRAF augmentation | Confirms local fleet is a **first-responder complement**, not a standalone capacity |\n| Fani (2019) was stronger than Phailin (2013) | 27 boats almost certainly required massive **Navy/NDRF reinforcement** |\n\n---\n\n## 🗂️ GAPS SUMMARY\n\n| Gap | Details |\n|-----|---------|\n| **Fani document absent** | No Fani after-action report in knowledge base — sufficiency question cannot be definitively answered |\n| **Brahmagiri critically underserved** | 1 boat (FRP-37) for a coastal block — recommend pre-positioning 2–3 additional FRP boats from Puri Sadar in any cyclone response plan |\n| **Krushnaprasad VHF not installed** | Boats may be unreachable during communication blackouts |\n| **No data for unlisted blocks** | Some blocks may have zero registered boats with no record in the database |\n\n---\n\n**Sources:**\n- 🔵 [DDMP Vol II, Annexure 12] — Rescue boat inventory\n- 🟠 [Phailin_UNDP_DRM_Survey_2013] — Cyclone response lessons (proxy for scale)\n- 🔴 **Fani documents: NOT FOUND in corpus** — sufficiency assessment for Fani is evidence-limited\n\n---\n\nCONFIDENCE: **MEDIUM** (tables_queried=1, rows_found=10, gaps=2 — boat data is complete; Fani-specific sufficiency assessment is document-gap limited as no Fani corpus documents were retrieved)",
+      "ground_truth": "Pre-event (both configs, from PostgreSQL rescue_boats table): 27 boats across 10 blocks of Puri district. Highest allocations: Puri Sadar (4 boats: FRPcc-24, FRP-94, FRP-152, FRP-153) and Kanas (4 boats: SB-17, SB-19, FRP-3, FRPcc-21). Lowest allocation: Brahmagiri — only 1 boat (FRP-37), despite significant coastal exposure and 8+ flood-vulnerable villages. This is a documented resource gap. Middle blocks: Krushnaprasad, GOP, Pipili, Delang (3 boats each); Kakatpur, Astaranga, Nimapara (2 boats each). Satyabadi does not appear in the rescue_boats table. [Puri DDMP Vol II — rescue_boats table, PostgreSQL] Post-event sufficiency (Config B only): Fani JRNA documents actual deployment scale — that data is held out in Config A.",
+      "key_facts": [
+        "27 boats",
+        "10 blocks",
+        "Puri Sadar",
+        "Kanas",
+        "4 boats",
+        "Brahmagiri",
+        "1 boat",
+        "FRP-37",
+        "lowest"
+      ],
+      "answerable_without_fani": "partial",
+      "engineering_property": "Tests Vol II operational tables (Resource Allocation Agent SQL). System must return boat inventory from SQL including individual boat IDs. Config A must flag sufficiency question as requiring post-event data.",
+      "scores": {
+        "factual_grounding": 3,
+        "factual_grounding_reason": "All key facts are present and accurate: 27 boats, 10 blocks, Puri Sadar and Kanas with 4 boats each, Brahmagiri with 1 boat (FRP-37), correct boat IDs throughout, and the note about Satyabadi not appearing in the database.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "The answer correctly references DDMP Vol II Annexure 12 and the rescue_boats table, with appropriate protocol framing, though it introduces Phailin-era NDRF deployment figures as a proxy for sufficiency assessment rather than strictly limiting itself to documented DDMP protocol.",
+        "appropriate_uncertainty": 3,
+        "appropriate_uncertainty_reason": "For the pre-event part, the answer is confidently correct with precise inventory data; for the post-event sufficiency part under Config A, the answer explicitly states no Fani documents are in the corpus, refuses to fabricate Fani-specific figures, and correctly flags that all retrieved results relate to Phailin — a textbook correct handling of the temporal constraint.",
+        "total": 8,
+        "hallucination_detected": false,
+        "hallucination_detail": "none — Phailin figures are correctly attributed to Phailin and explicitly distinguished from Fani; no Fani post-event data is presented as factual",
+        "crag_fired": true,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 81487,
+      "raw_file": "eval/results/fani-replay/2026-05-09T09-45-45/raw/HA-A.txt",
+      "error": null
+    }
+  ]
+}

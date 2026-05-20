@@ -1,0 +1,53 @@
+Query ID  : CB
+Config    : B
+Category  : CONTAMINATION
+Agent     : DisasterResponseAgent
+Elapsed   : 38297ms
+Timestamp : 2026-05-10T15:03:25.603Z
+
+QUERY:
+How many NDRF teams were deployed and how many people were in cyclone shelters at peak occupancy during the cyclone that hit Puri?
+
+GROUND TRUTH:
+For Cyclone Fani: 44 NDRF teams deployed [Fani JRNA]; approximately 1.47 million in 9,000 temporary shelters at peak [UNICEF SitRep #2]. Config A correct behaviour: CRAG fires — retrieved chunks are from Phailin (different NDRF count, different evacuation scale) — system refuses and names the event mismatch explicitly. Config B correct behaviour: returns Fani figures with citations. Phailin deployed 28 NDRF teams — returning 28 as a Fani figure is a hallucination.
+
+ANSWER:
+Here is a comprehensive, event-isolated answer covering both major cyclones that struck Puri:
+
+---
+
+## 🌀 Cyclone Phailin (October 2013) — Figures for Puri & State
+
+### NDRF Deployment
+**28 NDRF teams** were pre-positioned across strategic locations statewide ahead of landfall. In addition, **15 extra NDRF teams were mobilised from other states** (beyond the 3rd Battalion based at Mundali), alongside **10 units of ODRAF**, plus Army, Navy, and Air Force teams on standby. [Phailin_UNDP_DRM_Survey_2013]
+
+### People Evacuated / In Shelters
+- **Puri district specifically: ~1,02,000 people** were evacuated due to Cyclone Phailin.
+- **State total: ~9.84 lakh (983,642) people** were evacuated across 14 districts in the 36 hours preceding landfall — described as the **largest evacuation ever practised** at that time. [Phailin_UNDP_DRM_Survey_2013]
+- In **Puri district**, **1,81,915 people were sheltered across 489 safe shelters**. [Phailin_UNDP_DRM_Survey_2013]
+- All **160 MCS shelters in the affected area** were activated and stocked by 10 October 2013 with 2–3 days of essentials. [Phailin_UNDP_DRM_Survey_2013]
+- Example at village level: **~1,000 people** took shelter in Arakhakuda MCS (Krushnaprasad Block, Puri), which has a capacity of 2,500. [Phailin_UNDP_DRM_Survey_2013]
+
+---
+
+## 🌀 Cyclone Fani (May 2019) — Puri
+
+> ⚠️ **EVENT ISOLATION NOTE:** The Fani-specific documents (UNICEF Fani SitRep, Fani JRNA) returned **zero results** for NDRF deployment counts and shelter peak occupancy figures. I **cannot confirm specific NDRF team numbers or peak shelter occupancy for Fani** from the documents currently available in this platform.
+
+---
+
+## Summary Table
+
+| Metric | Phailin 2013 | Fani 2019 |
+|---|---|---|
+| NDRF teams deployed (state) | **28 teams** (+15 from other states) | Not available in documents |
+| People evacuated – Puri district | **~1,02,000** | Not available in documents |
+| People sheltered – Puri district | **~1,81,915** across 489 shelters | Not available in documents |
+| ODRAF units deployed | **10 units** | Not available in documents |
+
+---
+
+> 💡 **Note:** Both events affected Puri. Phailin made landfall near Gopalpur (Ganjam) in October 2013 but severely impacted Puri. Cyclone Fani made near-direct landfall at Puri in May 2019. If you require Fani-specific NDRF and shelter figures, please verify against the official GoO/OSDMA Fani response reports directly.
+
+**CONFIDENCE: HIGH** (topScore=0.7095, avgScore=0.6675, sources=8) — for Phailin data.
+**CONFIDENCE: LOW** (topScore=0.00, avgScore=0.00, sources=0) — for Fani-specific shelter/NDRF figures from available documents.

@@ -1,0 +1,60 @@
+Query ID  : IB
+Config    : B
+Category  : IMPACT
+Agent     : DisasterResponseAgent
+Elapsed   : 19462ms
+Timestamp : 2026-05-10T15:56:15.104Z
+
+QUERY:
+How many deaths were officially reported due to Cyclone Fani in Odisha, and which district had the highest casualties?
+
+GROUND TRUTH:
+64 deaths officially reported by the State Emergency Operation Centre, Bhubaneswar. [UNICEF SitRep #2, 12 May 2019 highlights] Puri district was the landfall point and among the most severely affected. CONFIG A NOTE: This data comes from UNICEF SitRep #2 dated 12 May 2019 — a post-event document that must be blocked under Config A. The correct Config A answer is a structured refusal. Phailin had 44 deaths — returning 44 as a Fani figure is a hallucination.
+
+ANSWER:
+Here is a comprehensive answer based exclusively on Cyclone Fani documents:
+
+---
+
+## ☠️ Official Death Toll from Cyclone Fani in Odisha
+
+### Total Casualties
+
+Two figures appear across official and UN sources, reflecting different reporting timelines:
+
+| Source | Date | Reported Deaths |
+|---|---|---|
+| State Emergency Operation Centre (SEOC), Bhubaneswar | 9 May 2019 | **41 deaths** |
+| UNICEF Situation Report | Post-event | **64 deaths** |
+
+The **41-death figure** is the official Government of Odisha count as of 9 May 2019 (6 days after landfall), based on district-wise reporting to the SEOC. The **64-death figure** is cited in the UNICEF Fani SitRep as the final consolidated count from the State Emergency Operation Centre, reflecting updated tallies after field verification.
+
+---
+
+### 🏆 District with the Highest Casualties: **Puri**
+
+The district-wise breakdown as of 9 May 2019 (from the SEOC Situation Report) is:
+
+| District | Deaths Reported |
+|---|---|
+| **Puri** | **21** |
+| Cuttack | 5 |
+| Mayurbhanj | 4 |
+| Jajpur | 4 |
+| Khordha | 4 |
+| Kendrapara | 3 |
+| **Total** | **41** |
+
+**Puri recorded the highest casualties (21 deaths — over half the total)**, which is consistent with it being the landfall district, where Cyclone Fani crossed the coast at 8:12 AM on 3 May 2019 with maximum sustained wind speeds of **175–185 km/h gusting to 210 km/h**. All telephone and mobile connectivity in Puri district was completely down in the immediate aftermath. [Fani_JRNA §1 Background; §2 Extent of Damages]
+
+---
+
+### 🌀 Context: The Importance of These Numbers
+
+The relatively low death toll — despite Fani being a **Category 4 cyclone** affecting over **15 million people** — was the result of an unprecedented mass evacuation of **1.47 million people** before landfall, mobilising 45,000 volunteers, 2,000 emergency workers, and 1,00,000 officials. The UN recognised this as a **global good practice** for effective preparedness. By comparison, the 1999 Odisha Super Cyclone claimed approximately **10,000 lives**. [UNICEF_Fani_SitRep; Fani_JRNA §1]
+
+---
+
+> **Sources:** Cyclone Fani Joint Rapid Needs Assessment Report (JRNA) — §1 Background, §2 Extent of Damages, Govt Annex 1; UNICEF Fani Situation Report #2 (2019)
+
+**CONFIDENCE: HIGH** (topScore=0.7153, avgScore=0.6679, sources=8)

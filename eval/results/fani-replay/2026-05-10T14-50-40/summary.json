@@ -1,0 +1,59 @@
+{
+  "run_at": "2026-05-10T14:50:40.026Z",
+  "total_queries": 8,
+  "configs_run": [
+    "A",
+    "B"
+  ],
+  "embedding_model": "text-embedding-3-small (OpenAI)",
+  "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+  "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+  "temporal_cutoff_config_a": "2019-05-02",
+  "fixes_applied_this_run": [
+    "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+    "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+    "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+  ],
+  "config_a": null,
+  "config_b": {
+    "avg_total": 7,
+    "avg_factual_grounding": 2,
+    "avg_sop_alignment": 2,
+    "avg_appropriate_uncertainty": 3,
+    "hallucinations": 0,
+    "temporal_filter_breaches": 0,
+    "crag_fires": 0,
+    "by_category": {
+      "PLANNING": {
+        "avg_total": 7,
+        "n": 1
+      },
+      "IMPACT": {
+        "avg_total": 0,
+        "n": 0
+      },
+      "CONTAMINATION": {
+        "avg_total": 0,
+        "n": 0
+      },
+      "HYBRID": {
+        "avg_total": 0,
+        "n": 0
+      }
+    }
+  },
+  "gap_analysis": {
+    "note": "Gap = Config B score minus Config A score.",
+    "overall": 7,
+    "planning_gap": 7,
+    "impact_gap": 0,
+    "contamination_gap": 0,
+    "hybrid_gap": 0,
+    "interpretation": {
+      "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+      "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+      "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+      "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+    }
+  }
+}

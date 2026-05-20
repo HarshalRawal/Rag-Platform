@@ -1,0 +1,39 @@
+Query ID  : PB
+Config    : A
+Category  : PLANNING
+Agent     : DisasterResponseAgent
+Elapsed   : 90871ms
+Timestamp : 2026-05-09T09:30:30.792Z
+
+QUERY:
+What must the Health Department do in the first 24 hours after a cyclone RED alert is issued in coastal Odisha per the SDMP?
+
+GROUND TRUTH:
+SDMP §6.3.3 Table 6.2 specifies a four-window time-phased response: (0–2 hrs) CDMO assumes role of Incident Commander; ambulance dispatched immediately; CHC/SDH/DHH put on standby; control room opened at ADMO office with full contact lists. (2–6 hrs) Chain of command activated from state to village level; health surveillance control rooms activated at state/district/block; Rapid Response Teams stood up; inter-sectoral coordination established with Police, Fire, Red Cross, private hospitals, NGOs, RWSS, OSDMA. (6–12 hrs) OT, ICU, Blood Bank, X-Ray, Laboratory activated at CHC/SDH/DHH/MCH and accredited private hospitals; Mobile Medical Units with advanced life support dispatched; on-site triage operational; Medical Relief Centres opened at PHC/CHC/schools if mass casualties. (12–24 hrs) MOs deployed from other areas if mass casualties continue; separate wards arranged; patient resuscitation area operational; state/national assistance formalised. Puri DDMP §8.6 additionally requires: MCM units for triage, mobile health units for inaccessible pockets, post-disaster disease surveillance activated, adequate mortuary facility, psycho-social counselling. [SDMP §6.3.3 Table 6.2 / Puri DDMP Ch 8.6]
+
+ANSWER:
+Both Fani documents — **UNICEF_Fani_SitRep** and **Fani_JRNA** — returned **zero results** for this query.
+
+---
+
+### ⚠️ Unable to Answer from Fani Documents
+
+Per the **[CRAG INSTRUCTION]** provided, I am restricted to searching only Fani-specific documents for this query. However:
+
+- The **UNICEF Fani Situation Report** is a post-event humanitarian situation report — it covers response operations (child protection, WASH, nutrition, shelter) but **does not contain Health Department SOPs or alert-level protocols**.
+- The **Fani JRNA (Joint Rapid Needs Assessment)** similarly focuses on damage and needs assessment, **not pre-landfall departmental action checklists**.
+
+The question asks about a **procedural/SOP-level requirement** — specifically, what the Health Department must do in the first 24 hours of a **RED alert** — which is a **planning framework question** sourced from the **Odisha State Disaster Management Plan 2019 (SDMP)**, not from Fani event reports.
+
+---
+
+### What I Can Tell You
+
+If the CRAG instruction were lifted and I were permitted to search the **SDMP (Odisha_SDMP_2019)**, that document — particularly **§6.x (Department-wise SOPs)** — would contain the authoritative answer on Health Department RED alert actions. I can run that search upon your confirmation.
+
+**I cannot fabricate or infer SOP content** from Fani event documents where none exists.
+
+---
+
+CONFIDENCE: **LOW** (topScore=0, avgScore=0, sources=0)
+*No relevant content found in the restricted Fani document set for this procedural query.*

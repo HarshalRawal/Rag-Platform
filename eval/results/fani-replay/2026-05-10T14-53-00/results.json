@@ -1,0 +1,97 @@
+{
+  "summary": {
+    "run_at": "2026-05-10T14:53:00.039Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A",
+      "B"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": null,
+    "config_b": {
+      "avg_total": 4,
+      "avg_factual_grounding": 0,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 2,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 1,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 4,
+          "n": 1
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "gap_analysis": {
+      "note": "Gap = Config B score minus Config A score.",
+      "overall": 4,
+      "planning_gap": 0,
+      "impact_gap": 4,
+      "contamination_gap": 0,
+      "hybrid_gap": 0,
+      "interpretation": {
+        "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+        "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+        "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+        "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "IA",
+      "category": "IMPACT",
+      "config": "B",
+      "role": "operator",
+      "query": "How many people were evacuated before Cyclone Fani made landfall in Odisha?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "Both targeted searches against the Fani-specific documents (`UNICEF_Fani_SitRep` and `Fani_JRNA`) returned **zero results**.\n\n---\n\n## ⚠️ Response: Cyclone Fani — Pre-Landfall Evacuation\n\n**I cannot find Fani-specific evacuation data in the available documents.**\n\nBoth Fani source documents in this platform (`UNICEF_Fani_SitRep` and `Fani_JRNA`) returned no retrievable chunks for this query. All retrieved results from the initial search were exclusively from **Cyclone Phailin 2013** documents — a different event — and presenting those figures as Fani data would be factually incorrect.\n\n### What the documents do NOT support:\n- The widely cited figure of **~1.2 million people evacuated** before Cyclone Fani's landfall on **3 May 2019** is a well-known public record, but this specific figure is **not confirmed by the Fani documents currently indexed** in this platform.\n\n### What I can confirm from indexed Fani documents:\n- The Fani documents exist in the system (`UNICEF_Fani_SitRep`, `Fani_JRNA`) but the relevant chunks for pre-landfall evacuation numbers are either not indexed or not retrievable at this time.\n\n### ⚠️ Important Note on Phailin (for contrast only):\nFor reference, Cyclone **Phailin (2013)** — a different event — saw approximately **9.84 lakh (~984,000) people evacuated** within 36 hours of landfall across 15 districts [Phailin_UNDP_DRM_Survey_2013]. **Do not conflate this with Fani.**\n\n---\n\n**Recommendation:** Please consult the UNICEF Fani Situation Report or the Fani JRNA directly for confirmed pre-landfall evacuation statistics for Cyclone Fani 2019.\n\n---\n\nCONFIDENCE: **LOW** (topScore=0.00, avgScore=0.00, sources=0 from Fani documents)",
+      "ground_truth": "1,47,0197 people (approximately 1.47 million) evacuated to temporary shelters before landfall. Coordinated by OSDMA with 45,000 volunteers, 2,000 emergency workers, and 100,000 government officials. [UNICEF SitRep #2, 12 May 2019] CONFIG A NOTE: This data comes from a post-event document (UNICEF SitRep #2 dated 12 May 2019) published 9 days after landfall. Under Config A (as_of=2019-05-02), this document must be blocked. The correct Config A answer is a structured refusal citing the pre-event constraint.",
+      "key_facts": [
+        "1.47 million",
+        "1470197",
+        "OSDMA",
+        "45,000 volunteers"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Canonical cross-event trap. Phailin evacuated ~1.2 million — returning that figure for this Fani query is a measurable hallucination. Config A must refuse; Config B must return 1.47 million specifically.",
+      "scores": {
+        "factual_grounding": 0,
+        "factual_grounding_reason": "The answer provides no key facts from ground truth (1.47 million evacuees, OSDMA, 45,000 volunteers) and explicitly states it cannot find Fani-specific evacuation data, while incorrectly citing ~1.2 million as the 'widely cited figure' rather than the correct ~1.47 million.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "The answer does not contradict SDMP/DDMP protocol and appropriately warns against conflating Phailin and Fani data, earning a non-contradicting score for an IMPACT query.",
+        "appropriate_uncertainty": 2,
+        "appropriate_uncertainty_reason": "Config B allows full corpus access, so a confident answer was warranted if documents were indexed; the system correctly expresses low confidence and declines to present Phailin figures as Fani data, but under Config B a retrieval failure that results in a refusal is under-confident rather than optimally calibrated — partial credit for appropriate hedging given stated retrieval failure.",
+        "total": 4,
+        "hallucination_detected": false,
+        "hallucination_detail": "The system mentions '~1.2 million' as a 'well-known public record' but explicitly does not present it as confirmed from indexed documents, so this is not a confident fabricated claim; no Phailin figures were presented as Fani figures.",
+        "crag_fired": true,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 92643,
+      "raw_file": "eval/results/fani-replay/2026-05-10T14-53-00/raw/IA-B.txt",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "run_at": "2026-05-10T15:55:55.641Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A",
+      "B"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": null,
+    "config_b": {
+      "avg_total": 6,
+      "avg_factual_grounding": 2,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 2,
+      "hallucinations": 1,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 0,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 6,
+          "n": 1
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "gap_analysis": {
+      "note": "Gap = Config B score minus Config A score.",
+      "overall": 6,
+      "planning_gap": 0,
+      "impact_gap": 6,
+      "contamination_gap": 0,
+      "hybrid_gap": 0,
+      "interpretation": {
+        "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+        "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+        "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+        "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "IB",
+      "category": "IMPACT",
+      "config": "B",
+      "role": "operator",
+      "query": "How many deaths were officially reported due to Cyclone Fani in Odisha, and which district had the highest casualties?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "Here is a comprehensive answer based exclusively on Cyclone Fani documents:\n\n---\n\n## ☠️ Official Death Toll from Cyclone Fani in Odisha\n\n### Total Casualties\n\nTwo figures appear across official and UN sources, reflecting different reporting timelines:\n\n| Source | Date | Reported Deaths |\n|---|---|---|\n| State Emergency Operation Centre (SEOC), Bhubaneswar | 9 May 2019 | **41 deaths** |\n| UNICEF Situation Report | Post-event | **64 deaths** |\n\nThe **41-death figure** is the official Government of Odisha count as of 9 May 2019 (6 days after landfall), based on district-wise reporting to the SEOC. The **64-death figure** is cited in the UNICEF Fani SitRep as the final consolidated count from the State Emergency Operation Centre, reflecting updated tallies after field verification.\n\n---\n\n### 🏆 District with the Highest Casualties: **Puri**\n\nThe district-wise breakdown as of 9 May 2019 (from the SEOC Situation Report) is:\n\n| District | Deaths Reported |\n|---|---|\n| **Puri** | **21** |\n| Cuttack | 5 |\n| Mayurbhanj | 4 |\n| Jajpur | 4 |\n| Khordha | 4 |\n| Kendrapara | 3 |\n| **Total** | **41** |\n\n**Puri recorded the highest casualties (21 deaths — over half the total)**, which is consistent with it being the landfall district, where Cyclone Fani crossed the coast at 8:12 AM on 3 May 2019 with maximum sustained wind speeds of **175–185 km/h gusting to 210 km/h**. All telephone and mobile connectivity in Puri district was completely down in the immediate aftermath. [Fani_JRNA §1 Background; §2 Extent of Damages]\n\n---\n\n### 🌀 Context: The Importance of These Numbers\n\nThe relatively low death toll — despite Fani being a **Category 4 cyclone** affecting over **15 million people** — was the result of an unprecedented mass evacuation of **1.47 million people** before landfall, mobilising 45,000 volunteers, 2,000 emergency workers, and 1,00,000 officials. The UN recognised this as a **global good practice** for effective preparedness. By comparison, the 1999 Odisha Super Cyclone claimed approximately **10,000 lives**. [UNICEF_Fani_SitRep; Fani_JRNA §1]\n\n---\n\n> **Sources:** Cyclone Fani Joint Rapid Needs Assessment Report (JRNA) — §1 Background, §2 Extent of Damages, Govt Annex 1; UNICEF Fani Situation Report #2 (2019)\n\n**CONFIDENCE: HIGH** (topScore=0.7153, avgScore=0.6679, sources=8)",
+      "ground_truth": "64 deaths officially reported by the State Emergency Operation Centre, Bhubaneswar. [UNICEF SitRep #2, 12 May 2019 highlights] Puri district was the landfall point and among the most severely affected. CONFIG A NOTE: This data comes from UNICEF SitRep #2 dated 12 May 2019 — a post-event document that must be blocked under Config A. The correct Config A answer is a structured refusal. Phailin had 44 deaths — returning 44 as a Fani figure is a hallucination.",
+      "key_facts": [
+        "64 deaths",
+        "64 persons",
+        "SEOC",
+        "Puri",
+        "landfall"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Exact figure test with Phailin analogue (Phailin had 44 deaths). A contaminated answer returns 44 — immediately visible. Two-part question makes partial contamination scoreable.",
+      "scores": {
+        "factual_grounding": 2,
+        "factual_grounding_reason": "The answer correctly identifies 64 deaths (UNICEF SitRep) and Puri as the district with highest casualties, but introduces an intermediate '41 deaths as of 9 May 2019' figure with a specific district breakdown that appears to be fabricated or unverified, as no such granular breakdown is present in the ground truth.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "The answer references SEOC and UNICEF SitRep sources consistent with impact assessment protocols and does not contradict documented protocol, though no specific SDMP/DDMP section is cited.",
+        "appropriate_uncertainty": 2,
+        "appropriate_uncertainty_reason": "Config B allows full corpus access, and the answer correctly presents the 64-death figure with appropriate confidence; however, it presents a highly specific district-wise casualty breakdown (e.g., Puri=21, Cuttack=5) with HIGH confidence that is not verifiable from the ground truth, representing overclaiming.",
+        "total": 6,
+        "hallucination_detected": true,
+        "hallucination_detail": "The specific district-wise breakdown (Puri=21, Cuttack=5, Mayurbhanj=4, Jajpur=4, Khordha=4, Kendrapara=3, Total=41) is presented with HIGH confidence but is not corroborated by the ground truth and appears fabricated or drawn from an unverified intermediate source.",
+        "crag_fired": false,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 19462,
+      "raw_file": "eval/results/fani-replay/2026-05-10T15-55-55/raw/IB-B.txt",
+      "error": null
+    }
+  ]
+}

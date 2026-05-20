@@ -1,0 +1,85 @@
+Query ID  : HA
+Config    : B
+Category  : HYBRID
+Agent     : ResourceAllocationAgent
+Elapsed   : 39638ms
+Timestamp : 2026-05-10T15:07:33.740Z
+
+QUERY:
+How many rescue boats are available across Puri district and which blocks have them — and were they sufficient to handle the scale of the last major cyclone?
+
+GROUND TRUTH:
+Pre-event (both configs, from PostgreSQL rescue_boats table): 27 boats across 10 blocks of Puri district. Highest allocations: Puri Sadar (4 boats: FRPcc-24, FRP-94, FRP-152, FRP-153) and Kanas (4 boats: SB-17, SB-19, FRP-3, FRPcc-21). Lowest allocation: Brahmagiri — only 1 boat (FRP-37), despite significant coastal exposure and 8+ flood-vulnerable villages. This is a documented resource gap. Middle blocks: Krushnaprasad, GOP, Pipili, Delang (3 boats each); Kakatpur, Astaranga, Nimapara (2 boats each). Satyabadi does not appear in the rescue_boats table. [Puri DDMP Vol II — rescue_boats table, PostgreSQL] Post-event sufficiency (Config B only): Fani JRNA documents actual deployment scale — that data is held out in Config A.
+
+ANSWER:
+Here is a comprehensive breakdown of rescue boat availability across Puri district and an assessment of their adequacy against the last major cyclone event on record.
+
+---
+
+## 🚤 RESCUE BOATS — PURI DISTRICT INVENTORY
+*Source: [DDMP Vol II, Annexure 12]*
+
+| Rank | Block | Boats | Boat IDs |
+|------|-------|-------|----------|
+| 1 | **PURI SADAR** | 4 | FRPcc-24, FRP-94, FRP-152, FRP-153 |
+| 1 | **KANAS** | 4 | SB-17, SB-19, FRP-3, FRPcc-21 |
+| 3 | KRUSHNAPRASAD | 3 | ML-Prachi, FRP-146, FRP-147 |
+| 3 | GOP | 3 | SB-9, FRP-29, FRP-155 |
+| 3 | PIPILI | 3 | FRP-53, FRP-150, FRP-151 |
+| 3 | DELANG | 3 | FRP-64, FRP-148, FRP-149 |
+| 7 | NIMAPARA | 2 | FRP-25, FRP-154 |
+| 7 | ASTARANGA | 2 | FRP-50, FRP-54 |
+| 7 | KAKATPUR | 2 | SB-14, SOB-15 |
+| 10 | **BRAHMAGIRI** | **1** | **FRP-37** |
+
+### 📊 District Summary
+- **Total Blocks Covered:** 10 of 11 (Satyabadi block has **no boats listed**)
+- **Total Boats:** **27 across the district**
+- ⚠️ **CRITICAL FLAG — BRAHMAGIRI:** Only **1 boat (FRP-37)** — the lowest allocation in the district, despite being a coastal block
+- ⚠️ **CRITICAL FLAG — SATYABADI:** **Zero boats recorded** — a significant gap if this block faces flooding
+
+---
+
+## 🌀 SUFFICIENCY ASSESSMENT vs. CYCLONE PHAILIN (2013) — Last Major Cyclone on Record
+
+Drawing from the **UNDP/DRM Survey Report on Cyclone Phailin (2013)**:
+
+### Scale of the Event in Puri
+- **~1,02,000 people evacuated** from Puri district alone during Phailin
+- **1,81,915 people sheltered** in 489 safe shelters across the district
+- Subsequent **post-cyclone flooding** in 3 districts required an additional **1,71,083 rescues**
+- Evacuations had to begin **36 hours before landfall** — boats would have been needed in inundated areas immediately post-impact
+
+### Were 27 Boats Sufficient? — Assessment
+
+| Factor | Assessment |
+|--------|------------|
+| **Scale mismatch** | 27 boats for 1,00,000+ evacuees is a severe ratio — even running round-the-clock, each boat would need to ferry thousands of people |
+| **Uneven distribution** | Brahmagiri (coastal, high-risk) had only 1 boat; NDRF/ODRAF boats had to supplement |
+| **NDRF & ODRAF augmentation** | The DRM Survey confirms ODRAF (50 capacity, search/rescue trained) and NDRF (45 capacity) were deployed — civilian district boats alone were clearly inadequate |
+| **15 additional NDRF teams** from other states were mobilised | Confirms state-level recognition that local resources were insufficient |
+| **Helicopter requisition** | MI-17 helicopters from the Ministry of Defence were requested — indicating water/land rescue capacity was stretched |
+| **Road vulnerability** | All relief lines to blocks noted risk of **tree falls during cyclones**, potentially cutting off road access and increasing dependency on boats for last-mile rescue |
+| **Krushnaprasad VHF not installed** | ⚠️ Communication gap in one of the 3-boat blocks means boats may be deployed without reliable coordination |
+
+### Key Gaps Identified
+1. **27 boats are insufficient** for a district evacuating 1 lakh+ people — they function as a first-response layer, not the primary evacuation mechanism
+2. **Brahmagiri's 1-boat allocation is a standing vulnerability** — reallocation from Puri Sadar or Kanas (4 each) should be pre-planned
+3. **Satyabadi block has zero boats on record** — must be escalated for procurement or mutual aid agreement
+4. **Satellite phones and NDRF/ODRAF pre-positioning** were critical force multipliers during Phailin and remain essential complements to district boats
+5. The DDMP itself recommends *"escalation of mechanization of 100% DAT operated boats"* as a medium-term goal — acknowledging the current gap
+
+---
+
+## 📋 GAPS SUMMARY
+
+| Gap | Block | Recommendation |
+|-----|-------|---------------|
+| Only 1 boat | Brahmagiri | Pre-position 1–2 boats from Puri Sadar/Kanas pre-cyclone |
+| Zero boats recorded | Satyabadi | Procure boats or establish mutual aid from Pipili/Puri Sadar |
+| VHF not installed | Krushnaprasad | Satellite phone backup mandatory for boat coordination |
+| 27 total boats vs. 1L+ evacuee scale | District-wide | NDRF/ODRAF pre-positioning and helicopter standby are non-negotiable augmentation |
+
+---
+
+**CONFIDENCE: HIGH** *(tables_queried=1, rows_found=10, gaps=2 | Qdrant docs retrieved=8, historical event grounded in Phailin DRM Survey 2013)*

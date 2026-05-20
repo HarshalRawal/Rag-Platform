@@ -1,0 +1,89 @@
+{
+  "summary": {
+    "run_at": "2026-05-09T09:28:59.921Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": {
+      "avg_total": 0,
+      "avg_factual_grounding": 0,
+      "avg_sop_alignment": 0,
+      "avg_appropriate_uncertainty": 0,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 0,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 1
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "config_b": null
+  },
+  "results": [
+    {
+      "id": "PB",
+      "category": "PLANNING",
+      "config": "A",
+      "role": "operator",
+      "query": "What must the Health Department do in the first 24 hours after a cyclone RED alert is issued in coastal Odisha per the SDMP?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "Both Fani documents — **UNICEF_Fani_SitRep** and **Fani_JRNA** — returned **zero results** for this query.\n\n---\n\n### ⚠️ Unable to Answer from Fani Documents\n\nPer the **[CRAG INSTRUCTION]** provided, I am restricted to searching only Fani-specific documents for this query. However:\n\n- The **UNICEF Fani Situation Report** is a post-event humanitarian situation report — it covers response operations (child protection, WASH, nutrition, shelter) but **does not contain Health Department SOPs or alert-level protocols**.\n- The **Fani JRNA (Joint Rapid Needs Assessment)** similarly focuses on damage and needs assessment, **not pre-landfall departmental action checklists**.\n\nThe question asks about a **procedural/SOP-level requirement** — specifically, what the Health Department must do in the first 24 hours of a **RED alert** — which is a **planning framework question** sourced from the **Odisha State Disaster Management Plan 2019 (SDMP)**, not from Fani event reports.\n\n---\n\n### What I Can Tell You\n\nIf the CRAG instruction were lifted and I were permitted to search the **SDMP (Odisha_SDMP_2019)**, that document — particularly **§6.x (Department-wise SOPs)** — would contain the authoritative answer on Health Department RED alert actions. I can run that search upon your confirmation.\n\n**I cannot fabricate or infer SOP content** from Fani event documents where none exists.\n\n---\n\nCONFIDENCE: **LOW** (topScore=0, avgScore=0, sources=0)\n*No relevant content found in the restricted Fani document set for this procedural query.*",
+      "ground_truth": "SDMP §6.3.3 Table 6.2 specifies a four-window time-phased response: (0–2 hrs) CDMO assumes role of Incident Commander; ambulance dispatched immediately; CHC/SDH/DHH put on standby; control room opened at ADMO office with full contact lists. (2–6 hrs) Chain of command activated from state to village level; health surveillance control rooms activated at state/district/block; Rapid Response Teams stood up; inter-sectoral coordination established with Police, Fire, Red Cross, private hospitals, NGOs, RWSS, OSDMA. (6–12 hrs) OT, ICU, Blood Bank, X-Ray, Laboratory activated at CHC/SDH/DHH/MCH and accredited private hospitals; Mobile Medical Units with advanced life support dispatched; on-site triage operational; Medical Relief Centres opened at PHC/CHC/schools if mass casualties. (12–24 hrs) MOs deployed from other areas if mass casualties continue; separate wards arranged; patient resuscitation area operational; state/national assistance formalised. Puri DDMP §8.6 additionally requires: MCM units for triage, mobile health units for inaccessible pockets, post-disaster disease surveillance activated, adequate mortuary facility, psycho-social counselling. [SDMP §6.3.3 Table 6.2 / Puri DDMP Ch 8.6]",
+      "key_facts": [
+        "CDMO Incident Commander",
+        "ambulance",
+        "CHC",
+        "health surveillance control rooms",
+        "Rapid Response Teams",
+        "private hospitals",
+        "Blood Bank",
+        "Mobile Medical Units",
+        "triage",
+        "disease surveillance",
+        "ADMO"
+      ],
+      "answerable_without_fani": true,
+      "engineering_property": "Qdrant SOP narrative retrieval with department-level filtering. Multi-step time-phased protocol — judge now scores against the full SDMP §6.3.3 content, not a truncated summary.",
+      "scores": {
+        "factual_grounding": 0,
+        "factual_grounding_reason": "The answer contains zero factual content about Health Department actions — it provides no key facts such as CDMO as Incident Commander, ambulance dispatch, health surveillance control rooms, Rapid Response Teams, Blood Bank activation, Mobile Medical Units, triage, or disease surveillance.",
+        "sop_alignment": 0,
+        "sop_alignment_reason": "The answer does not align with any SDMP/DDMP protocol steps; it entirely refuses to engage with the SOP content despite the SDMP being a pre-event planning document that should be available under Config A (as_of=2019-05-02).",
+        "appropriate_uncertainty": 0,
+        "appropriate_uncertainty_reason": "Config A with CATEGORY=PLANNING requires a confident correct answer from the pre-event corpus; the SDMP (Odisha_SDMP_2019) is a pre-event planning document that should be available under the temporal filter, yet the system refuses to answer it — scoring 0 for refusing to answer despite the corpus containing the answer.",
+        "total": 0,
+        "hallucination_detected": false,
+        "hallucination_detail": "No fabricated claims were made; the system issued a structured refusal. However, the refusal is operationally inappropriate for a planning query under Config A.",
+        "crag_fired": false,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 90871,
+      "raw_file": "eval/results/fani-replay/2026-05-09T09-28-59/raw/PB-A.txt",
+      "error": null
+    }
+  ]
+}

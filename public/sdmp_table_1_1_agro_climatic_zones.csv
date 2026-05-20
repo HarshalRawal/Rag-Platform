@@ -1,0 +1,11 @@
+zone_no,zone_name,districts,climate,mean_annual_rainfall_mm,broad_soil_groups
+1,North Western Plateau,"Sundargarh, parts of Deogarh, Sambalpur & Jharsuguda",Hot & moist sub-humid,1600,Red; Brown forest; Red & Yellow; Mixed Red & Black
+2,North Central Plateau,Mayurbhanj; major parts of Keonjhar (except Anandapur & Ghasipura block),Hot & moist sub-humid,1534,Lateritic; Red & Yellow; Mixed Red & Black
+3,North Eastern Coastal Plain,Balasore; Bhadrak; parts of Jajpur & Hatdihi block of Keonjhar,Moist sub-humid,1568,Red; Lateritic; Deltaic alluvial; Coastal alluvial; Saline
+4,East & South Eastern Coastal Plain,"Kendrapara, Khurda, Jagatsinghpur, part of Cuttack, Puri, Nayagarh & part of Ganjam",Hot & Humid,1577,Saline; Lateritic; Alluvial; Red & Mixed red & Black
+5,North Eastern Ghat,"Phulbani, Rayagada, Gajapati, part of Ganjam & small patches of Koraput",Hot & moist sub-humid,1597,Brown forest; Lateritic Alluvial; Red; Mixed Red & Black
+6,Eastern Ghat High Land,"Major parts of Koraput, Nabarangpur",Warm & humid,1522,Red; Mixed Red & Black; Mixed Red & Yellow
+7,South Eastern Ghat,Malkangiri & part of Keonjhar,Warm & humid,1710,Red; Lateritic; Black
+8,Western Undulating Zone,"Kalahandi, Nuapada",Hot & moist sub-humid,1527,Red; Mixed Red & Black; Black; Brown forest
+9,Western Central Table Land,"Bargarh, Jharsuguda, Sambalpur, Deogarh, Sundergarh, Boudh, Subarnapur",Hot & dry sub-humid,1614,Red & Yellow; Red & Black; Black; Brown forest; Lateritic
+10,Mid Central Table Land,"Angul, Dhenkanal, parts of Cuttack & Jajpur",Hot & moist sub-humid,1421,Alluvial; Red; Lateritic; Mixed Red & Black

@@ -1,0 +1,229 @@
+{
+    "ok": true,
+    "answer": "Excellent! I found comprehensive information on fishing asset compensation. Let me provide you with the complete details:\n\n## SDRF Compensation for Fishing Assets\n\n### **Compensation Amounts** [Table: sdmp_table_9_3_sdrf_norms_of_assistance, SDMP §9.3]\n\nFor a fishing family that lost both boats and nets in a cyclone:\n\n| Asset | Damage Status | SDRF Compensation |\n|-------|--------------|------------------|\n| **Fishing boat** (Dugout/Canoe/Catamaran) | Fully damaged | **Rs. 9,600 per boat** |\n| **Fishing boat** (Dugout/Canoe/Catamaran) | Partially damaged | **Rs. 4,100 per boat** |\n| **Fishing net** | Fully damaged | **Rs. 2,600 per net** |\n| **Fishing net** | Partially damaged | **Rs. 2,100 per net** |\n\n**Example for total loss scenario:**\n- A family losing 1 fully damaged boat + 2 fully damaged nets would receive: Rs. 9,600 + (2 × Rs. 2,600) = **Rs. 14,800**\n\nAdditional support if applicable:\n- **Fish farm loss** (per hectare): Rs. 8,200\n- **Fish farm repair/restoration** (per hectare): Rs. 12,200\n\n---\n\n### **Eligibility Conditions** [Source: Odisha_SDMP_2019, Section 9.2]\n\n1. **Calamity Coverage**: Fishing assets are covered under SDRF relief for:\n   - **Cyclones** ✓ (primary calamity)\n   - Flood, tsunami, and other notified natural disasters\n\n2. **Immediate Relief Criterion**: SDRF provides relief for \"immediate nature\" assistance to affected fishing communities whose livelihood is seriously disrupted\n\n3. **Beneficiary Status**: \n   - Fishing families whose boats/nets are damaged/destroyed due to the cyclone\n   - Small-scale and traditional fishers using Dugout, Canoe, or Catamaran boats\n   - Fish farmers (if applicable)\n\n4. **No Duplicate Relief**: Scale of assistance should not exceed SDRF norms; any additional relief beyond norms is borne by State Government resources, not SDRF\n\n---\n\n### **Documentation Requirements**\n\nWhile the SDMP document does not provide an exhaustive checklist specifically for fishing assets, the general framework for SDRF claims includes:\n\n1. **Damage Assessment & Verification**:\n   - Official assessment by State Executive Committee (SEC) or Central Team (for NDRF)\n   - Photographic evidence of damaged boats and nets\n\n2. **Ownership Proof**:\n   - Registration documents (boat/net ownership registration if available)\n   - Testimony from local community/Panchayat/Fisheries Department\n\n3. **Identification**:\n   - Identity proof of beneficiary (Aadhar, voter ID, or other government-issued ID)\n   - Family details/occupation certification\n\n4. **Certification**:\n   - Damage certification from district/block administration\n   - List of affected beneficiaries submitted by State Government to Central Team (in case of NDRF involvement)\n\n5. **Basis for Relief**:\n   - State Government provides identification process and basis for qualifying beneficiaries to SEC/Central Team\n\n---\n\n### **Processing Authority**\n\n- **State Executive Committee (SEC)** headed by the Chief Secretary authorizes relief disbursement from SDRF\n- **District Collector** processes claims at district level\n- **Central Team** (for NDRF/advance SDRF releases) reviews and approves large-scale relief\n\n---\n\n**CONFIDENCE**: **HIGH** (source=database + framework documents, rows_returned=32 + search results=4)\n- All compensation amounts confirmed from SDRF norms table\n- Eligibility conditions and procedural framework extracted from Odisha SDMP 2019 §9.2\n- Fishing asset rows (rows 21-26) explicitly identified and verified",
+    "agent": "ReliefFinanceAgent",
+    "mode": 1,
+    "agents_used": [
+        "ReliefFinanceAgent"
+    ],
+    "confidence": {
+        "level": "HIGH",
+        "source": "database + framework documents",
+        "rows_returned": 32
+    },
+    "crag": {
+        "action": "PASS",
+        "reason": "default pass",
+        "retried": false
+    },
+    "rewrite": {
+        "was_rewritten": false,
+        "rewritten_query": "A fishing family in Puri lost their boat and nets in the cyclone. What SDRF compensation are they entitled to and what is the condition for receiving it?\n\n[EVALUATION MODE: as_of=2019-05-02 — only use documents valid on or before this date]\n[CALLER ROLE: operator — operator_only documents are accessible]",
+        "provider": "none"
+    },
+    "routing": {
+        "reasoning": "This is a straightforward financial compensation query within a single domain. The fishing family needs to know: (1) the SDRF ex-gratia amount for loss of boats/nets, (2) eligibility criteria (asset ownership, damage verification, income thresholds if any), and (3) claim conditions. ReliefFinanceAgent has direct access to Postgres SDRF compensation tables with asset-loss norms, including cyclone-related boat/net losses. No resource deployment or SOP execution is needed—only compensation guidance. This is a simple factual lookup by the operator seeking to advise the family on entitlements.",
+        "query_complexity": "simple"
+    },
+    "audit_id": "276c4dd5-1d56-4fa9-b36c-4c9c10001aa1",
+    "elapsed_ms": 78193
+}
+
+
+///////////////////////////////////////////////////////////////
+{
+    "ok": true,
+    "answer": "I now have comprehensive data to produce a thorough, well-grounded response. Let me compile everything.\n\n---\n\n# 🌀 Cyclone Evacuation Priority: Coastal Blocks of Puri District\n\n## Overview\n\nPuri district sits on the Bay of Bengal coastline and is uniquely exposed — **all 11 blocks, all 268 GPs, and all 1,714 villages are classified as cyclone-prone** [Puri DDMP §3.1]. However, evacuation priority is not uniform. A multi-factor SOP framework — combining storm surge exposure, population at risk, historical cyclone impact, tsunami vulnerability, waterlogging/inundation risk, and social vulnerability — determines which blocks are evacuated first, fastest, and most completely.\n\n---\n\n## 🗺️ TIER 1 — HIGHEST PRIORITY COASTAL BLOCKS (Evacuate First)\n\nThese blocks score high on multiple simultaneous risk factors: direct coastline exposure, storm surge inundation history, tsunami vulnerability, heavy waterlogging, and concentrated fishing communities.\n\n### 1. 🔴 Krushnaprasad Block\n| Factor | Data |\n|---|---|\n| Cyclone-vulnerable villages | 129 villages across 20 GPs |\n| Vulnerable population | 57,505 |\n| Tsunami-vulnerable villages | **37 villages** — highest in the district |\n| Tsunami-vulnerable GPs | **14 GPs** — highest in the district |\n| Waterlogging | Nuapada, Tichhini, Krushnaprasad GPs waterlogged |\n| Flood-vulnerable villages | 114 villages |\n| Epidemic-prone GPs | 5 GPs |\n\n**⚠️ CRITICAL GAP — COMMUNICATIONS:** Krushnaprasad's VHF station is listed as \"to be installed\" and is not yet operational. This means early warning dissemination in this block is severely compromised during cyclone response. Despite having 6 EWDS siren towers covering **37 villages** [SDMP §5.8.1], the absence of VHF backup creates a dead zone. Evacuation orders must be pre-positioned with Block-level field staff before communications fail. **This block requires priority attention in all communication planning.**\n\n---\n\n### 2. 🔴 Astaranga Block\n| Factor | Data |\n|---|---|\n| Cyclone-vulnerable villages | 102 villages across 14 GPs |\n| Vulnerable population | 67,748 |\n| Tsunami-vulnerable villages | **25 villages** across 6 GPs |\n| Waterlogging | Nuagarh, Nagar, Balipantal, Dakhinpantal GPs |\n| Epidemic-prone GPs | 5 GPs |\n| EWDS siren towers | **9 towers** covering 25 villages — largest EWDS allocation in Puri |\n\nAstaranga is the frontline coastal block. Its 9 EWDS siren towers — the most of any Puri block — confirm its classification as highest-risk by the state government. The block was specifically selected for community consultation in DDMP preparation due to its multi-hazard exposure [Puri DDMP, community consultation section]. Waterlogged GPs compound evacuation difficulty.\n\n---\n\n### 3. 🔴 Brahmagiri Block\n| Factor | Data |\n|---|---|\n| Cyclone-vulnerable villages | 167 villages across 18 GPs — highest village count |\n| Vulnerable population | 132,319 |\n| Tsunami-vulnerable villages | 6 villages across 4 GPs |\n| Waterlogging | **Entire block** is waterlogged |\n| Epidemic-prone GPs | 6 GPs |\n| EWDS siren towers | 2 towers covering 6 villages |\n\nBrahmagiri has the **largest number of cyclone-vulnerable villages (167)** of any block. The entire block is waterlogged, meaning that escape routes are compromised during simultaneous storm surge + rainfall events. This dramatically increases evacuation complexity. [Puri DDMP §3.1, Vulnerability Assessment]\n\n---\n\n## 🗺️ TIER 2 — HIGH PRIORITY COASTAL BLOCKS (Evacuate Concurrently)\n\n### 4. 🟠 Puri Sadar Block (Urban Coastal)\n| Factor | Data |\n|---|---|\n| Cyclone-vulnerable villages | 156 across 26 GPs |\n| Vulnerable population | **396,252** — highest in the district |\n| Tsunami-vulnerable GPs | 2 GPs, 5 villages |\n| Medical infrastructure | 2 private hospitals; EWDS 3 towers + Konark NAC |\n| Epidemic-prone GPs | 9 GPs |\n\nPuri Sadar is the urban coastal hub with by far the **largest absolute population at risk (396,252)**. While it has better infrastructure, the scale of evacuation logistics is enormous. Storm surge and tidal inundation directly threaten the coastal town. Historical events (Phailin 2013: Puri was among 11 blocks affected, all 1,769 villages impacted across the district) confirm district-wide coastal exposure. [Phailin UNDP Survey 2013]\n\n---\n\n### 5. 🟠 Gop Block\n| Factor | Data |\n|---|---|\n| Cyclone-vulnerable villages | 223 across 29 GPs — most GPs in district |\n| Vulnerable population | 199,195 |\n| Tsunami-vulnerable villages | 8 villages across 4 GPs |\n| Waterlogging | Ganeswarpur, Andhra Ichhapur, Gadabhingura, multiple GPs |\n| EWDS siren towers | 4 towers covering 7 villages |\n\nGop has the highest number of susceptible GPs (29) in the district and the second-highest number of cyclone-vulnerable villages (223). Its waterlogged GPs severely restrict movement during inundation events. [Puri DDMP §3.1]\n\n---\n\n### 6. 🟠 Kakatpur Block\n| Factor | Data |\n|---|---|\n| Cyclone-vulnerable villages | 114 across 14 GPs |\n| Vulnerable population | 100,525 |\n| Tsunami-vulnerable villages | 7 villages across 3 GPs |\n| Waterlogging | Extensive: Patasundarpur, Suhagpur, Kakatpur, Kundhei and 10+ GPs |\n| EWDS siren towers | 2 towers covering 7 villages |\n\n---\n\n## 🗺️ TIER 3 — ELEVATED PRIORITY (Inland-Coastal Transition Blocks)\n\nThese blocks face cyclone risk but are less directly storm-surge-exposed. They face secondary hazards (riverine flooding, wind damage, crop loss) and should be evacuation-ready but are sequenced after Tier 1 & 2.\n\n| Block | Vulnerable Pop. | Vulnerable Villages | Key Risk Factor |\n|---|---|---|---|\n| **Nimapara** | 208,139 | 240 | Largest village count; riverine flood overlap |\n| **Satyabadi** | 196,136 | 96 | Heavy flood and epidemic exposure |\n| **Pipili** | 159,750 | 204 | Riverine flooding, inland road access point |\n| **Delanga** | 109,291 | 134 | Epidemic-prone (5 GPs), waterlogging |\n| **Kanas** | 71,870 | 139 | Almost all GPs waterlogged; flood-dominant |\n\n---\n\n## 📋 THE FOUR SOP FACTORS DETERMINING EVACUATION PRIORITY\n\n### Factor 1: Storm Surge Risk 🌊\nThe SDMP defines storm surge risk as the primary life-safety trigger for mandatory coastal evacuation [SDMP §6.2]. The IMD four-stage warning system (Pre-Cyclone Watch → Cyclone Alert → Cyclone Warning → Post Landfall Scenario) provides the trigger timeline [SDMP §3.2.2]:\n- **Cyclone Alert (48 hrs before):** Pre-position forces; activate shelters\n- **Cyclone Warning (24 hrs before):** Commence evacuation of coastal zones; fishing community first\n- **RED Warning / ≤12 hrs to landfall:** Mandatory full evacuation of all coastal zones per SDMP §6.2\n\nStorm surge inundation historically reached **3.0 to 3.5 metres** during Phailin (2013), inundating large areas of Puri district [Phailin UNDP Survey 2013]. Blocks within 0–10 km of the coastline — **Krushnaprasad, Astaranga, Brahmagiri, Puri Sadar, Gop, Kakatpur** — face direct surge exposure.\n\n### Factor 2: Population Density & Scale 👥\nRanking by vulnerable population directly from the DDMP cyclone vulnerability table [Puri DDMP Table 03]:\n\n| Rank | Block | Vulnerable Population |\n|---|---|---|\n| 1 | Puri Sadar | 396,252 |\n| 2 | Gop | 199,195 |\n| 3 | Nimapara | 208,139 |\n| 4 | Satyabadi | 196,136 |\n| 5 | Brahmagiri | 132,319 |\n| 6 | Pipili | 159,750 |\n| 7 | Kakatpur | 100,525 |\n| 8 | Delanga | 109,291 |\n| 9 | Astaranga | 67,748 |\n| 10 | Kanas | 71,870 |\n| 11 | Krushnaprasad | 57,505 |\n\nNote: Smaller population does **not** reduce Krushnaprasad's priority — its 37 tsunami-vulnerable villages and VHF communications gap make it a special-case priority.\n\n### Factor 3: Warning Level–Triggered Evacuation Actions ⚠️\nThe SDMP and DDMP define a cascading action sequence:\n\n| Warning Stage | Lead Time | SOP Action |\n|---|---|---|\n| **YELLOW (Watch)** | 72–48 hrs | Activate DEOC; alert BDOs; pre-position NDRF/ODRAF teams; warn fishermen |\n| **ORANGE (Alert)** | 48–24 hrs | Open cyclone shelters; begin voluntary evacuation of fishing communities and low-lying coastal habitation; suspend fishing operations |\n| **RED (Warning)** | 24–0 hrs | **Mandatory evacuation** of all coastal zones within 0–10 km; move all kutcha/mud-wall house residents; evacuate livestock |\n| **Post Landfall** | After landfall | Maintain shelter; activate free kitchens; deploy medical teams |\n\nThe principle is explicit: **all people in low-lying areas and kutcha houses within 0–10 km of the coastline must be evacuated to cyclone shelters before landfall** [Phailin RDNA 2013, §13, replicating the protocol that enabled 1 million+ evacuations in 36 hours during Phailin].\n\nThe SDMP Early Warning SOP states: *\"The principle followed should be 'sooner the better.'\"* [SDMP §5.3.1]\n\n### Factor 4: Historical Cyclone Impact 🕰️\n- **Cyclone Phailin (2013):** All 11 blocks of Puri district were impacted — 1,769 villages, 4 ULBs, 1,812,775 people affected, with 3 cyclone-related casualties and 1 flood casualty. Storm surges of 3.0–3.5m inundated Puri, Ganjam, Jagatsinghpur, and Khordha coastal zones [Phailin UNDP Survey 2013].\n- **75% of district structures are mud-wall houses** and **80% of saline embankments are vulnerable to breach** [Puri DDMP, Infrastructure Vulnerability], making the entire coastal belt structurally fragile.\n- Historical evidence establishes that **no block in Puri is safe from cyclone impact** — all 268 GPs are classified cyclone-prone — but priority sequencing must protect those with combined storm surge + inundation + communication gaps first.\n\n---\n\n## 🔑 SOCIAL VULNERABILITY AMPLIFIERS (Apply Across All Tiers)\n\nThe DDMP identifies specific populations requiring priority evacuation attention within each block [Puri DDMP §3.1, Social Vulnerability]:\n- **Fishing communities** — first to be moved, highest storm surge exposure\n- **BPL families, small and marginal farmers**\n- **SC/ST families, aged persons, disabled persons**\n- **Pregnant and lactating mothers, children, sick persons**\n- **Residents of kutcha/mud-wall houses** (75% of district housing stock)\n\n---\n\n## ⚠️ Known Operational Gaps\n\n1. **Krushnaprasad VHF station not installed** — creates a communication dead zone for the district's most tsunami-vulnerable block. Field staff must be pre-positioned before landfall with handheld communication.\n2. **Brahmagiri entire block waterlogged** — escape route planning must account for road inundation; pre-event positioning of rescue boats is essential.\n3. **EWDS siren coverage is incomplete** — only 88 villages across 6 Puri blocks are covered by 26 siren towers [SDMP §5.8.1], meaning over 1,600 villages rely on manual/telephone-based warning.\n4. **No subdivisional hospitals in any coastal block** — all blocks except Puri Sadar (2 private hospitals) have zero district/subdivisional hospital coverage. Casualty management must rely on mobile medical teams.\n\n---\n\n## Summary Priority Matrix\n\n| Priority Tier | Blocks | Primary Trigger |\n|---|---|---|\n| 🔴 **Tier 1 — First** | Krushnaprasad, Astaranga, Brahmagiri | Storm surge + tsunami exposure + waterlogging + comms gap |\n| 🟠 **Tier 2 — Concurrent** | Puri Sadar, Gop, Kakatpur | Mass population + tsunami exposure + waterlogging |\n| 🟡 **Tier 3 — Sequential** | Nimapara, Satyabadi, Pipili, Delanga, Kanas | Riverine flood + wind damage + epidemic risk |\n\n---\n\n**Sources cited:** [Puri DDMP 2017-18, §3.1, Table 03, §3.2, §5.1, §7.1] | [Odisha SDMP 2019, §3.2.2, §3.2.4, §5.3.1, §5.8.1, §6.2] | [Phailin UNDP DRM Survey 2013] | [Phailin RDNA 2013, §13]\n\n---\n\n**CONFIDENCE: HIGH** (topScore=0.6629, avgScore=0.6314, sources=8 document chunks + 1 Postgres table)",
+    "agent": "DisasterResponseAgent",
+    "mode": 1,
+    "agents_used": [
+        "DisasterResponseAgent"
+    ],
+    "confidence": {
+        "level": "HIGH",
+        "topScore": 0.6629,
+        "avgScore": 0.6314,
+        "sources": 8
+    },
+    "crag": {
+        "action": "PASS",
+        "reason": "topScore=0.6629 ≥ GOOD_THRESHOLD",
+        "retried": false
+    },
+    "rewrite": {
+        "was_rewritten": true,
+        "rewritten_query": "Which coastal blocks in Puri district, Odisha, should be prioritized for evacuation during a cyclone event and what factors determine this priority?",
+        "provider": "ollama"
+    },
+    "routing": {
+        "reasoning": "This query asks for evacuation prioritization logic and the factors underpinning it — a core SOP/procedural question. While it mentions 'coastal blocks', it is NOT a specific block resource plan (no single block name like 'Brahmagiri' or 'Puri Sadar' with a request for shelters/boats/NGOs). The question is fundamentally about disaster response decision-making: which blocks rank highest for evacuation and why. This falls squarely within DisasterResponseAgent's domain (evacuation procedures, SOP factors, department responsibilities, warning-level actions). The agent will synthesize Qdrant procedural prose (SDMP evacuation chapters, cyclone response protocols) and historical data (Phailin 2013, Fani 2019 coastal block impacts) to provide a complete prioritization framework. No resource allocation inventory or financial compensation logic is needed here — this is strategic SOP, not operational deployment or relief finance.",
+        "query_complexity": "compound"
+    },
+    "audit_id": "8b4088e0-e630-4e51-802b-fad7921caf0f",
+    "elapsed_ms": 143291
+}
+//////////////////////////////////////////
+I now have sufficient information from the retrieved documents to construct a comprehensive, well-sourced answer. Let me compile it.
+
+🔴 RED Alert Cyclone Evacuation to Shelters — Puri District: Step-by-Step Procedure
+This response integrates procedures from the Puri DDMP 2017-18 (§8.3, §8.4, §8.6), the Odisha SDMP 2019 (§3.2.2, §3.2.3, §3.2.4, §6.3.10), and operational lessons from Cyclone Phailin 2013, organized across three phases and by department.
+
+🔔 PHASE 0 — WARNING ARCHITECTURE (Pre-RED Alert Context)
+Understanding RED alert requires knowing the full IMD warning ladder:
+
+Stage	Timing Before Landfall	Trigger
+Pre-Cyclone Watch	72+ hours	Cyclonic disturbance detected
+Cyclone Alert	48 hours	Adverse weather expected on coast
+Cyclone Warning	24 hours	Full warning issued at 3-hour intervals
+Post Landfall Scenario / RED	12 hours	Final warning; coastal districts + interior districts activated
+RED Warning = 12 hours or fewer to landfall. Mandatory evacuation of all coastal zones is triggered at this stage. [SDMP §3.2.2]
+
+IMD issues updates every 3 hours during the warning phase, giving wind speed, intensity, expected landfall time, storm surge height, and damage type. These updates drive the Collector's escalating response. [SDMP §3.2.2]
+
+⚙️ PHASE 1 — ACTIVATION & COMMAND (On Warning Receipt)
+Step 1 — DEOC Activation
+The District Emergency Operation Centre (DEOC) is activated to function round-the-clock immediately upon warning receipt. [Puri DDMP §8.3]
+Within 30 minutes of receiving warning, the entire system must be activated and warning disseminated to all concerned. [Puri DDMP §8.6]
+DEOC begins recording warning receipt and transmitting regular status updates to the State Emergency Operation Centre (SEOC). [Puri DDMP §8.3]
+Step 2 — DDMA Coordination Meeting
+Collector/ADM convenes an emergency DDMA meeting of all department heads and stakeholders. [Puri DDMP §8.3, §8.6]
+A nodal officer is identified for every stage of response and for media management. [Puri DDMP §8.3]
+A fixed reporting time is established at all levels — district, block, GP, and village. [Puri DDMP §8.3]
+All government offices are kept open; holidays are cancelled. [Puri DDMP §8.3]
+Minutes of the meeting are circulated with clear-cut roles and responsibilities for each department. [Puri DDMP §8.3]
+Step 3 — Early Warning Dissemination to Last Mile
+The flow of warnings proceeds through a structured cascade: [Puri DDMP §7.4 info-flow diagram]
+
+IMD → State SEOC → District DEOC → SDOs / BDOs / Tehsildars
+        → Line Departments (Health, Police, PWD, Agriculture, CESCO, RWSS, etc.)
+        → NGOs/CSO Coordination Cell
+        → Gram Panchayats & Block-level DMCs
+        → Village Disaster Management Committees (VDMCs)
+        → Community
+At the community level, warning is issued via Public Address System (PAS), megaphones, sirens at cyclone shelters. [Phailin DRM Survey 2013]
+EWDS (Early Warning Dissemination System): 122 alert siren towers operational across 1,205 coastal villages in 22 blocks of 6 districts (including Puri) within 5 km of the coastline, connected via Digital Mobile Radio and Satellite-Based terminals at SEOC/DEOC. [SDMP §3.2.4]
+🏃 PHASE 2 — EVACUATION EXECUTION (RED Alert Active)
+Step 4 — Evacuation Order and Planning
+Collector/ADM issues the formal evacuation order on a priority basis for: seriously injured, sick, children, women, elderly, and differently-abled persons first, followed by remaining coastal populations. [Puri DDMP §8.6]
+An evacuation plan is prepared for marooned/devastated areas. [Puri DDMP §8.6]
+Vehicles are arranged and evacuation teams activated for both normal and forceful evacuation where residents refuse to leave. [Puri DDMP §8.6]
+Collector submits requisition for vehicles, boats, and helicopters to state and central authorities as needed. [Puri DDMP §8.3]
+Step 5 — Pre-positioning of Response Forces
+Before movement begins, forces are positioned: [Puri DDMP §8.3]
+
+ODRAF / NDRF units deployed to affected areas
+Police and Home Guards deployed for evacuation enforcement and route security
+Fire Services pre-positioned
+Volunteer services pooled — Civil Defence, Task Force, NCC, NSS, Scout & Guide
+Special teams constituted for vulnerable groups: senior citizens, specially-abled, pregnant/lactating women, infants [Puri DDMP §8.3]
+Step 6 — Shelter Activation by Cyclone Shelter Management Committee (CSMMC)
+The CSMMC is the frontline shelter authority and must: [SDMP §7.4; Puri DDMP CSMMC chapter]
+
+Open the cyclone shelter for use
+Convene an emergency meeting with the Village Disaster Management Team (trained in Search & Rescue and First Aid)
+Contact the Sarpanch and Block Development Officer (BDO) to stock minimum essentials: food, POL (Petrol/Oil/Lubricant) for generators, dry food for 2–3 days
+Test-check all equipment in the shelter (generator, water pump, inflatable tower light, power saw, first-aid box, stretcher, life jackets, siren, flexi-water tank, megaphone)
+Ensure facilities for women, children, and differently-abled persons are operational [SDMP §7.4]
+Priority in shelter assignment: people within 2 km of the seashore and those living in kutcha/temporary houses. [Phailin DRM Survey 2013]
+
+Step 7 — Movement to Shelters (Actual Evacuation)
+Villagers are directed to carry: belongings, important documents, and dry food for at least 2–3 days. [Phailin DRM Survey 2013]
+Task force volunteers assist family members of physically challenged, sick, and elderly persons to move to shelter. [Phailin DRM Survey 2013]
+Fishermen and reluctant residents are subject to forceful evacuation by Police. [Phailin DRM Survey 2013]
+Seven pregnant women and nursing mothers receive special accommodation in MCS (Multi-purpose Cyclone Shelters) — this is a documented practice. [Phailin DRM Survey 2013]
+Relief lines from Puri Headquarters to all 11 blocks are kept clear; the main vulnerability on all routes is falling trees, which must be cleared by pre-positioned teams. [Puri DDMP §7.1]
+🏥 PHASE 3 — IN-SHELTER MANAGEMENT AND SUPPORT (During Event)
+Step 8 — Logistics and Relief in Shelters
+CSO (Civil Supplies Officer) stores required relief materials — Chuda, Gur, Dry Foods — at nearby storage points. [Puri DDMP §8.3]
+CDVO stores, transports, and distributes fodder for animals in affected areas. [Puri DDMP §8.3]
+CSMMC and Village DMC organise free kitchens in shelters with support from the Revenue Department. [Puri DDMP §8.3]
+EE-RWSS and CDMO ensure supply of drinking water, disinfection of water, and maintenance of health/hygiene in shelters. [Puri DDMP §8.3]
+Step 9 — Medical Response at Shelter Level
+Department	Action During RED Alert
+CDMO	Disseminates alert to all medical staff; activates Mobile Health Units for inaccessible pockets; deploys Mass Casualty Management/Triage units; ensures medicine supply to Medical Relief Centres
+Health (Field)	Deploys senior medical officer; arranges medical facilities; provides first aid; helps injured move to hospital
+RWSS	Organises monitoring of water intake structures; makes provision for distributing water on emergency basis
+[Puri DDMP §8.6]
+
+Step 10 — Communication Maintenance (Critical)
+All EOCs must ensure backup power (fuel, inverter, generator), internet, and communications at District, Department, and Block levels. [Puri DDMP §8.4]
+VHF networks and satellite phones serve as backup when telecom fails. [SDMP §3.2.3]
+⚠️ KNOWN GAP — KRUSHNAPRASAD BLOCK: The VHF station for Krushnaprasad block is marked "to be installed" — this block has no VHF station as of the plan. Emergency managers must plan alternative communication routing for this block during RED alert events.
+📋 DEPARTMENT-WISE RESPONSIBILITY MATRIX (RED Alert Phase)
+Department	Key RED Alert Action
+Collector/ADM	Command authority; issues evacuation order; convenes DDMA; activates DEOC; submits vehicle/helicopter requisition; issues FIR & Situation Reports
+CDMO (Health)	Activates mobile medical units; deploys Mass Casualty Management teams; ensures First Aid Centres at shelter level
+Police	Deploys for evacuation enforcement, including forceful evacuation of non-compliant residents; route security
+PWD (R&B)	Inspects roads and bridges; clears blocked relief lines; stations extra transport vehicles at strategic points
+ODRAF / NDRF	Search and rescue pre-positioning; support evacuation in inaccessible areas
+CSO (Civil Supplies)	Pre-stocks dry foods (Chuda, Gur) at storage points near shelters
+CDVO	Arranges livestock evacuation, fodder supply, and animal health measures
+CESCO (Electricity)	Arranges backup generators for hospitals, RWSS, and Collectorate; cuts power lines in gale-affected areas
+RWSS / PHED	Ensures emergency drinking water supply; disinfects water sources in shelters
+Revenue Department	Supports free kitchen operations in cyclone shelters; damage documentation
+PRIs (Gram Panchayats)	At the onset of warning, begin shelter preparations with Block officers; evacuate people and livestock; stock food and water
+CSMMC / Village DMC	Open shelter; test equipment; organise free kitchen; ensure vulnerable group facilities
+NGOs / Youth Clubs / SHGs	Assigned specific roles for relief, recovery, and rehabilitation via Collector's coordination meeting
+[Sources: Puri DDMP §8.3, §8.6; SDMP §6.3.10]
+
+🔗 COORDINATION SEQUENCE — SUMMARY FLOW
+RED Alert Issued (IMD)
+        ↓
+SEOC notified → DEOC activated (within 30 min)
+        ↓
+Collector convenes DDMA meeting → assigns roles/nodal officers
+        ↓
+Warning cascade: DEOC → BDOs/SDOs → GPs → Villages (EWDS/PAS/Siren)
+        ↓
+ODRAF/NDRF/Police pre-positioned | CSO pre-stocks dry food | CDMO activates mobile units
+        ↓
+CSMMC opens shelters | Equipment tested | Free kitchen organised
+        ↓
+Evacuation order issued (priority: vulnerable groups first)
+        ↓
+Task Force / Volunteers assist movement | Police enforce compliance
+        ↓
+Evacuation of people within 2 km coast + kutcha house residents completed
+        ↓
+In-shelter: Health, Water, Food support activated | DEOC monitors & reports to SEOC
+        ↓
+Collector submits First Information Report + Daily Situation Reports
+⚠️ CRITICAL OPERATIONAL NOTES
+Forceful evacuation is explicitly authorised under the SOP for residents who refuse to move. Police have the primary mandate for this. [Puri DDMP §8.6; Phailin DRM Survey]
+Special needs populations (pregnant women, lactating mothers, elderly, physically challenged, children) must be accounted for in a dedicated sub-list and moved with volunteer assistance. [SDMP §6.3.10]
+Sanitation at shelters is a documented stress point — from Phailin experience, overcrowding can overwhelm toilet facilities. Pre-planning shelter capacity against likely evacuee numbers is essential. [Phailin DRM Survey 2013]
+Animal evacuation and livestock care runs in parallel with human evacuation and must not be deprioritised — CDVO is the nodal agency. [Puri DDMP §8.3]
+Krushnaprasad VHF gap must be addressed with alternate communication before any RED alert event involving that block.
+CONFIDENCE: HIGH (topScore=0.6259, avgScore=0.6074, sources=7 chunks across Puri DDMP 2017-18 §8.3/8.4/8.6, SDMP 2019 §3.2.2/3.2.3/3.2.4/6.3.10, Phailin DRM Survey 2013)
+/////////////////////////////////////
+{
+    "ok": true,
+    "answer": "I cannot answer this from documents available on or before 2019-05-02. The information requested relates to post-event data that falls outside the temporal constraint.\n\nCONFIDENCE: LOW (topScore=0, crag_action=DECLINE, as_of=2019-05-02)",
+    "agent": "DisasterResponseAgent",
+    "mode": 1,
+    "agents_used": [
+        "DisasterResponseAgent"
+    ],
+    "confidence": {
+        "level": "LOW",
+        "topScore": 0,
+        "crag_action": "DECLINE",
+        "as_of": 2019
+    },
+    "crag": {
+        "action": "RETRY→DECLINE",
+        "reason": "zero retrieval — no chunks returned",
+        "retried": false
+    },
+    "rewrite": {
+        "was_rewritten": false,
+        "rewritten_query": "How many rescue boats are available across Puri district and which blocks have them — and were they sufficient to handle the scale of the last major cyclone?\n\n[EVALUATION MODE: as_of=-05-02 — only use documents valid on or before this date]\n[CALLER ROLE: operator — operator_only documents are accessible]\n\n[CRAG INSTRUCTION: Use shorter, more general search terms.]",
+        "provider": "none"
+    },
+    "routing": {
+        "reasoning": "fallback plan — LLM classification failed",
+        "query_complexity": "simple"
+    },
+    "audit_id": "b525f509-9f15-44a5-9e1b-03d59a41f9a5",
+    "elapsed_ms": 67609
+}

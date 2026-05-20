@@ -1,0 +1,38 @@
+Query ID  : IA
+Config    : A
+Category  : IMPACT
+Agent     : DisasterResponseAgent
+Elapsed   : 37938ms
+Timestamp : 2026-05-09T09:37:12.030Z
+
+QUERY:
+How many people were evacuated before Cyclone Fani made landfall in Odisha?
+
+GROUND TRUTH:
+1,47,0197 people (approximately 1.47 million) evacuated to temporary shelters before landfall. Coordinated by OSDMA with 45,000 volunteers, 2,000 emergency workers, and 100,000 government officials. [UNICEF SitRep #2, 12 May 2019] CONFIG A NOTE: This data comes from a post-event document (UNICEF SitRep #2 dated 12 May 2019) published 9 days after landfall. Under Config A (as_of=2019-05-02), this document must be blocked. The correct Config A answer is a structured refusal citing the pre-event constraint.
+
+ANSWER:
+---
+
+## ⚠️ Fani-Specific Data Not Found in Available Documents
+
+I cannot provide a verified answer to this question from the available Fani-specific documents.
+
+Here is why:
+
+- Both Fani source documents — **UNICEF_Fani_SitRep** and **Fani_JRNA** — returned **zero results** for this query.
+- All retrieved chunks from the general search were exclusively from **Cyclone Phailin (2013)** documents, which report that approximately **9.84 lakh (~1 million) people were evacuated in the 36 hours preceding Phailin's landfall** on 12 October 2013. However, this is **Phailin data, not Fani data**, and presenting it as Fani data would be factually incorrect.
+
+### What I Can Say:
+- The question pertains to **Cyclone Fani**, which made landfall near **Puri on 3 May 2019**.
+- Fani is widely reported to have involved one of the **largest pre-cyclone evacuations in Indian history** (~1.2 million people), but I **cannot cite this figure** from the indexed documents available in this platform.
+
+### Recommendation:
+For authoritative Fani evacuation figures, please refer to:
+- The **Government of Odisha / OSDMA official Fani response reports**
+- **UNICEF India Situation Reports (post-landfall)**
+- **NDMA or NDRF operational summaries for Cyclone Fani 2019**
+
+---
+
+CONFIDENCE: **LOW** (topScore=0.00 for Fani documents, avgScore=0.00, sources=0 from Fani-specific documents)

@@ -1,0 +1,14 @@
+metric_id,metric_name,value_numeric,value_text,unit,geographic_scope,source_authority,estimate_type
+deaths_reported,Deaths reported,64,64,persons,"3 states (Odisha, AP, WB)","State Emergency Operation Centre, Bhubaneswar",official
+districts_affected,Districts affected across 3 states,24,24,districts,Odisha + AP + WB,Government reports,official
+people_affected,People affected across 3 states,28000000,28 million,persons,3 states,UNICEF,unicef_estimate
+persons_evacuated,Persons evacuated and moved to relief camps,1680000,1.68 million,persons,3 states,Government reports,official
+children_affected,Children estimated to be affected,6800000,6.8 million,children,24 affected districts,UNICEF,unicef_estimate
+primary_schools_damaged,Primary schools damaged,5244,5244,buildings,Odisha,Government reports,official
+secondary_schools_damaged,Secondary schools damaged,547,547,buildings,Odisha,Government reports,official
+health_facilities_damaged,Public Health Facilities damaged,1032,1032,facilities,Odisha,Government reports,official
+fishing_boats_damaged_pct,Fishing boats damaged,0.90,90%,percent,Odisha coastal districts,Government reports,official
+houses_damaged,Houses damaged,508467,"508,467",houses,Odisha,Government reports,official
+road_km_affected,Road length affected,9693,9693 km,km,Odisha,Government reports,official
+buildings_affected,Buildings affected,4610,4610,buildings,Odisha,Government reports,official
+livestock_casualty,Livestock casualty,3730000,3.73 million,animals,Odisha (sidebar) / 3.45M (page 2 text),Government reports,official

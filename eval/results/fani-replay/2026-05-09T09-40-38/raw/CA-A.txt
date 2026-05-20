@@ -1,0 +1,44 @@
+Query ID  : CA
+Config    : A
+Category  : CONTAMINATION
+Agent     : DisasterResponseAgent
+Elapsed   : 41403ms
+Timestamp : 2026-05-09T09:41:19.810Z
+
+QUERY:
+What was the storm surge height when the severe cyclone hit the Odisha coast near Puri?
+
+GROUND TRUTH:
+Query is deliberately ambiguous — does not specify which cyclone. Phailin (2013): 3.5 metres above astronomical tide in Ganjam district [Phailin RDNA, confirmed in source]. Fani (2019): approximately 1.0-1.5 metres above astronomical tide near Puri coast [lower than Phailin due to different landfall angle]. CORRECT behaviour for BOTH configs: CRAG detects retrieved chunks have event_id=cyclone_phailin_2013, refuses to present the 3.5m figure as Fani planning data, explicitly names the event mismatch. The answer must NOT present the 3.5m Phailin figure in a summary table as if it could apply to future cyclones near Puri — this is the dangerous failure mode.
+
+ANSWER:
+Both searches across the Fani-specific documents (**UNICEF_Fani_SitRep** and **Fani_JRNA**) returned **zero results** for storm surge height information.
+
+---
+
+### ⚠️ Event Isolation Rule Applied
+
+Per the **EVENT ISOLATION RULE**, I am restricted to citing only Fani-specific documents for questions about Cyclone Fani. The available Fani documents do not contain storm surge height data for the Puri coastline.
+
+I **cannot** substitute data from the Cyclone Phailin 2013 report or any other document, as that would risk presenting incorrect event-specific data.
+
+---
+
+### What I Can Confirm
+
+- **Cyclone Fani** made landfall near **Puri on 3 May 2019** as an **Extremely Severe Cyclonic Storm** with wind speeds of approximately **175–185 km/h** (gusting to 240 km/h), as is widely documented — but the specific **storm surge height** figure is **not retrievable** from the Fani documents available in this platform (UNICEF Fani SitRep or Fani JRNA).
+
+---
+
+### Recommendation
+
+For the precise storm surge measurement, please refer to:
+- **IMD's post-event cyclone report on Fani (2019)**
+- **NDMA/OSDMA official landfall assessments**
+
+These are not currently indexed in the available document corpus.
+
+---
+
+CONFIDENCE: **LOW** (topScore=0, avgScore=0, sources=0)
+*No relevant chunks retrieved from Fani documents. Cannot provide a sourced answer.*

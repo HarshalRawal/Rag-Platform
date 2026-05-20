@@ -1,0 +1,4 @@
+state,severity,districts_affected,blocks_affected,villages_affected,persons_evacuated,persons_evacuated_text,safe_shelters_used,tourists_moved,landfall_location,max_wind_speed_kmph,key_affected_districts,houses_damaged,source_page
+Odisha,severe,14,159,18168,1470197,"14,70,197 (1.47 million)",9000,24889,Puri,175-180,"Puri, Khordha, Cuttack, Nayagarh, Jagatsinghpur, Bhubaneswar",508467,"1,2,4,5"
+Andhra Pradesh,moderate,3,4 mandals,733,,,120 relief camps,,Srikakulam most affected,140,"Srikakulam, Vizianagaram, Vishakhapatnam",304 (fully damaged in 6 mandals),"1,4"
+West Bengal,minor,7,,,24642,"24,642",471 relief camps,,Transit (post-landfall),70-80,"Kolkata, East & West Medinipur, Jhargram, North & South 24 Parganas, Howrah, Hooghly",1985 kutcha (partial),"1,4"

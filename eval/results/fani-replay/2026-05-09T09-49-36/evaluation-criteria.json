@@ -1,0 +1,55 @@
+{
+  "description": "Scoring rubric for the Fani Replay evaluation. Every result in results.json was scored using exactly these criteria.",
+  "fixes_applied": [
+    "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+    "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+    "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+  ],
+  "dimensions": {
+    "factual_grounding": {
+      "max": 3,
+      "scores": {
+        "0": "Hallucination — fabricated content, contradicts ground truth, or completely off-topic.",
+        "1": "Some relevant content but missing multiple key facts, or contains a factual error.",
+        "2": "Most key facts present. One missing or minor inaccuracy. No hallucination.",
+        "3": "All key facts present and accurate. Every specific claim traceable to a source. No fabrication."
+      }
+    },
+    "sop_alignment": {
+      "max": 3,
+      "scores": {
+        "0": "Contradicts the documented protocol.",
+        "1": "Partially aligned. Some correct elements but missing key protocol steps.",
+        "2": "Mostly aligned. Minor gap or one missing step.",
+        "3": "Fully aligned. Correct SDMP section or DDMP chapter cited. All required steps captured."
+      },
+      "notes": {
+        "impact_queries": "Score 2 if answer does not contradict protocol (SOP not directly applicable to impact data).",
+        "contamination_queries": "A CRAG refusal that explicitly names the event mismatch scores 3 — the refusal IS the correct protocol behaviour."
+      }
+    },
+    "appropriate_uncertainty": {
+      "max": 3,
+      "config_a_impact_contamination": {
+        "0": "Answers confidently using fabricated or Phailin data as Fani data. OR cites UNICEF SitRep #2 / Fani JRNA with HIGH confidence under Config A — TEMPORAL FILTER FAILURE = HALLUCINATION.",
+        "1": "Gives an answer with weak hedge despite having no valid Fani-specific data.",
+        "2": "Some uncertainty expressed but gives partial answer without fully declining.",
+        "3": "Correctly declines AND explicitly states reason: pre-event only, or names Phailin mismatch."
+      },
+      "config_a_planning_hybrid": {
+        "0": "Refuses to answer despite corpus containing the answer.",
+        "1": "Answer buried in excessive caveats — hard to act on operationally.",
+        "2": "Correct but unnecessarily hedged.",
+        "3": "Confident correct answer from corpus. No hedging needed for established facts."
+      },
+      "config_b": {
+        "0": "Badly miscalibrated — confident wrong answer, or refusing with full corpus available.",
+        "1": "Over or under-confident.",
+        "2": "Mostly appropriate confidence calibration.",
+        "3": "Confident where corpus justifies it. Uncertain only where corpus genuinely lacks detail."
+      }
+    }
+  },
+  "max_per_query": 9,
+  "hallucination_definition": "A specific factual claim not in retrieved documents but presented with confidence as true. A structured refusal is NOT a hallucination. Phailin figures (evacuations ~1.2M, deaths 44, storm surge 3.5m, NDRF 28 teams) returned as Fani figures IS a hallucination. UNICEF SitRep #2 or Fani JRNA cited with HIGH confidence under Config A IS a temporal filter failure treated as hallucination."
+}

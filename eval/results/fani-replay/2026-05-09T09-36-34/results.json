@@ -1,0 +1,82 @@
+{
+  "summary": {
+    "run_at": "2026-05-09T09:36:34.092Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": {
+      "avg_total": 6,
+      "avg_factual_grounding": 1,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 3,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 1,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "IMPACT": {
+          "avg_total": 6,
+          "n": 1
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "config_b": null
+  },
+  "results": [
+    {
+      "id": "IA",
+      "category": "IMPACT",
+      "config": "A",
+      "role": "operator",
+      "query": "How many people were evacuated before Cyclone Fani made landfall in Odisha?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "---\n\n## ⚠️ Fani-Specific Data Not Found in Available Documents\n\nI cannot provide a verified answer to this question from the available Fani-specific documents.\n\nHere is why:\n\n- Both Fani source documents — **UNICEF_Fani_SitRep** and **Fani_JRNA** — returned **zero results** for this query.\n- All retrieved chunks from the general search were exclusively from **Cyclone Phailin (2013)** documents, which report that approximately **9.84 lakh (~1 million) people were evacuated in the 36 hours preceding Phailin's landfall** on 12 October 2013. However, this is **Phailin data, not Fani data**, and presenting it as Fani data would be factually incorrect.\n\n### What I Can Say:\n- The question pertains to **Cyclone Fani**, which made landfall near **Puri on 3 May 2019**.\n- Fani is widely reported to have involved one of the **largest pre-cyclone evacuations in Indian history** (~1.2 million people), but I **cannot cite this figure** from the indexed documents available in this platform.\n\n### Recommendation:\nFor authoritative Fani evacuation figures, please refer to:\n- The **Government of Odisha / OSDMA official Fani response reports**\n- **UNICEF India Situation Reports (post-landfall)**\n- **NDMA or NDRF operational summaries for Cyclone Fani 2019**\n\n---\n\nCONFIDENCE: **LOW** (topScore=0.00 for Fani documents, avgScore=0.00, sources=0 from Fani-specific documents)",
+      "ground_truth": "1,47,0197 people (approximately 1.47 million) evacuated to temporary shelters before landfall. Coordinated by OSDMA with 45,000 volunteers, 2,000 emergency workers, and 100,000 government officials. [UNICEF SitRep #2, 12 May 2019] CONFIG A NOTE: This data comes from a post-event document (UNICEF SitRep #2 dated 12 May 2019) published 9 days after landfall. Under Config A (as_of=2019-05-02), this document must be blocked. The correct Config A answer is a structured refusal citing the pre-event constraint.",
+      "key_facts": [
+        "1.47 million",
+        "1470197",
+        "OSDMA",
+        "45,000 volunteers"
+      ],
+      "answerable_without_fani": false,
+      "engineering_property": "Canonical cross-event trap. Phailin evacuated ~1.2 million — returning that figure for this Fani query is a measurable hallucination. Config A must refuse; Config B must return 1.47 million specifically.",
+      "scores": {
+        "factual_grounding": 1,
+        "factual_grounding_reason": "The answer correctly identifies Fani's landfall date and location and acknowledges the general scale of evacuation, but explicitly states it cannot cite the key figures (1.47 million, OSDMA, 45,000 volunteers) from indexed documents, and the ~1.2 million figure mentioned is presented as unverifiable from corpus sources.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "The answer does not contradict any SDMP/DDMP protocol and appropriately redirects to authoritative sources like OSDMA and NDMA, satisfying the impact query protocol requirement.",
+        "appropriate_uncertainty": 3,
+        "appropriate_uncertainty_reason": "Under Config A, the system correctly declines to provide Fani evacuation figures, explicitly states that Fani-specific documents returned zero results, clearly flags that Phailin data cannot be substituted for Fani data, and recommends post-event official sources — this is a well-structured refusal aligned with the pre-event temporal constraint.",
+        "total": 6,
+        "hallucination_detected": false,
+        "hallucination_detail": "The system explicitly refused to present Phailin data as Fani data and did not cite any blocked post-event documents with confidence; the ~1.2 million figure was flagged as uncitable from the corpus.",
+        "crag_fired": true,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 37938,
+      "raw_file": "eval/results/fani-replay/2026-05-09T09-36-34/raw/IA-A.txt",
+      "error": null
+    }
+  ]
+}

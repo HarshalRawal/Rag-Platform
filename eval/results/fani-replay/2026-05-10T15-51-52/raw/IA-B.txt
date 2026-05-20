@@ -1,0 +1,38 @@
+Query ID  : IA
+Config    : B
+Category  : IMPACT
+Agent     : DisasterResponseAgent
+Elapsed   : 21856ms
+Timestamp : 2026-05-10T15:52:14.234Z
+
+QUERY:
+How many people were evacuated before Cyclone Fani made landfall in Odisha?
+
+GROUND TRUTH:
+1,47,0197 people (approximately 1.47 million) evacuated to temporary shelters before landfall. Coordinated by OSDMA with 45,000 volunteers, 2,000 emergency workers, and 100,000 government officials. [UNICEF SitRep #2, 12 May 2019] CONFIG A NOTE: This data comes from a post-event document (UNICEF SitRep #2 dated 12 May 2019) published 9 days after landfall. Under Config A (as_of=2019-05-02), this document must be blocked. The correct Config A answer is a structured refusal citing the pre-event constraint.
+
+ANSWER:
+## Evacuation Before Cyclone Fani Landfall
+
+**Approximately 1.2 to 1.47 million people were evacuated** before Cyclone Fani made landfall on the Odisha coast near Puri at around 8:00–10:00 AM on **3 May 2019**. Different sources provide slightly varying figures:
+
+| Source | Evacuees | Shelters Used |
+|---|---|---|
+| Fani Joint Rapid Needs Assessment (JRNA) | ~1.2 million | 4,000+ shelters, incl. 880 cyclone centres |
+| UNICEF Fani Situation Report #2 | **1,47,0,197 persons (1.47 million)** | 9,000 safe shelters |
+| European Commission ERCC Map (06 May 2019) | ~1.2 million | 4,000 cyclone shelters |
+
+### Key Details of the Evacuation Operation:
+- Evacuees were drawn from **vulnerable and low-lying areas across at least 11 coastal districts**.
+- The operation involved **more than 45,000 volunteers, 2,000 emergency workers, and 1,00,000 officials**, alongside NDRF, ODRAF, Panchayati Raj Institutions, youth clubs, and civil society organisations. [UNICEF_Fani_SitRep_2_2019]
+- **20 ODRAF teams and 525 fire teams** were deployed for the response. [UNICEF_Fani_SitRep_2_2019]
+- **24,889 tourists** were also safely moved from Puri, Ganjam, Cuttack, and Balasore districts. [UNICEF_Fani_SitRep_2_2019]
+- Cyclone warnings were disseminated via **Location-Based Alert System (LBAS) SMS** to 18 million subscribers and through **siren towers** in coastal areas. [UNICEF_Fani_SitRep_2_2019]
+
+### Outcome:
+This massive pre-landfall evacuation is widely credited with keeping casualties remarkably low — **64 deaths reported** (per the State Emergency Operation Centre, Bhubaneswar), despite Fani being a **Category 4 Very Severe Cyclonic Storm** with wind speeds of 175–185 km/h gusting to 210 km/h, affecting over **15 million people** including 4.8 million children. The **UN recognised this as a global good practice** for effective disaster preparedness and early warning. [UNICEF_Fani_SitRep_2_2019; Fani_JRNA]
+
+---
+**Sources:** UNICEF Fani Situation Report #2 (2019); Cyclone Fani Joint Rapid Needs Assessment Report
+
+CONFIDENCE: **HIGH** (topScore=0.7239, avgScore=0.6686, sources=7)

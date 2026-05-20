@@ -1,0 +1,104 @@
+{
+  "summary": {
+    "run_at": "2026-05-10T14:50:40.026Z",
+    "total_queries": 8,
+    "configs_run": [
+      "A",
+      "B"
+    ],
+    "embedding_model": "text-embedding-3-small (OpenAI)",
+    "generation_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "judge_model": "claude-sonnet-4-6 (Claude / Anthropic)",
+    "temporal_cutoff_config_a": "2019-05-02",
+    "fixes_applied_this_run": [
+      "HA ground truth corrected: Brahmagiri=1 boat (lowest), Puri Sadar+Kanas=4 boats (highest). Verified from rescue_boats SQL table.",
+      "PB ground truth expanded: now reflects full SDMP §6.3.3 Table 6.2 time-phased protocol including CDMO Incident Commander, blood bank activation, triage, private hospital requisition.",
+      "Judge prompt hardened: Config A answers citing UNICEF SitRep #2 (12 May 2019) or Fani JRNA with HIGH confidence score 0 on appropriate_uncertainty — temporal filter failure."
+    ],
+    "config_a": null,
+    "config_b": {
+      "avg_total": 7,
+      "avg_factual_grounding": 2,
+      "avg_sop_alignment": 2,
+      "avg_appropriate_uncertainty": 3,
+      "hallucinations": 0,
+      "temporal_filter_breaches": 0,
+      "crag_fires": 0,
+      "by_category": {
+        "PLANNING": {
+          "avg_total": 7,
+          "n": 1
+        },
+        "IMPACT": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "CONTAMINATION": {
+          "avg_total": 0,
+          "n": 0
+        },
+        "HYBRID": {
+          "avg_total": 0,
+          "n": 0
+        }
+      }
+    },
+    "gap_analysis": {
+      "note": "Gap = Config B score minus Config A score.",
+      "overall": 7,
+      "planning_gap": 7,
+      "impact_gap": 0,
+      "contamination_gap": 0,
+      "hybrid_gap": 0,
+      "interpretation": {
+        "planning_gap": "Should be ~0. Any gap = temporal filter incorrectly blocks pre-event documents.",
+        "impact_gap": "Expected large positive — Config A correctly refuses; Config B correctly answers.",
+        "contamination_gap": "Should be ~0 — both configs should detect Phailin contamination and refuse.",
+        "hybrid_gap": "Expected moderate positive — Config A gives partial answer; Config B gives full answer."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "PB",
+      "category": "PLANNING",
+      "config": "B",
+      "role": "operator",
+      "query": "What must the Health Department do in the first 24 hours after a cyclone RED alert is issued in coastal Odisha per the SDMP?",
+      "agentName": "DisasterResponseAgent",
+      "answer": "I now have comprehensive information from SDMP §6.3.3 to provide a detailed, structured answer. Here is the full response:\n\n---\n\n## Health Department Actions in the First 24 Hours After a Cyclone RED Alert — SDMP §6.3.3\n\n> **Contextual note on the warning system:** The SDMP follows the IMD four-stage cyclone warning framework. A **\"Cyclone Warning\"** (functionally equivalent to the RED/most-severe alert) is issued at least **24 hours before** expected landfall, updated every 3 hours with intensity, track, and storm surge data [SDMP §3.2.2]. The Health Department's SOP for this window is structured in four explicit time-bands.\n\n---\n\n### ⏱ Phase 1 — Immediate (0–2 Hours after Warning)\n\nThe moment a cyclone warning is received, the following is triggered simultaneously at the **state and district level** [SDMP §6.3.3, Table 6.2]:\n\n- **State/District Disaster Response Steering Committee meeting** convened immediately.\n- **State/District Technical Task Force meeting** held.\n- **CDMO (Chief District Medical Officer)** convenes a meeting of all Disaster Committee members to discuss modalities for mass casualty management.\n- The CDMO **assumes the role of Incident Commander** and coordinates all operations from the control room located at the ADMO (PH) or ADMO (Med) office.\n- **ADMO (PH)** becomes second-in-command / Operations Chief; **ADMO (Med)** leads mass casualty response, supported by a team including Transportation In-Charge, Store In-Charge, Liaison Officer, Logistics Chief, and Planning & Coordination Chief.\n- **One ambulance with a team** of Medical Officers, Pharmacist, Staff Nurse, and an attendant is **immediately dispatched** to the site of occurrence.\n- A **Control Room is opened** in the ADMO (Med) office with telephone, computer, printer, and email for communication and coordination with Blood Bank, Radiology, and Pathology.\n- **Inter-sectoral coordination established** immediately with Police, Fire Services, Red Cross, corporate and private hospitals, ambulance services, NGOs, Voluntary Organizations, Water, Electricity, Sanitation, Civil Defense, ESI, Railways, and Transport departments.\n\n---\n\n### ⏱ Phase 2 — Intermediate Response (2–6 Hours)\n\n[SDMP §6.3.3, Table 6.2]\n\n- **Full activation of the chain of command** — from state level down to village level.\n- **Health Surveillance Systems control rooms activated** at State, District, and Block levels.\n- **Rapid Resource Mapping** of available health assets conducted.\n- **Sharing of information** with all concerned departments: Revenue & Disaster Management, Housing & Urban Development, PRI, School & Mass Education, Women & Child Development, Food & Supplies, Industries, Mines, Works, Transport, Fire, Police, RWSS, OSDMA, Civil Defence, Red Cross, UNDP, and Surface Transport.\n- **Risk communication messages coordinated**, and networking with other hospitals, related departments, and health-related volunteer organisations initiated.\n- **Population at risk identified**, including vulnerable sub-groups.\n\n---\n\n### ⏱ Phase 3 — Extended Intermediate Response (6–12 Hours)\n\n[SDMP §6.3.3, Table 6.2]\n\n- **Collection and analysis of information** from health surveillance control rooms, casualty systems, laboratory systems, and 108 ambulance service centres at Block/District/State/MCH level.\n- **Activation of full clinical infrastructure:**\n  - Operation Theatres (OT)\n  - Labour Rooms (LR)\n  - ICUs\n  - Special Newborn Care Units (SNCU) and Neonatal Care Units (NCU)\n  - X-Ray units\n  - Blood Banks\n  - Laboratories\n  - At all levels: CHC / Sub-Divisional Hospital / District Headquarters Hospital / MCH / Accredited Private Hospitals\n- **Executive briefings and shift-change information** prepared and updated.\n- **Quick assessment of available resources** completed; proposals for supply of required items to affected areas submitted.\n\n---\n\n### ⏱ Phase 4 — Extended Response (12–24 Hours)\n\n[SDMP §6.3.3, Table 6.2]\n\n- **Address local emergency case management** — early referral, relocation of resources, and assessment of mental and behavioral health support needs.\n- **Assess magnitude of impact** on affected population.\n- **Prepare for state/national/international assistance** — formal proposals for specific need-based interventions prepared.\n- **Planned distribution** of available resources and assistance received.\n- **Roles and responsibilities of each department defined** in preparation for sustained operations.\n- **Preparation for transition** to extended operations or response disengagement.\n\n---\n\n### 🏥 On-Site and Hospital-Level Actions (Concurrent Throughout the 24-Hour Window)\n\n**On-Site:** [SDMP §6.3.3]\n- Cases **triaged** by attending doctor team at the site.\n- Minor injuries given first aid; prioritised cases given preliminary treatment and referred to nearby District Headquarters Hospital / secondary / tertiary care.\n- If casualty load is overwhelming, a **Medical Relief Centre is opened** at a Government PHC/CHC/Private/School/Panchayat office.\n- **Mobile Medical Units with Advanced Life Support** systems and doctor teams dispatched.\n- Ambulances, 108 ambulances, and other transport deployed for triage-based referrals.\n- Nearby CHC/SDH/DHH of the parent or neighbouring district supports triage and transport.\n\n**At Hospitals:** [SDMP §6.3.3]\n- Doctor on duty receives and re-triages all disaster-affected patients.\n- OPD/IPD alerted; additional MOs pulled from other wards.\n- **Separate wards/beds arranged** for casualty surge.\n- **Patient Resuscitation Area** activated in casualty for Priority 1 (seriously injured) patients.\n- **Reception area with registration facility and help desks** opened near the casualty.\n- If mass casualties extend beyond 24 hours, MOs are deployed from other areas within and outside the district.\n\n---\n\n### Summary Table\n\n| Time Band | Key Health Actions |\n|---|---|\n| 0–2 hrs | Steering committee meeting; CDMO becomes Incident Commander; control room opened; ambulance dispatched; inter-sectoral coordination established |\n| 2–6 hrs | Chain of command activated state-to-village; health surveillance rooms operational; resource mapping; inter-departmental communication |\n| 6–12 hrs | Data collection and analysis from all surveillance nodes; full activation of OT, ICU, LR, SNCU, Blood Bank, Lab at all facility levels |\n| 12–24 hrs | Local emergency case management; magnitude assessment; proposals for national/international assistance; resource distribution begins |\n\n---\n\n**Sources:**\n- [SDMP §6.3.3 — Department of Health & Family Welfare, Emergency Response at State & District Level, Table 6.2]\n- [SDMP §3.2.2 — Warning Dissemination Protocols, IMD Four-Stage Cyclone Warning System]\n\n---\n\n**CONFIDENCE: HIGH** (topScore=0.6121, avgScore=0.5901, sources=2 search passes, 8 chunks retrieved, primary SOP chunk §6.3.3 directly and comprehensively addresses the question)",
+      "ground_truth": "SDMP §6.3.3 Table 6.2 specifies a four-window time-phased response: (0–2 hrs) CDMO assumes role of Incident Commander; ambulance dispatched immediately; CHC/SDH/DHH put on standby; control room opened at ADMO office with full contact lists. (2–6 hrs) Chain of command activated from state to village level; health surveillance control rooms activated at state/district/block; Rapid Response Teams stood up; inter-sectoral coordination established with Police, Fire, Red Cross, private hospitals, NGOs, RWSS, OSDMA. (6–12 hrs) OT, ICU, Blood Bank, X-Ray, Laboratory activated at CHC/SDH/DHH/MCH and accredited private hospitals; Mobile Medical Units with advanced life support dispatched; on-site triage operational; Medical Relief Centres opened at PHC/CHC/schools if mass casualties. (12–24 hrs) MOs deployed from other areas if mass casualties continue; separate wards arranged; patient resuscitation area operational; state/national assistance formalised. Puri DDMP §8.6 additionally requires: MCM units for triage, mobile health units for inaccessible pockets, post-disaster disease surveillance activated, adequate mortuary facility, psycho-social counselling. [SDMP §6.3.3 Table 6.2 / Puri DDMP Ch 8.6]",
+      "key_facts": [
+        "CDMO Incident Commander",
+        "ambulance",
+        "CHC",
+        "health surveillance control rooms",
+        "Rapid Response Teams",
+        "private hospitals",
+        "Blood Bank",
+        "Mobile Medical Units",
+        "triage",
+        "disease surveillance",
+        "ADMO"
+      ],
+      "answerable_without_fani": true,
+      "engineering_property": "Qdrant SOP narrative retrieval with department-level filtering. Multi-step time-phased protocol — judge now scores against the full SDMP §6.3.3 content, not a truncated summary.",
+      "scores": {
+        "factual_grounding": 2,
+        "factual_grounding_reason": "Most key facts are present including CDMO as Incident Commander, ambulance dispatch, control room at ADMO office, health surveillance control rooms, Rapid Response Teams, inter-sectoral coordination with private hospitals, Blood Bank, and triage — but the answer is cut off mid-sentence in Phase 3 and thus missing Mobile Medical Units, disease surveillance, and the 12–24 hour phase entirely.",
+        "sop_alignment": 2,
+        "sop_alignment_reason": "The answer correctly cites SDMP §6.3.3 Table 6.2 and aligns with the four time-phase structure, but the response is truncated before completing Phase 3 and omits Phase 4 (12–24 hrs) including MO deployment, separate wards, patient resuscitation areas, and state/national assistance formalization.",
+        "appropriate_uncertainty": 3,
+        "appropriate_uncertainty_reason": "Config B with full corpus accessible; the answer is appropriately confident where corpus justifies it, cites specific sections, and does not hedge unnecessarily — confidence calibration is correct for a planning query.",
+        "total": 7,
+        "hallucination_detected": false,
+        "hallucination_detail": "none",
+        "crag_fired": false,
+        "temporal_filter_breach": false
+      },
+      "elapsed_ms": 55846,
+      "raw_file": "eval/results/fani-replay/2026-05-10T14-50-40/raw/PB-B.txt",
+      "error": null
+    }
+  ]
+}

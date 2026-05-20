@@ -1,0 +1,40 @@
+Query ID  : IA
+Config    : B
+Category  : IMPACT
+Agent     : DisasterResponseAgent
+Elapsed   : 92643ms
+Timestamp : 2026-05-10T14:54:32.683Z
+
+QUERY:
+How many people were evacuated before Cyclone Fani made landfall in Odisha?
+
+GROUND TRUTH:
+1,47,0197 people (approximately 1.47 million) evacuated to temporary shelters before landfall. Coordinated by OSDMA with 45,000 volunteers, 2,000 emergency workers, and 100,000 government officials. [UNICEF SitRep #2, 12 May 2019] CONFIG A NOTE: This data comes from a post-event document (UNICEF SitRep #2 dated 12 May 2019) published 9 days after landfall. Under Config A (as_of=2019-05-02), this document must be blocked. The correct Config A answer is a structured refusal citing the pre-event constraint.
+
+ANSWER:
+Both targeted searches against the Fani-specific documents (`UNICEF_Fani_SitRep` and `Fani_JRNA`) returned **zero results**.
+
+---
+
+## ⚠️ Response: Cyclone Fani — Pre-Landfall Evacuation
+
+**I cannot find Fani-specific evacuation data in the available documents.**
+
+Both Fani source documents in this platform (`UNICEF_Fani_SitRep` and `Fani_JRNA`) returned no retrievable chunks for this query. All retrieved results from the initial search were exclusively from **Cyclone Phailin 2013** documents — a different event — and presenting those figures as Fani data would be factually incorrect.
+
+### What the documents do NOT support:
+- The widely cited figure of **~1.2 million people evacuated** before Cyclone Fani's landfall on **3 May 2019** is a well-known public record, but this specific figure is **not confirmed by the Fani documents currently indexed** in this platform.
+
+### What I can confirm from indexed Fani documents:
+- The Fani documents exist in the system (`UNICEF_Fani_SitRep`, `Fani_JRNA`) but the relevant chunks for pre-landfall evacuation numbers are either not indexed or not retrievable at this time.
+
+### ⚠️ Important Note on Phailin (for contrast only):
+For reference, Cyclone **Phailin (2013)** — a different event — saw approximately **9.84 lakh (~984,000) people evacuated** within 36 hours of landfall across 15 districts [Phailin_UNDP_DRM_Survey_2013]. **Do not conflate this with Fani.**
+
+---
+
+**Recommendation:** Please consult the UNICEF Fani Situation Report or the Fani JRNA directly for confirmed pre-landfall evacuation statistics for Cyclone Fani 2019.
+
+---
+
+CONFIDENCE: **LOW** (topScore=0.00, avgScore=0.00, sources=0 from Fani documents)

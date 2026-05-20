@@ -1,0 +1,97 @@
+Query ID  : HB
+Config    : B
+Category  : HYBRID
+Agent     : ReliefFinanceAgent
+Elapsed   : 92143ms
+Timestamp : 2026-05-10T15:27:27.559Z
+
+QUERY:
+What SDRF compensation applies to a fishing household that lost a boat and nets, and was this relief actually disbursed to Fani-affected fishermen?
+
+GROUND TRUTH:
+SDRF norms (pre-event, both configs, from PostgreSQL): Fully damaged boat (Dugout-Canoe/Catamaran): Rs. 9,600; partially damaged boat: Rs. 4,100. Fully damaged net: Rs. 2,600; partially damaged net: Rs. 2,100. Fish seed farm: Rs. 8,200 per hectare. Condition: assistance not provided if beneficiary already availed subsidy under another scheme; damage certification by Competent Authority required. Note: SDMP does not distinguish motorised vs non-motorised — category is boats, Dugout-Canoe, Catamaran. [SDMP Table 9.3 — sdmp_table_9_3_sdrf_norms_of_assistance, PostgreSQL] Fani actual disbursement (post-event, Config B only): Government of Odisha announced a special Fani relief package. Fani JRNA documented ~44,806 fisher households affected, 4,781 boats fully lost, 30,956 nets fully lost. JRNA Actions Needed section explicitly listed 'immediate disbursement of compensations' as outstanding — indicating delay at time of assessment. SDRF norms (Rs. 9,600/boat) far below actual replacement cost (Rs. 1,50,000 for marine boat). CONFIG A NOTE: The relief_package table and Fani JRNA are post-event documents. Config A must answer the SDRF norms part confidently and explicitly flag the disbursement question as unavailable under the temporal constraint.
+
+ANSWER:
+I now have a comprehensive picture from all sources. Here is the complete, sourced answer:
+
+---
+
+# 🎣 SDRF Compensation for a Fishing Household: Boat & Net Loss
+
+## PART 1 — SDRF Norms Applicable to Fishermen
+
+The SDRF norms (Odisha SDMP 2019, §9.2) under **Category 7: Fishery** specify the following assistance for repair/replacement of boats and nets:
+
+| Item | Damage Type | SDRF Rate |
+|---|---|---|
+| **Boat** (Dugout-Canoe / Catamaran) | Partially damaged | **Rs. 4,100** |
+| **Boat** (Dugout-Canoe / Catamaran) | Fully damaged | **Rs. 9,600** |
+| **Net** | Partially damaged | **Rs. 2,100** |
+| **Net** | Fully damaged | **Rs. 2,600** |
+| **Fish seed farm input subsidy** | Per hectare | **Rs. 8,200** |
+
+> [Source: Odisha SDMP 2019, §9.2 — SDRF Fishery Norms, retrieved from Qdrant]
+
+**⚠️ Important Conditions:**
+- These amounts are **SDRF-funded** (state-level, automatic) and disbursed through the **respective District Collectors**.
+- Assistance will **NOT** be provided if the beneficiary has **already availed of any subsidy or assistance** for the same calamity under any other Government scheme.
+- Damage must be certified by a competent authority designated by the State Government.
+
+### Additional Relief a Fishing Household May Claim (from SDRF Table 9.3):
+
+| Item | Rate |
+|---|---|
+| Clothing (if house washed away/fully damaged) | **Rs. 1,800** per family |
+| Utensils/household goods (if house damaged) | **Rs. 2,000** per family |
+| Livelihood assistance (not in relief camp) | **Rs. 60/adult/day + Rs. 45/child/day** (default 30 days) |
+
+> [Table: `sdmp_table_9_3_sdrf_norms_of_assistance`, SDMP §9.3]
+
+---
+
+## PART 2 — Was This Relief Actually Disbursed to Fani-Affected Fishermen?
+
+### 📋 What the Fani Relief Package Data Shows
+
+The `relief_package` table (Fani-specific) **does not contain a dedicated fishermen boat/nets line item**. The relief disbursed to Fani-affected households was:
+
+| Category | Districts | Rice | Cash |
+|---|---|---|---|
+| Extremely severely affected HH | Puri, parts of Khurdha | 50 kg | **Rs. 2,000** + polythene sheet |
+| Severely affected HH | Khurdha | 1-month quota | **Rs. 1,000** + polythene sheet |
+| Moderately affected HH | Cuttack, Kendrapada, Jagatsinghpur | 1-month quota | **Rs. 500** |
+
+> [Table: `relief_package`, Fani Relief Package, page 5]
+
+This means fishing households would have received the **general household cash + rice relief**, but the **boat/net-specific SDRF compensation** would have been handled separately via the Collectors under the SDMP §9.4 channel.
+
+### 📄 What the Documents Reveal (Qdrant Evidence)
+
+**Confirmed disbursement mechanism (SDMP §9.4):**
+> *"Assistance to fishermen / fish seed farmers / sericulture farmers … are administered through the respective Collectors. Funds towards pure relief are released under orders of Special Relief Commissioner / Chief Secretary."*
+> [Source: Odisha SDMP 2019, §9.4; also Puri DDMP 2017-18]
+
+**⚠️ Fani-Specific Fisheries Evidence Gap:**
+The documents available in the platform **do not contain a Fani 2019-specific after-action report or disbursement record** for fishermen boat/net compensation. The detailed fisheries damage and disbursement data retrieved (8,423 boats, 33,398 nets, INR 3,783 million) comes from **Cyclone Phailin (2013)**, not Fani 2019. Fani undoubtedly devastated the Puri coastal fishing community — the `relief_package` table confirms Puri as "extremely severely affected" — but a Fani-specific fisheries compensation disbursement record is **not available in the current document corpus**.
+
+---
+
+## PART 3 — Side-by-Side Summary
+
+| Relief Type | SDRF Norm (SDMP §9.2) | Fani Package (relief_package table) |
+|---|---|---|
+| **Boat (fully lost)** | Rs. 9,600 | Not separately listed — via Collector |
+| **Net (fully lost)** | Rs. 2,600 | Not separately listed — via Collector |
+| **General household cash** | Rs. 60/adult/day (livelihood) | Rs. 2,000 (Puri/Khurdha) |
+| **Funding source** | SDRF (state automatic) | State + Central (Fani-specific) |
+| **Channel** | District Collector | District Collector |
+
+---
+
+## Key Takeaway
+
+A fishing household that lost a boat and nets in Cyclone Fani would be **eligible under SDRF norms** for up to **Rs. 9,600 (boat) + Rs. 2,600 (net) = Rs. 12,200** for full losses, plus **Rs. 2,000 general household cash + 50 kg rice** (Fani package for Puri/Khurdha). However, the Fani-specific **actual disbursement records for fisheries** are not available in the current document corpus for verification.
+
+---
+
+CONFIDENCE: **MEDIUM** (source=database+qdrant, rows_returned=19 DB rows + 8 Qdrant chunks; SDRF fishery norms confirmed from SDMP §9.2 via Qdrant; Fani-specific fisheries disbursement record not found in corpus — Phailin 2013 data retrieved instead)
