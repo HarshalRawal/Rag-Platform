@@ -1,0 +1,58 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# prisma
+/prisma/*.db
+/prisma/*.db-journal
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# coverage
+/coverage
+
+# misc
+.DS_Store
+*.pem
+
+# vercel
+.vercel
+
+# turbo
+.turbo
+
+# vscode
+.vscode/
+
+# idea
+.idea/
+
+# cache
+.cache/
+
+# docker
+docker-compose.override.yml
+
+# generated files
+dist/
